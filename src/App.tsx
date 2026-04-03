@@ -62,7 +62,7 @@ const googleReviews = [
   {
     name: 'Jonny Smiley',
     rating: 5,
-    text: 'I have just had my tyre fixed. This gentleman kept me informed on what time he was coming & replaced my blowout tyre after hitting a pothole. Very friendly, professional and best of all £100 cheaper than all the other mobile tyres.',
+    text: 'I have just had my tyre fixed. This gentleman kept me informed on what time he was coming & replaced my blowout tyre after hitting a pothole. Very friendly, professional and quality work throughout.',
     date: 'a month ago'
   },
   {
@@ -74,25 +74,25 @@ const googleReviews = [
   {
     name: 'Madhuri Dutta',
     rating: 5,
-    text: 'Naeem was excellent. Our car had a puncture in the morning and he managed to fix it the same afternoon even though it was a Sunday. He did an excellent job at a reasonable cost. I absolutely recommend NN Mobile Tyres.',
+    text: 'Naeem was excellent. Our car had a puncture in the morning and he managed to fix it the same afternoon even though it was a Sunday. He did an excellent job. I absolutely recommend NN Mobile Tyres.',
     date: 'a month ago'
   },
   {
     name: 'Deb Evans',
     rating: 5,
-    text: 'Brilliant service! Naeem came out quickly, was very professional and the price was very reasonable. Would highly recommend to anyone needing mobile tyre fitting.',
+    text: 'Brilliant service! Naeem came out quickly and was very professional. Would highly recommend to anyone needing mobile tyre fitting.',
     date: '2 months ago'
   },
   {
     name: 'Chris Hartley',
     rating: 5,
-    text: 'Fantastic service from start to finish. Called in the evening and Naeem came out first thing next morning. Great communication, fair price and quality work. Will definitely use again.',
+    text: 'Fantastic service from start to finish. Called in the evening and Naeem came out first thing next morning. Great communication and quality work. Will definitely use again.',
     date: '3 months ago'
   },
   {
     name: 'L SJ',
     rating: 5,
-    text: 'Naeem was friendly and arrived promptly. He was very efficient and the price was very competitive. Saved me the hassle of going to a garage. Highly recommended!',
+    text: 'Naeem was friendly and arrived promptly. He was very efficient and saved me the hassle of going to a garage. Highly recommended!',
     date: 'a month ago'
   }
 ];
@@ -236,12 +236,12 @@ function App() {
           {[...Array(2)].map((_, setIdx) => (
             <div key={setIdx} className="flex gap-6 shrink-0">
               {[
-                { name: 'Jonny S.', text: '£100 cheaper than others!' },
+                { name: 'Jonny S.', text: 'Very friendly and professional!' },
                 { name: 'H A Hussainy', text: 'Absolutely a 5-star experience!' },
-                { name: 'Madhuri D.', text: 'Excellent job at a reasonable cost' },
+                { name: 'Madhuri D.', text: 'Excellent job, highly recommend' },
                 { name: 'Deb Evans', text: 'Brilliant service, very professional' },
-                { name: 'Chris H.', text: 'Great communication, fair price' },
-                { name: 'L SJ', text: 'Very efficient, competitive pricing' },
+                { name: 'Chris H.', text: 'Great communication, quality work' },
+                { name: 'L SJ', text: 'Very efficient, saved me the hassle' },
                 { name: 'Sarah M.', text: 'Arrived within 30 minutes!' },
                 { name: 'James T.', text: 'Saved me on the motorway' },
                 { name: 'Emma L.', text: 'Incredible 24/7 service' },
@@ -579,13 +579,13 @@ function App() {
                 icon: Wrench,
                 title: 'Tyre Fitting',
                 desc: 'Our dedicated team is committed to providing top-notch tyre services at your doorstep.',
-                blog: 'Whether you need a single tyre replaced or a full set, NN Mobile Tyres delivers professional mobile tyre fitting across Oxford and Oxfordshire. We carry a wide range of tyres from budget to premium brands including Michelin, Continental, Pirelli, and Bridgestone. Our fully-equipped van arrives at your home, workplace, or roadside location with everything needed for a fast, safe fitting. Every tyre is balanced on-site using professional equipment to ensure a smooth ride. We handle cars, vans, SUVs, and 4x4s — no job is too big or too small. With same-day availability and 24/7 emergency callouts, you never have to wait or waste time at a garage.'
+                blog: 'Whether you need a single tyre replaced or a full set, NN Mobile Tyres delivers professional mobile tyre fitting across Oxford and Oxfordshire. We carry a wide range of premium tyres from trusted brands including Michelin, Continental, Pirelli, and Bridgestone. Our fully-equipped van arrives at your home, workplace, or roadside location with everything needed for a fast, safe fitting. Every tyre is balanced on-site using professional equipment to ensure a smooth ride. We handle cars, vans, SUVs, and 4x4s — no job is too big or too small. With same-day availability and 24/7 emergency callouts, you never have to wait or waste time at a garage.'
               },
               {
                 icon: CircleDot,
                 title: 'Puncture Repair',
                 desc: 'Our dedicated team is committed to providing top-notch tyre services at your doorstep.',
-                blog: 'A puncture doesn\'t have to ruin your day. NN Mobile Tyres offers fast, reliable puncture repair wherever you are in Oxfordshire. Our technicians assess the damage on arrival — if the puncture is in the legal repair zone and meets British Standard BS AU 159, we\'ll fix it on the spot for a fraction of the cost of a new tyre. If the damage is too severe, we carry replacement tyres on board to get you back on the road immediately. We repair punctures caused by nails, screws, glass, and potholes. Don\'t risk driving on a slow puncture — call us and we\'ll come to you within 30-45 minutes, day or night.'
+                blog: 'A puncture doesn\'t have to ruin your day. NN Mobile Tyres offers fast, reliable puncture repair wherever you are in Oxfordshire. Our technicians assess the damage on arrival — if the puncture is in the legal repair zone and meets British Standard BS AU 159, we\'ll fix it on the spot to get you safely back on the road. If the damage is too severe, we carry replacement tyres on board to get you back on the road immediately. We repair punctures caused by nails, screws, glass, and potholes. Don\'t risk driving on a slow puncture — call us and we\'ll come to you within 30-45 minutes, day or night.'
               },
               {
                 icon: Key,

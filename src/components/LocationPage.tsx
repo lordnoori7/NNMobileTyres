@@ -81,8 +81,8 @@ function LocationPage() {
       answer: `As well as ${location.name}, we cover ${location.nearbyAreas.join(', ')}, and many more areas across Oxfordshire. Our service radius extends up to 25 miles from our Oxford base. If you're unsure, just give us a call.`,
     },
     {
-      question: `How much does mobile tyre fitting in ${location.name} cost?`,
-      answer: `Prices vary depending on tyre size and brand. We carry budget, mid-range, and premium tyres from brands like Michelin, Continental, and Pirelli. Contact us via WhatsApp or phone for an instant quote — our customers say we are typically £60-100 cheaper than other mobile fitters. There are no hidden callout charges for the ${location.name} area.`,
+      question: `How do I get a quote for mobile tyre fitting in ${location.name}?`,
+      answer: `Simply call us on 07362 638978 or send a WhatsApp with your tyre size and location. We'll get back to you with a quote straight away. We fit premium tyres from trusted brands like Michelin, Continental, and Pirelli — no hidden callout charges for the ${location.name} area.`,
     },
   ];
 
@@ -160,12 +160,12 @@ function LocationPage() {
     {
       icon: Wrench,
       title: 'Mobile Tyre Fitting',
-      desc: `Professional tyre fitting at your door in ${location.name}. We carry budget to premium brands including Michelin, Continental, and Pirelli.`,
+      desc: `Professional tyre fitting at your door in ${location.name}. We fit premium brands including Michelin, Continental, and Pirelli.`,
     },
     {
       icon: CircleDot,
       title: 'Puncture Repair',
-      desc: `Fast on-site puncture assessment and repair in ${location.name}. If the damage meets British Standard BS AU 159, we fix it for a fraction of a new tyre cost.`,
+      desc: `Fast on-site puncture assessment and repair in ${location.name}. If the damage meets British Standard BS AU 159, we repair it on the spot to get you back on the road.`,
     },
     {
       icon: Key,
