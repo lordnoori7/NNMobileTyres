@@ -1,12 +1,13 @@
 import { useEffect, useRef, useState } from 'react';
-import { 
-  Phone, 
-  MessageCircle, 
-  Clock, 
-  MapPin, 
-  Wrench, 
-  CircleDot, 
-  Key, 
+import { Link } from 'react-router-dom';
+import {
+  Phone,
+  MessageCircle,
+  Clock,
+  MapPin,
+  Wrench,
+  CircleDot,
+  Key,
   Battery,
   ChevronRight,
   Star,
@@ -690,33 +691,46 @@ function App() {
                 </div>
               </div>
               
-              <a 
-                href="tel:+447362638978"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-[#E84420]/30 text-[#E84420] hover:bg-[#E84420]/10 transition-colors"
-              >
-                <Phone className="w-4 h-4" />
-                Check Your Area
-              </a>
+              <div className="flex flex-wrap gap-3">
+                <a
+                  href="tel:+447362638978"
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-[#E84420]/30 text-[#E84420] hover:bg-[#E84420]/10 transition-colors"
+                >
+                  <Phone className="w-4 h-4" />
+                  Check Your Area
+                </a>
+                <Link
+                  to="/areas"
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-[#1B3F8B]/30 text-[#1B3F8B] hover:bg-[#1B3F8B]/10 transition-colors"
+                >
+                  <MapPin className="w-4 h-4" />
+                  View All Areas
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+              </div>
             </div>
-            
+
             <div className="section-reveal">
               <div className="glass-card rounded-3xl p-6 md:p-8">
                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
                   {coverageAreas.map((area, index) => (
-                    <div 
+                    <Link
                       key={area}
-                      className="flex items-center gap-2 p-3 rounded-xl bg-white/5 hover:bg-white/10 transition-colors"
+                      to={`/areas/${area.toLowerCase().replace(/ /g, '-')}`}
+                      className="flex items-center gap-2 p-3 rounded-xl bg-white/5 hover:bg-white/10 transition-colors group"
                       style={{ animationDelay: `${index * 0.05}s` }}
                     >
                       <CheckCircle2 className={`w-4 h-4 flex-shrink-0 ${index % 2 === 0 ? 'text-[#E84420]' : 'text-[#1B3F8B]'}`} />
-                      <span className="text-sm">{area}</span>
-                    </div>
+                      <span className="text-sm group-hover:text-white">{area}</span>
+                      <ChevronRight className="w-3 h-3 text-gray-600 ml-auto opacity-0 group-hover:opacity-100 transition-opacity" />
+                    </Link>
                   ))}
                 </div>
                 <div className="mt-6 pt-6 border-t border-white/10 text-center">
-                  <p className="text-sm text-gray-400">
-                    And surrounding areas within 25 miles of Oxford
-                  </p>
+                  <Link to="/areas" className="text-sm text-[#E84420] hover:underline font-medium inline-flex items-center gap-1">
+                    View all 150+ areas we cover
+                    <ArrowRight className="w-4 h-4" />
+                  </Link>
                 </div>
               </div>
             </div>
