@@ -117,8 +117,17 @@ function App() {
     urgency: 'standard'
   });
   const [expandedService, setExpandedService] = useState<number | null>(null);
+  const [currentAreaIndex, setCurrentAreaIndex] = useState(0);
   const heroRef = useRef<HTMLDivElement>(null);
   const formRef = useRef<HTMLDivElement>(null);
+
+  // Cycle through coverage areas
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentAreaIndex((prev) => (prev + 1) % coverageAreas.length);
+    }, 2000);
+    return () => clearInterval(interval);
+  }, []);
 
   // GSAP animations
   useEffect(() => {
@@ -356,12 +365,19 @@ function App() {
               
               <h1 className="hero-title text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
                 Flat Tyre in{' '}
-                <span className="text-gradient-red">Oxford</span>?{' '}
+                <span
+                  key={currentAreaIndex}
+                  className="inline-block area-cycle-text"
+                  style={{ color: currentAreaIndex % 2 === 0 ? '#3B82F6' : '#F97316' }}
+                >
+                  {coverageAreas[currentAreaIndex]}
+                </span>
+                ?{' '}
                 We&apos;ll Be There in 30 Minutes
               </h1>
               
               <p className="hero-subtitle text-lg md:text-xl text-gray-400 max-w-xl">
-                24/7 mobile tyre fitting across Oxford &amp; Oxfordshire. Call or WhatsApp — Naeem will be with you in{' '}
+                24/7 mobile tyre fitting across Oxford &amp; Oxfordshire. Call or WhatsApp — we&apos;ll be with you in{' '}
                 <span className="text-white font-semibold">30-45 minutes</span>,
                 wherever you are.
               </p>
