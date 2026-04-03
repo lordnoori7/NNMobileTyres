@@ -26,37 +26,6 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
 // Services data
-const services = [
-  {
-    id: 1,
-    title: 'Mobile Tyre Fitting',
-    description: 'Professional tyre fitting at your location. We bring all equipment to you.',
-    icon: Wrench,
-    image: '/tyre-fitting.jpg'
-  },
-  {
-    id: 2,
-    title: 'Puncture Repair',
-    description: 'Quick and reliable puncture repairs to get you back on the road.',
-    icon: CircleDot,
-    image: '/puncture-repair.jpg'
-  },
-  {
-    id: 3,
-    title: 'Locking Wheel Nut Removal',
-    description: 'Specialized removal of lost or damaged locking wheel nuts.',
-    icon: Key,
-    image: '/locking-nut.jpg'
-  },
-  {
-    id: 4,
-    title: 'Jump Start',
-    description: 'Battery jump start service for when your car won\'t start.',
-    icon: Battery,
-    image: '/jump-start.jpg'
-  }
-];
-
 // Steps data
 const steps = [
   {
