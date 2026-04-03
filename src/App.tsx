@@ -12,7 +12,6 @@ import {
   Star,
   Shield,
   Zap,
-  Award,
   CheckCircle2,
   ArrowRight,
   Menu,
@@ -356,15 +355,15 @@ function App() {
               </div>
               
               <h1 className="hero-title text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
-                Emergency{' '}
-                <span className="text-gradient-red">Mobile</span>{' '}
-                Tyre Fitting
+                Flat Tyre in{' '}
+                <span className="text-gradient-red">Oxford</span>?{' '}
+                We&apos;ll Be There in 30 Minutes
               </h1>
               
               <p className="hero-subtitle text-lg md:text-xl text-gray-400 max-w-xl">
-                24/7 service at your location. We come to you within{' '}
-                <span className="text-white font-semibold">30-45 minutes</span>.
-                Professional tyre solutions at your doorstep.
+                24/7 mobile tyre fitting across Oxford &amp; Oxfordshire. Call or WhatsApp — Naeem will be with you in{' '}
+                <span className="text-white font-semibold">30-45 minutes</span>,
+                wherever you are.
               </p>
               
               {/* Trust indicators */}
@@ -375,11 +374,11 @@ function App() {
                 </div>
                 <div className="flex items-center gap-2">
                   <Shield className="w-5 h-5 text-[#1B3F8B]" />
-                  <span className="text-sm text-gray-300">All Tyre Brands</span>
+                  <span className="text-sm text-gray-300">Michelin, Pirelli, Continental</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <Award className="w-5 h-5 text-[#E84420]" />
-                  <span className="text-sm text-gray-300">Expert Fitters</span>
+                  <Star className="w-5 h-5 fill-yellow-400 text-yellow-400" />
+                  <span className="text-sm text-gray-300">4.9★ — 133 Reviews</span>
                 </div>
               </div>
               
@@ -407,7 +406,7 @@ function App() {
               <div className="relative animate-float">
                 <img 
                   src="/hero-car.png" 
-                  alt="Mobile Tyre Service" 
+                  alt="NN Mobile Tyres van — 24/7 mobile tyre fitting service in Oxford, Oxfordshire" 
                   className="w-full max-w-2xl mx-auto drop-shadow-2xl"
                 />
                 {/* Glow effect behind car */}
@@ -554,7 +553,7 @@ function App() {
         <div className="w-full px-4 sm:px-6 lg:px-8 xl:px-12">
           <div className="text-center mb-16 section-reveal">
             <span className="text-[#E84420] text-sm font-semibold tracking-wider uppercase">Our Services</span>
-            <h2 className="text-3xl md:text-5xl font-bold mt-4">What Services We&apos;re Offering</h2>
+            <h2 className="text-3xl md:text-5xl font-bold mt-4">Services We Offer</h2>
           </div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 items-start">
