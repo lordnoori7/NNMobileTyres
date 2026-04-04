@@ -61,6 +61,9 @@ function AreasIndex() {
               <Link to="/areas" className="text-sm text-white font-medium">
                 Areas
               </Link>
+              <Link to="/blog" className="text-sm text-gray-300 hover:text-white transition-colors">
+                Blog
+              </Link>
               <a
                 href="tel:+447362638978"
                 className="flex items-center gap-2 px-4 py-2 rounded-full btn-primary text-white text-sm font-semibold"

@@ -296,6 +296,9 @@ function App() {
               <button onClick={() => scrollToSection('coverage')} className="text-sm text-gray-300 hover:text-white transition-colors">
                 Coverage
               </button>
+              <Link to="/blog" className="text-sm text-gray-300 hover:text-white transition-colors">
+                Blog
+              </Link>
               <a
                 href="tel:+447362638978"
                 className="flex items-center gap-2 px-4 py-2 rounded-full btn-primary text-white text-sm font-semibold"
@@ -334,6 +337,9 @@ function App() {
               <button onClick={() => scrollToSection('coverage')} className="block w-full text-left py-2 text-gray-300">
                 Coverage
               </button>
+              <Link to="/blog" className="block w-full text-left py-2 text-gray-300" onClick={() => setMobileMenuOpen(false)}>
+                Blog
+              </Link>
               <a
                 href="tel:+447362638978"
                 className="flex items-center justify-center gap-2 w-full py-3 rounded-full btn-primary text-white font-semibold"

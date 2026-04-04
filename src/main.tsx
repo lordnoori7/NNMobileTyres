@@ -6,6 +6,8 @@ import './index.css'
 import App from './App.tsx'
 import AreasIndex from './components/AreasIndex.tsx'
 import LocationPage from './components/LocationPage.tsx'
+import BlogIndex from './components/BlogIndex.tsx'
+import BlogPost from './components/BlogPost.tsx'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
@@ -16,6 +18,8 @@ createRoot(document.getElementById('root')!).render(
           <Route path="/areas" element={<AreasIndex />} />
           <Route path="/areas/:slug" element={<LocationPage />} />
           <Route path="/areas/:hubSlug/:slug" element={<LocationPage />} />
+          <Route path="/blog" element={<BlogIndex />} />
+          <Route path="/blog/:slug" element={<BlogPost />} />
         </Routes>
       </BrowserRouter>
     </HelmetProvider>
