@@ -3,18 +3,25 @@ import { readFile, writeFile, mkdir } from 'node:fs/promises';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import sirv from 'sirv';
-import puppeteer from 'puppeteer';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const projectRoot = resolve(__dirname, '..');
 const distDir = join(projectRoot, 'dist');
 
+// Detect a CI / Vercel / Lambda build environment. On CI we launch
+// @sparticuz/chromium + puppeteer-core (plain puppeteer's bundled Chromium
+// can't launch in Vercel's Linux build container — missing system libs).
+// Locally we use the full puppeteer package and its bundled Chromium.
+const onCI = !!process.env.VERCEL || !!process.env.CI || !!process.env.AWS_LAMBDA_FUNCTION_NAME;
+
 const ORIGIN = 'https://nnmobiletyres.co.uk';
 const PORT = 4178;
-// Render serially: the project lives on an iCloud-synced Desktop path, and
-// concurrent writes to dist/**/index.html can trigger iCloud conflict renames
-// (e.g. "index 2.html"). Serial writes avoid those collisions.
-const CONCURRENCY = 1;
+// Concurrency is environment-aware. Locally we render serially: the project
+// lives on an iCloud-synced Desktop path, and concurrent writes to
+// dist/**/index.html can trigger iCloud conflict renames (e.g. "index 2.html").
+// On CI the filesystem is a clean Linux box (no iCloud), so we render in
+// parallel for speed across the 151 routes.
+const CONCURRENCY = onCI ? 6 : 1;
 const MAX_RETRIES = 3;
 // If failures stay at or below this threshold the build still exits 0 — those
 // pages fall back to the SPA via the Vercel rewrite and don't block the deploy.
@@ -66,11 +73,29 @@ async function main() {
   await new Promise((res) => server.listen(PORT, res));
   console.log(`[prerender] Serving dist on http://localhost:${PORT}`);
 
-  // 4. Launch Puppeteer
-  const browser = await puppeteer.launch({
-    headless: 'new',
-    args: ['--no-sandbox', '--disable-setuid-sandbox'],
-  });
+  // 4. Launch the browser. On CI/Vercel use @sparticuz/chromium +
+  //    puppeteer-core (a Chromium build that runs in Linux build containers);
+  //    locally use the full puppeteer package and its bundled Chromium.
+  //    Dynamic imports keep the unused package out of the module load path.
+  let browser;
+  if (onCI) {
+    console.log('[prerender] browser mode: CI (@sparticuz/chromium)');
+    const { default: chromium } = await import('@sparticuz/chromium');
+    const { default: puppeteer } = await import('puppeteer-core');
+    browser = await puppeteer.launch({
+      executablePath: await chromium.executablePath(),
+      args: [...chromium.args, '--no-sandbox', '--disable-setuid-sandbox'],
+      headless: true,
+      defaultViewport: chromium.defaultViewport || { width: 1280, height: 800 },
+    });
+  } else {
+    console.log('[prerender] browser mode: local (puppeteer)');
+    const { default: puppeteer } = await import('puppeteer');
+    browser = await puppeteer.launch({
+      headless: 'new',
+      args: ['--no-sandbox', '--disable-setuid-sandbox'],
+    });
+  }
 
   const failures = [];
   let written = 0;
@@ -139,7 +164,9 @@ async function main() {
     }
   }
 
-  // 5. Render in small batches (CONCURRENCY = 1 to avoid iCloud write conflicts)
+  // 5. Render in batches of CONCURRENCY (1 locally to avoid iCloud write
+  //    conflicts, 6 on CI for speed). Each batch resolves all routes — including
+  //    their per-route retry logic — before the next batch starts.
   for (let i = 0; i < routes.length; i += CONCURRENCY) {
     const batch = routes.slice(i, i + CONCURRENCY);
     await Promise.all(batch.map(renderRoute));
