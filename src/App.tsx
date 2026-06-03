@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import {
   Phone,
   MessageCircle,
@@ -230,6 +231,25 @@ function App() {
 
   return (
     <div className="min-h-screen bg-black text-white overflow-x-hidden">
+      <Helmet>
+        <title>Mobile Tyre Fitting Oxford | 24/7 Emergency Service | NN Mobile Tyres</title>
+        <meta name="description" content="Flat tyre in Oxford? NN Mobile Tyres provides 24/7 emergency mobile tyre fitting across Oxfordshire. On-site in 30-45 minutes. Puncture repair, locking wheel nut removal, jump starts. 4.9 stars, 133 Google reviews. Call 07362 638978." />
+        <link rel="canonical" href="https://nnmobiletyres.co.uk/" />
+
+        <meta property="og:type" content="website" />
+        <meta property="og:locale" content="en_GB" />
+        <meta property="og:title" content="Mobile Tyre Fitting Oxford — On-Site in 30 Minutes | NN Mobile Tyres" />
+        <meta property="og:description" content="24/7 emergency mobile tyre fitting in Oxford and Oxfordshire. We come to you. Puncture repair, tyre fitting, locking wheel nut removal. 4.9★ on Google. Call or WhatsApp now." />
+        <meta property="og:image" content="https://nnmobiletyres.co.uk/hero-car.png" />
+        <meta property="og:url" content="https://nnmobiletyres.co.uk/" />
+        <meta property="og:site_name" content="NN Mobile Tyres" />
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Mobile Tyre Fitting Oxford | 24/7 Emergency | NN Mobile Tyres" />
+        <meta name="twitter:description" content="Flat tyre? We come to you in 30-45 minutes across Oxford & Oxfordshire. 4.9★ from 133 Google reviews." />
+        <meta name="twitter:image" content="https://nnmobiletyres.co.uk/hero-car.png" />
+      </Helmet>
+
       {/* 5-Star Review Ticker - Top Banner */}
       <div className="fixed top-0 left-0 right-0 z-[60] bg-black/90 border-b border-white/5 overflow-hidden py-2">
         <div className="review-ticker">

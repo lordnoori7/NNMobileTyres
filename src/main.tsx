@@ -1,5 +1,5 @@
 import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
+import { hydrateRoot, createRoot } from 'react-dom/client'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { HelmetProvider } from 'react-helmet-async'
 import './index.css'
@@ -9,7 +9,7 @@ import LocationPage from './components/LocationPage.tsx'
 import BlogIndex from './components/BlogIndex.tsx'
 import BlogPost from './components/BlogPost.tsx'
 
-createRoot(document.getElementById('root')!).render(
+const app = (
   <StrictMode>
     <HelmetProvider>
       <BrowserRouter>
@@ -23,5 +23,12 @@ createRoot(document.getElementById('root')!).render(
         </Routes>
       </BrowserRouter>
     </HelmetProvider>
-  </StrictMode>,
+  </StrictMode>
 )
+
+const container = document.getElementById('root')!
+if (container.hasChildNodes()) {
+  hydrateRoot(container, app)
+} else {
+  createRoot(container).render(app)
+}
