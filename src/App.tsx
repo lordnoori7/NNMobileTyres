@@ -391,7 +391,7 @@ function App() {
               </div>
               
               <h1 className="hero-title text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
-                Flat Tyre in{' '}
+                Mobile Tyre Fitting in{' '}
                 <span
                   key={currentAreaIndex}
                   className="inline-block area-cycle-text"
@@ -399,8 +399,7 @@ function App() {
                 >
                   {coverageAreas[currentAreaIndex]}
                 </span>
-                ?{' '}
-                We&apos;ll Be There in 30 Minutes
+                {' '}&mdash; On-Site in 30 Minutes
               </h1>
               
               <p className="hero-subtitle text-lg md:text-xl text-gray-400 max-w-xl">

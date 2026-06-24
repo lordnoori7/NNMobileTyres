@@ -70,8 +70,9 @@ function LocationPage() {
   }
   breadcrumbs.push({ name: location.name, url: canonicalUrl });
 
-  // FAQs
+  // FAQs — unique area-specific FAQs first, then the standard templated ones
   const faqs = [
+    ...(location.localFaqs ?? []),
     {
       question: `How quickly can you get to ${location.name}?`,
       answer: `We typically arrive in ${location.name} within ${location.responseTime}. Our mobile tyre fitting van is fully equipped and we operate 24/7, 365 days a year, including bank holidays and weekends. Call us on 07362 638978 for an exact ETA.`,
@@ -280,7 +281,14 @@ function LocationPage() {
               <span className="text-[#E84420]">{location.name}</span>
             </h1>
 
-            <p className="text-lg md:text-xl text-gray-400 max-w-2xl mb-8">{location.description}</p>
+            <p className="text-lg md:text-xl text-gray-400 max-w-2xl mb-6">{location.description}</p>
+
+            {location.localContext && (
+              <div className="flex items-start gap-3 max-w-2xl mb-8 p-4 rounded-2xl bg-[#E84420]/5 border border-[#E84420]/20">
+                <MapPin className="w-5 h-5 text-[#E84420] flex-shrink-0 mt-0.5" />
+                <p className="text-sm md:text-base text-gray-300">{location.localContext}</p>
+              </div>
+            )}
 
             {/* Trust badges */}
             <div className="flex flex-wrap gap-4 md:gap-6 mb-8">
@@ -324,6 +332,49 @@ function LocationPage() {
           </div>
         </div>
       </section>
+
+      {/* Local Area Content (hubs only) */}
+      {(location.longDescription || location.coverageHighlights) && (
+        <section className="relative py-16 md:py-24 bg-gradient-to-b from-black via-[#0a0a0a] to-black">
+          <div className="w-full px-4 sm:px-6 lg:px-8 xl:px-12">
+            <div className="max-w-4xl">
+              <span className="text-[#E84420] text-sm font-semibold tracking-wider uppercase">Local Knowledge</span>
+              <h2 className="text-3xl md:text-4xl font-bold mt-4 mb-8">
+                Mobile Tyre Fitting Across {location.name}
+              </h2>
+
+              {location.longDescription && (
+                <div className="space-y-5">
+                  {location.longDescription.map((para, index) => (
+                    <p key={index} className="text-gray-400 text-base md:text-lg leading-relaxed">
+                      {para}
+                    </p>
+                  ))}
+                </div>
+              )}
+
+              {location.coverageHighlights && location.coverageHighlights.length > 0 && (
+                <div className="mt-12">
+                  <h3 className="text-xl md:text-2xl font-bold mb-6">
+                    Areas &amp; Roads We Cover in {location.name}
+                  </h3>
+                  <div className="flex flex-wrap gap-3">
+                    {location.coverageHighlights.map((item, index) => (
+                      <div
+                        key={index}
+                        className="flex items-center gap-2 px-4 py-2 rounded-full glass-card border border-white/10"
+                      >
+                        <CheckCircle2 className="w-4 h-4 text-[#1B3F8B] flex-shrink-0" />
+                        <span className="text-sm text-gray-300">{item}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Services Section */}
       <section className="relative py-16 md:py-24">

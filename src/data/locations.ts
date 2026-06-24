@@ -9,6 +9,10 @@ export interface LocationArea {
   responseTime: string;
   lat: number;
   lng: number;
+  longDescription?: string[];
+  localFaqs?: { question: string; answer: string }[];
+  coverageHighlights?: string[];
+  localContext?: string;
 }
 
 export const locations: LocationArea[] = [
@@ -23,7 +27,35 @@ export const locations: LocationArea[] = [
     postcode: 'OX1',
     responseTime: '15-25 minutes',
     lat: 51.7520,
-    lng: -1.2577
+    lng: -1.2577,
+    longDescription: [
+      'Oxford is our home city, which is why no other area gets a faster response from us. We know the place inside out — from the controlled-parking residential streets of East Oxford and Jericho, where kerbed alloys and slow punctures are a daily occurrence, to the constant stop-start traffic of the ring road that flings up debris and catches drivers out at speed.',
+      'Because the city centre is largely pedestrianised and hemmed in by narrow college lanes and the low Botley Road railway bridge, getting a stricken car to a garage can be a real headache. That is exactly the problem we solve: our fully-stocked van comes to wherever you are parked, whether that is a residents’ bay off the Cowley Road, a workplace car park out at the Oxford Business Park, or one of the city’s Park & Ride sites. We fit premium tyres from Michelin, Continental, Pirelli and Bridgestone, repair punctures to British Standard BS AU 159 where they are safe to fix, free off seized locking wheel nuts and jump-start flat batteries — all without you needing to move the car.',
+      'We cover the whole of Oxford and its suburbs around the clock, 365 days a year. With a typical arrival time of 15-25 minutes across the city, a flat tyre in Oxford rarely means more than a short wait.'
+    ],
+    coverageHighlights: [
+      'Westgate Centre and the city centre',
+      'Cowley Road and East Oxford',
+      'Botley Road and the railway station',
+      'Headington and the John Radcliffe',
+      'Summertown and the Banbury Road',
+      'Jericho and Walton Street',
+      'the A34/A40 ring road',
+      'the A4142 Eastern Bypass',
+      'Oxford Business Park, Cowley',
+      'the Pear Tree, Thornhill, Seacourt and Redbridge Park & Ride sites'
+    ],
+    localContext: 'The A34 ring road and the Eastern Bypass throw up a steady stream of debris punctures at speed, while the tight controlled-parking streets of Jericho and East Oxford make kerbed alloys one of our most common city callouts.',
+    localFaqs: [
+      {
+        question: 'Can you fit tyres in Oxford city centre and its controlled parking zones?',
+        answer: 'Yes. We regularly work at residents’ parking bays, college and workplace car parks, and on-street spaces across central Oxford, Jericho and East Oxford. Because the centre is pedestrianised, just send us the exact postcode or what3words and we’ll come to wherever the car is legally parked.'
+      },
+      {
+        question: 'Do you cover Oxford’s Park & Ride car parks?',
+        answer: 'We do — including Pear Tree, Thornhill, Seacourt and Redbridge. If you’ve returned to your car to find a flat at a Park & Ride, call us on 07362 638978 and we’ll fit a replacement on site so you can carry on with your day.'
+      }
+    ]
   },
   {
     name: 'Abingdon',
@@ -35,7 +67,33 @@ export const locations: LocationArea[] = [
     postcode: 'OX14',
     responseTime: '20-30 minutes',
     lat: 51.6710,
-    lng: -1.2794
+    lng: -1.2794,
+    longDescription: [
+      'Abingdon-on-Thames claims to be one of England’s oldest continuously inhabited towns, and its mix of narrow medieval streets around the Market Place and County Hall and fast modern roads keeps us busy. The town threads onto the A34 at the Marcham interchange just to the west, so plenty of our Abingdon callouts are commuters who have picked up motorway debris and limped into town on a deflating tyre.',
+      'We cover the whole of Abingdon, from the older terraces off Ock Street to the large Peachcroft and Caldecott estates, as well as the trading estates and the busy A415 bypass that loops the town. Tight parking around the historic centre means a fair share of kerbed alloys, while the surrounding rural lanes toward Drayton, Radley and Sutton Courtenay are a common source of punctures from hedge-cutting and potholes. Whatever the cause, our van arrives stocked with branded tyres and the kit to repair punctures to BS AU 159, remove stubborn locking wheel nuts and jump-start a flat battery on the spot.',
+      'Just south of Oxford and an easy run down the A34, Abingdon gets a typical 20-30 minute response from us, day or night, all year round.'
+    ],
+    coverageHighlights: [
+      'Market Place and County Hall',
+      'Ock Street and the town centre',
+      'the A415 Abingdon bypass',
+      'the A34 Marcham interchange',
+      'Peachcroft estate',
+      'Caldecott and the Drayton Road area',
+      'Abingdon Business Park and trading estates',
+      'the lanes out to Radley and Sutton Courtenay'
+    ],
+    localContext: 'The A34 Marcham interchange feeds a lot of high-speed debris damage into Abingdon, while the lanes toward Drayton and Radley regularly leave drivers with potholed or hedge-trimming punctures.',
+    localFaqs: [
+      {
+        question: 'Do you cover the villages around Abingdon as well as the town?',
+        answer: 'Yes. As well as Abingdon itself we regularly fit tyres in Drayton, Sutton Courtenay, Radley, Marcham and Kennington. If you’re on one of the lanes between these villages and pick up a puncture, we’ll come to you rather than you risking driving on it.'
+      },
+      {
+        question: 'I’ve had a blowout on the A34 near Abingdon — can you help?',
+        answer: 'We do attend A34 incidents near the Marcham and Milton interchanges, provided you can stop somewhere safe. For live-lane motorway-style breakdowns always get everyone behind a barrier first, then call us with your location and direction of travel.'
+      }
+    ]
   },
   {
     name: 'Banbury',
@@ -47,7 +105,34 @@ export const locations: LocationArea[] = [
     postcode: 'OX16',
     responseTime: '35-50 minutes',
     lat: 52.0629,
-    lng: -1.3408
+    lng: -1.3408,
+    longDescription: [
+      'Banbury sits right on Junction 11 of the M40, which makes it one of the busiest crossroads in the north of the county and a frequent source of high-speed tyre damage. Lorries, commuters and shoppers all converge here, and a blowout on the motorway slip roads or the A422 ring road can bring things to a standstill. We attend the whole of Banbury, from the famous Banbury Cross and the Castle Quay shopping centre out to the residential edges of Bretch Hill, Easington and Grimsbury.',
+      'The town’s industrial estates off the Southam Road keep plenty of vans and fleet vehicles on the move, and we handle a steady stream of work tyres alongside everyday family cars. Our van carries premium brands including Michelin, Continental, Pirelli and Bridgestone, and we repair eligible punctures to British Standard BS AU 159, free off seized locking wheel nuts and provide jump starts — all wherever you’re parked, whether that’s a driveway in Bodicote or a layby on the A361.',
+      'Banbury is toward the northern limit of our patch, so we quote a realistic 35-50 minute response, but our direct M40 and A4260 routes from Oxford keep that as tight as the distance allows.'
+    ],
+    coverageHighlights: [
+      'Banbury Cross and the town centre',
+      'Castle Quay shopping centre',
+      'M40 Junction 11',
+      'the A422 ring road',
+      'Southam Road industrial estates',
+      'Grimsbury and Easington',
+      'Bretch Hill',
+      'the A361 toward Bloxham',
+      'Banbury railway station'
+    ],
+    localContext: 'M40 Junction 11 and the A422 ring road generate a lot of high-speed blowouts and sidewall damage, while heavy fleet and HGV traffic around the Southam Road estates means commercial tyre wear is a constant in Banbury.',
+    localFaqs: [
+      {
+        question: 'Can you fit van and fleet tyres in Banbury’s industrial estates?',
+        answer: 'Yes. We regularly attend the Southam Road estates for vans and light commercials, and carry common commercial sizes. Call with your tyre size and we’ll confirm stock before we set off.'
+      },
+      {
+        question: 'How long will you really take to reach Banbury?',
+        answer: 'Banbury is near the northern edge of our coverage, so we’re honest about a 35-50 minute arrival depending on traffic on the M40 and A4260. If it’s a planned fitting rather than an emergency we can also book a set time that suits you.'
+      }
+    ]
   },
   {
     name: 'Bicester',
@@ -59,7 +144,34 @@ export const locations: LocationArea[] = [
     postcode: 'OX26',
     responseTime: '25-40 minutes',
     lat: 51.9003,
-    lng: -1.1536
+    lng: -1.1536,
+    longDescription: [
+      'Bicester is one of the fastest-growing towns in Oxfordshire, and the sheer volume of traffic drawn in by Bicester Village outlet shopping means tyre trouble on the surrounding roads is a near-daily event for us. Weekend queues on the A41 and around the Pingle Drive approach to the village leave plenty of drivers nursing kerb damage or slow punctures, and we’re often called to the retail and station car parks to fit a replacement before someone heads home.',
+      'Beyond the shopping crowds, Bicester is a town of large new developments — Kingsmere and Graven Hill among them — with smooth estate roads but plenty of construction traffic, alongside the older centre around Sheep Street and Market Square. We cover all of it, plus the Bicester Avenue garden and retail park and the junctions onto the M40 at J9 and J10. Our van carries branded tyres and the equipment to repair punctures to BS AU 159, remove locking wheel nuts and jump-start flat batteries, so most problems are solved without the car leaving the car park.',
+      'With good road links out from Oxford, we typically reach Bicester in 25-40 minutes, any time of day or night.'
+    ],
+    coverageHighlights: [
+      'Bicester Village outlet shopping',
+      'Bicester Avenue retail park',
+      'the A41 and Pingle Drive',
+      'Kingsmere development',
+      'Graven Hill',
+      'Sheep Street and Market Square',
+      'Bicester North and Bicester Village stations',
+      'M40 Junctions 9 and 10',
+      'London Road and Launton Road'
+    ],
+    localContext: 'Weekend congestion around Bicester Village and the A41 leaves a lot of drivers with kerbed alloys and slow punctures, while construction traffic on the Kingsmere and Graven Hill estates adds its own crop of nails and screws to the roads.',
+    localFaqs: [
+      {
+        question: 'Can you fit a tyre at Bicester Village or the retail park car parks?',
+        answer: 'Yes — we’re regularly called to the Bicester Village, Pingle Drive and Bicester Avenue car parks to fit a tyre while customers finish shopping. Just give us the car park, the bay area and your tyre size.'
+      },
+      {
+        question: 'Do you cover the new Kingsmere and Graven Hill estates?',
+        answer: 'We do. These newer developments are well within our Bicester coverage, and we’ll come to your driveway or kerbside — handy when a construction-site nail has left you with a flat overnight.'
+      }
+    ]
   },
   {
     name: 'Witney',
@@ -71,7 +183,33 @@ export const locations: LocationArea[] = [
     postcode: 'OX28',
     responseTime: '25-40 minutes',
     lat: 51.7865,
-    lng: -1.4865
+    lng: -1.4865,
+    longDescription: [
+      'Witney straddles the A40 to the west of Oxford, and that road is the single biggest reason we’re in the town so often. The stretch between the Witney junctions and the Eynsham bottleneck carries heavy commuter traffic, and the Ducklington Lane roundabout in particular sees its share of rushed lane changes and kerb strikes. We’re regularly called to fit a fresh tyre for someone who has limped off the A40 into one of the town’s car parks.',
+      'The town itself blends the historic Market Square and the old blanket-weaving streets around Newland with modern shopping at Marriotts Walk and the Woolgate Centre, plus the large residential expanse of the Leys and Cogges. Out toward the industrial units off the Burford Road we handle plenty of van and fleet work too. Whatever you drive, our van comes to you stocked with Michelin, Continental, Pirelli and Bridgestone, ready to repair eligible punctures to BS AU 159, remove locking wheel nuts and jump-start flat batteries on site.',
+      'Witney sits a comfortable run down the A40 from Oxford, so we usually arrive within 25-40 minutes, 24 hours a day.'
+    ],
+    coverageHighlights: [
+      'Market Square and Newland',
+      'Marriotts Walk and the Woolgate Centre',
+      'the A40 Witney junctions',
+      'Ducklington Lane roundabout',
+      'the Leys and Cogges',
+      'Burford Road industrial estate',
+      'Witney Lake and Country Park',
+      'Welch Way and the town-centre car parks'
+    ],
+    localContext: 'The A40 and the busy Ducklington Lane roundabout are behind many of our Witney callouts — fast commuter traffic and tight lane changes mean kerbed alloys and sidewall damage are common here.',
+    localFaqs: [
+      {
+        question: 'I’ve come off the A40 with a flat near Witney — where can you meet me?',
+        answer: 'We can fit a replacement in any of Witney’s town-centre car parks, such as Woolgate or Marriotts Walk, or on your driveway. If you’re still on the A40 itself, find a safe place to pull well clear of the carriageway first, then call us with your location.'
+      },
+      {
+        question: 'Do you cover Carterton and the villages west of Witney?',
+        answer: 'Yes. Carterton, Minster Lovell, Ducklington and Eynsham all fall within our Witney coverage. Rural lanes around here are a frequent puncture source, so we’d rather come to you than have you drive on a damaged tyre.'
+      }
+    ]
   },
   {
     name: 'Didcot',
@@ -83,7 +221,33 @@ export const locations: LocationArea[] = [
     postcode: 'OX11',
     responseTime: '25-40 minutes',
     lat: 51.6069,
-    lng: -1.2415
+    lng: -1.2415,
+    longDescription: [
+      'Didcot has grown rapidly around its railway and the science and business parks nearby, and with the A34 running right past on its western side, tyre emergencies here are common. The Milton interchange in particular is a frequent spot for high-speed debris damage as traffic peels off the dual carriageway toward the town. We attend the whole of Didcot, from the Orchard Centre and Broadway in the middle of town to the sprawling Great Western Park and Ladygrove estates.',
+      'Didcot Parkway is a major commuter hub, and we’re often called to its car parks to fit a tyre for someone who has returned from London to find a flat. Out at Milton Park, one of the area’s biggest employment sites, we handle a steady flow of company-car and van work. Our fully-equipped van carries premium branded tyres and the tools to repair eligible punctures to BS AU 159, free off seized locking wheel nuts and jump-start a dead battery — wherever the car happens to be.',
+      'An easy run from Oxford down the A34, Didcot gets a typical 25-40 minute response from us at any hour.'
+    ],
+    coverageHighlights: [
+      'Orchard Centre and Broadway',
+      'Didcot Parkway station car parks',
+      'the A34 Milton interchange',
+      'Milton Park business park',
+      'Great Western Park',
+      'Ladygrove estate',
+      'the perimeter and station roads',
+      'the road toward Harwell and Chilton'
+    ],
+    localContext: 'The A34 Milton interchange feeds plenty of high-speed punctures and blowouts into Didcot, while commuters returning to Didcot Parkway frequently discover a flat tyre after a day away in London.',
+    localFaqs: [
+      {
+        question: 'Can you fit a tyre at Didcot Parkway station?',
+        answer: 'Yes — the Parkway car parks are one of our regular Didcot callouts. If you’ve come back from a trip to find a flat, send us the car park and bay area along with your tyre size and we’ll fit a replacement so you can drive home.'
+      },
+      {
+        question: 'Do you cover Milton Park and the surrounding business parks?',
+        answer: 'We do. Milton Park, Harwell Campus and the Didcot trading estates are all within our coverage, and we’re happy to attend workplace car parks for both company cars and fleet vans.'
+      }
+    ]
   },
   {
     name: 'Wantage',
@@ -95,7 +259,32 @@ export const locations: LocationArea[] = [
     postcode: 'OX12',
     responseTime: '30-45 minutes',
     lat: 51.5880,
-    lng: -1.4254
+    lng: -1.4254,
+    longDescription: [
+      'Wantage sits in the Vale of White Horse beneath the ancient Ridgeway, and although it’s a handsome market town centred on the King Alfred statue in the Market Place, the roads around it can be hard on tyres. The lanes climbing toward White Horse Hill and the Ridgeway are narrow, flinty and pothole-prone, while the A417 and A338 carry fast commuter traffic toward Didcot, Oxford and the M4. A surprising number of our Wantage callouts are sharp-stone or pothole punctures picked up on these rural routes.',
+      'We cover the whole town and its near-neighbour Grove, including the large Grove industrial and trading estates and the growing housing on the northern edge. Parking is tight around the cobbled Market Place, so kerbed alloys are a regular job too. Our van arrives stocked with Michelin, Continental, Pirelli and Bridgestone, and we repair eligible punctures to BS AU 159, remove locking wheel nuts without damaging your alloys and jump-start flat batteries on the spot.',
+      'Wantage is a fair distance south-west of our Oxford base, so we quote an honest 30-45 minute response, available 24 hours a day, every day of the year.'
+    ],
+    coverageHighlights: [
+      'Market Place and the King Alfred statue',
+      'Grove and the Grove industrial estate',
+      'the A417 toward Didcot',
+      'the A338 toward Oxford',
+      'Manor Road and Charlton',
+      'the lanes up to the Ridgeway and White Horse Hill',
+      'Letcombe Regis and the southern villages'
+    ],
+    localContext: 'The flinty, pothole-prone lanes climbing toward the Ridgeway and White Horse Hill are a frequent cause of sharp-stone and sidewall punctures around Wantage, while fast A417 and A338 commuter traffic adds its own share of damage.',
+    localFaqs: [
+      {
+        question: 'Do you cover Grove as well as Wantage?',
+        answer: 'Yes — Grove sits right next to Wantage and is fully within our coverage, including the Grove industrial estate and the newer housing on the north side. We treat the two as a single area for response times.'
+      },
+      {
+        question: 'I’ve hit a pothole on a lane near the Ridgeway and have a flat — can you reach me?',
+        answer: 'We can. The rural lanes around Letcombe, Charlton and the downs are a common source of pothole damage. Pull into a safe field gateway or verge, share your location, and we’ll come out to fit or repair on site.'
+      }
+    ]
   },
   {
     name: 'Kidlington',
@@ -107,7 +296,33 @@ export const locations: LocationArea[] = [
     postcode: 'OX5',
     responseTime: '20-30 minutes',
     lat: 51.8225,
-    lng: -1.2900
+    lng: -1.2900,
+    longDescription: [
+      'Kidlington likes to call itself one of the largest villages in England, and sitting just north of Oxford on the A4260 it gets one of our quickest response times outside the city itself. The Sainsbury’s roundabout and the A34 interchange at the southern end are busy pinch points, and the Langford Lane business area around London Oxford Airport keeps plenty of commercial and fleet traffic moving — all of which generates a steady flow of tyre work for us.',
+      'We cover the whole of Kidlington, from the High Street and Mill Street shops to the residential streets off the Banbury Road and the Gosford and Garden City areas, as well as the Oxford Parkway station and Water Eaton Park & Ride on the edge of the village. Whether you’ve kerbed an alloy in a tight car park or picked up a nail on Langford Lane, our van comes to you stocked with branded tyres and ready to repair punctures to BS AU 159, remove locking wheel nuts and jump-start flat batteries.',
+      'Just a short hop up the A4260 or A34 from our base, Kidlington usually sees us within 20-30 minutes, day or night.'
+    ],
+    coverageHighlights: [
+      'High Street and Mill Street',
+      'the Sainsbury’s roundabout',
+      'the A34 Kidlington interchange',
+      'Langford Lane and London Oxford Airport',
+      'Oxford Parkway and Water Eaton Park & Ride',
+      'Gosford and Garden City',
+      'Begbroke Science Park',
+      'the A4260 Banbury Road'
+    ],
+    localContext: 'The A34 interchange and the busy Sainsbury’s roundabout are common spots for debris punctures around Kidlington, while the Langford Lane business area and airport bring a steady stream of fleet and commercial tyre work.',
+    localFaqs: [
+      {
+        question: 'Can you fit a tyre at Oxford Parkway or the Water Eaton Park & Ride?',
+        answer: 'Yes. Both sit on the edge of Kidlington and are regular callouts for us — ideal if you’ve returned from a trip to London to find a flat. Send us the car park and your tyre size and we’ll come to the bay.'
+      },
+      {
+        question: 'Do you cover the Langford Lane and airport business area?',
+        answer: 'We do. The Langford Lane estates and London Oxford Airport fall well within our Kidlington coverage, and we handle both company cars and light commercial vans there.'
+      }
+    ]
   },
   {
     name: 'Thame',
@@ -119,7 +334,33 @@ export const locations: LocationArea[] = [
     postcode: 'OX9',
     responseTime: '25-40 minutes',
     lat: 51.7494,
-    lng: -0.9791
+    lng: -0.9791,
+    longDescription: [
+      'Thame is a classic Oxfordshire market town right on the Buckinghamshire border, with one of the widest historic high streets in the country and a busy weekly market and cattle auction. That broad High Street, with its angled parking, accounts for plenty of the kerbed alloys we’re called out to, while the A418 and A329 either side of town carry fast commuter traffic toward Oxford, Aylesbury and the M40 at Junction 7.',
+      'We cover all of Thame, from the centre and the Southern Road and Thame Park Road estates to the industrial units on the edge of town, and out to neighbouring villages like Haddenham, Long Crendon and Chinnor. The country lanes around here, hemmed in by hedges that are cut hard each year, are a reliable source of thorn and flint punctures. Our van arrives with premium tyres and the kit to repair eligible punctures to BS AU 159, free off seized locking wheel nuts and jump-start a flat battery wherever you’ve stopped.',
+      'Thanks to the direct A418 route from Oxford, Thame usually sees us within 25-40 minutes, around the clock.'
+    ],
+    coverageHighlights: [
+      'the High Street and market square',
+      'the cattle market',
+      'Thame Park Road and Southern Road',
+      'the A418 toward Oxford',
+      'the A329 and M40 Junction 7',
+      'the industrial estate',
+      'Haddenham and Long Crendon',
+      'the Chinnor Road'
+    ],
+    localContext: 'Thame’s wide, angle-parked High Street is a frequent source of kerbed alloys, while the hard-cut hedgerow lanes toward Haddenham, Long Crendon and Chinnor regularly leave drivers with thorn and flint punctures.',
+    localFaqs: [
+      {
+        question: 'Do you cover the villages around Thame?',
+        answer: 'Yes — Chinnor, Long Crendon, Haddenham, Tetsworth and Wheatley are all within our Thame coverage. The lanes between them are a common puncture spot, so we’ll always come to you rather than have you drive on a damaged tyre.'
+      },
+      {
+        question: 'Can you reach the M40 at Junction 7 near Thame?',
+        answer: 'We do attend incidents near Junction 7, provided you can get the car to a safe stopping point off the live carriageway. For a flat picked up on the slip road or in nearby Wheatley, just call with your exact location.'
+      }
+    ]
   },
   {
     name: 'Wallingford',
@@ -131,7 +372,33 @@ export const locations: LocationArea[] = [
     postcode: 'OX10',
     responseTime: '30-45 minutes',
     lat: 51.5990,
-    lng: -1.1245
+    lng: -1.1245,
+    longDescription: [
+      'Wallingford is a historic Thames-side town with a compact medieval centre and one of the most attractive market places in the county, but its single ancient bridge over the river and the narrow streets around it can make a breakdown genuinely awkward. We come to you, so there’s no need to nurse a flat across the bridge or up to a garage — we’ll fit at the kerbside, in the Market Place car parks, or on your driveway.',
+      'The town is reached via the A4130 from Didcot and the A4074 from Oxford, both fast roads that contribute their share of high-speed punctures, and the Wallingford bypass loops traffic around the eastern edge. We also cover the Hithercroft industrial estate, where there’s plenty of van and fleet work, and the surrounding villages of Cholsey, Crowmarsh Gifford and Benson. Our van carries Michelin, Continental, Pirelli and Bridgestone, and we repair eligible punctures to BS AU 159, remove locking wheel nuts and jump-start flat batteries on site.',
+      'Sitting toward the south-eastern edge of our patch, Wallingford gets an honest 30-45 minute response from us, every day of the year.'
+    ],
+    coverageHighlights: [
+      'the Market Place and town centre',
+      'the Wallingford bypass',
+      'the A4130 toward Didcot',
+      'the A4074 toward Oxford',
+      'Hithercroft industrial estate',
+      'the Thames bridge area',
+      'Crowmarsh Gifford and Benson',
+      'Cholsey'
+    ],
+    localContext: 'Wallingford’s narrow medieval streets and single Thames bridge make moving a stricken car difficult, while the fast A4074 and A4130 approaches contribute a regular crop of high-speed punctures.',
+    localFaqs: [
+      {
+        question: 'Can you fit a tyre in Wallingford town centre near the bridge?',
+        answer: 'Yes. The streets around the Market Place and the Thames bridge are tight, which is exactly why a come-to-you service makes sense here. We’ll fit at the kerb or in one of the central car parks rather than you risk driving on a flat.'
+      },
+      {
+        question: 'Do you cover the Hithercroft estate and nearby villages?',
+        answer: 'We do. The Hithercroft industrial estate and villages such as Cholsey, Benson and Crowmarsh Gifford are all within our Wallingford coverage, for cars and light commercials alike.'
+      }
+    ]
   },
   {
     name: 'Faringdon',
@@ -143,7 +410,33 @@ export const locations: LocationArea[] = [
     postcode: 'SN7',
     responseTime: '35-50 minutes',
     lat: 51.6581,
-    lng: -1.5858
+    lng: -1.5858,
+    longDescription: [
+      'Faringdon is a small but historic market town perched on the A420 roughly halfway between Oxford and Swindon, crowned by the quirky Folly Tower on Folly Hill. That A420 location defines a lot of our work here: the road is a fast single carriageway notorious for potholed stretches and accidents, and we’re frequently called to drivers who’ve picked up sidewall or wheel damage on it before reaching the safety of the town.',
+      'Within Faringdon we cover the old Market Place and the streets around it, the Park Road industrial estate, and the residential edges spreading toward Folly Hill, as well as the surrounding villages of Stanford in the Vale, Shrivenham, Watchfield and Kingston Bagpuize. Tight parking around the historic centre brings the usual kerbed alloys, while the country lanes off the A420 add pothole and flint punctures. Our van comes fully stocked with branded tyres and equipped to repair punctures to BS AU 159, remove locking wheel nuts and jump-start flat batteries wherever you are.',
+      'Faringdon is one of the further-flung towns we serve, but the direct A420 run keeps our response to a realistic 35-50 minutes, day or night.'
+    ],
+    coverageHighlights: [
+      'the Market Place and town centre',
+      'Folly Hill and the surrounding streets',
+      'the A420 Oxford-Swindon road',
+      'Park Road industrial estate',
+      'the A417 toward Wantage',
+      'Stanford in the Vale',
+      'Shrivenham and Watchfield',
+      'Kingston Bagpuize'
+    ],
+    localContext: 'The A420 between Oxford and Swindon is known for potholed stretches and a poor accident record, and a large share of our Faringdon callouts are sidewall and wheel damage picked up on that road.',
+    localFaqs: [
+      {
+        question: 'I’ve had tyre damage on the A420 near Faringdon — can you help?',
+        answer: 'Yes, this is one of our most common Faringdon jobs. If you can reach a safe layby or get into Faringdon itself, we’ll come and fit a replacement. The A420 is fast, so always stop somewhere well clear of moving traffic first.'
+      },
+      {
+        question: 'Do you cover the villages between Faringdon and Shrivenham?',
+        answer: 'We do — Stanford in the Vale, Shrivenham, Watchfield, Longworth and Kingston Bagpuize all fall within our Faringdon coverage, including the lanes off the A420 where punctures are common.'
+      }
+    ]
   },
   {
     name: 'Chipping Norton',
@@ -155,7 +448,33 @@ export const locations: LocationArea[] = [
     postcode: 'OX7',
     responseTime: '35-50 minutes',
     lat: 51.9414,
-    lng: -1.5477
+    lng: -1.5477,
+    longDescription: [
+      'Chipping Norton — “Chippy” to everyone local — is the highest town in Oxfordshire, sitting up in the Cotswold hills where the A44 and A361 cross. That elevation and the surrounding network of steep, winding country lanes make it one of the toughest areas in the county for tyres. Hard winters open up potholes on the climbs around town, and the flinty Cotswold roads are unkind to sidewalls; a large share of our Chippy callouts are pothole and sharp-stone punctures rather than slow leaks.',
+      'We cover the whole town, from the handsome Market Place and Town Hall to Over Norton and the residential streets below the landmark Bliss Mill, plus the many villages scattered across the hills — Hook Norton, Enstone, Kingham and Churchill among them. Because a garage can be a long drive across exposed countryside from some of these spots, our come-to-you service is especially valued here. The van carries premium branded tyres and the tools to repair eligible punctures to BS AU 159, remove locking wheel nuts and jump-start flat batteries on site.',
+      'Up in the north-west corner of the county, Chipping Norton is a longer run for us, so we quote a realistic 35-50 minutes via the A44, available 24 hours a day.'
+    ],
+    coverageHighlights: [
+      'the Market Place and Town Hall',
+      'Over Norton',
+      'the area below Bliss Mill',
+      'the A44 toward Oxford and Evesham',
+      'the A361 toward Banbury',
+      'Hook Norton and Enstone',
+      'Kingham and Churchill',
+      'the surrounding Cotswold lanes'
+    ],
+    localContext: 'As the highest town in Oxfordshire, Chipping Norton and its steep, flinty Cotswold lanes are hard on tyres — pothole damage and sharp-stone sidewall punctures make up a large share of our callouts here, especially through winter.',
+    localFaqs: [
+      {
+        question: 'Why are tyre punctures so common around Chipping Norton?',
+        answer: 'The town sits high in the Cotswolds where winters are harsh and the rural lanes are flinty and pothole-prone. That combination causes a lot of sidewall and sharp-stone damage, which is why we carry a good range of stock when heading up to Chippy.'
+      },
+      {
+        question: 'Do you cover the villages around Chipping Norton?',
+        answer: 'Yes — Hook Norton, Enstone, Churchill, Kingham and Middle Barton are all within our coverage. Garages can be a long drive from these hamlets, so a mobile fitter that comes to you makes a real difference out here.'
+      }
+    ]
   },
   {
     name: 'Charlbury',
@@ -167,7 +486,33 @@ export const locations: LocationArea[] = [
     postcode: 'OX7',
     responseTime: '30-45 minutes',
     lat: 51.8726,
-    lng: -1.4834
+    lng: -1.4834,
+    longDescription: [
+      'Charlbury is a small, well-to-do Cotswold town strung along the Evenlode valley, best known for its station on the Cotswold Line that makes it popular with Oxford and London commuters. The narrow, tree-lined lanes around the town and the edge of the ancient Wychwood Forest are beautiful but punishing on tyres — overhanging hedgerows shed thorns and the verges hide flints and potholes, so the bulk of our Charlbury work is punctures picked up on these rural roads.',
+      'We reach the town via the B4437 and the A44, and cover the centre around Sheep Street and the Spendlove area as well as the neighbouring villages of Stonesfield, Finstock, Combe and Leafield. Commuters returning to the station car park to find a flat are a regular callout, and rather than have anyone risk the drive home on a damaged tyre we come straight to wherever the car is parked. The van is stocked with branded tyres and equipped to repair eligible punctures to BS AU 159, remove locking wheel nuts and jump-start flat batteries on site.',
+      'Tucked into the Cotswolds north-west of Oxford, Charlbury gets a typical 30-45 minute response from us, at any time of day or night.'
+    ],
+    coverageHighlights: [
+      'Sheep Street and the town centre',
+      'the Spendlove area',
+      'Charlbury railway station car park',
+      'the B4437 toward the A44',
+      'the Evenlode valley lanes',
+      'the edge of Wychwood Forest',
+      'Stonesfield and Finstock',
+      'Combe and Leafield'
+    ],
+    localContext: 'The tree-lined lanes of the Evenlode valley and the fringes of Wychwood Forest shed thorns, flints and potholes onto the road, and most of our Charlbury callouts are punctures picked up on these rural routes.',
+    localFaqs: [
+      {
+        question: 'Can you fit a tyre at Charlbury station?',
+        answer: 'Yes — commuters returning to the station car park to find a flat are one of our regular Charlbury jobs. Send us the tyre size and we’ll come to the car park so you can drive home rather than risk it on a damaged tyre.'
+      },
+      {
+        question: 'Do you cover the villages around Charlbury?',
+        answer: 'We do. Stonesfield, Finstock, Combe and Leafield all fall within our Charlbury coverage. The wooded lanes linking them are a frequent puncture source, so we’d always rather come out to you than have you drive on it.'
+      }
+    ]
   },
   {
     name: 'Woodstock',
@@ -179,7 +524,33 @@ export const locations: LocationArea[] = [
     postcode: 'OX20',
     responseTime: '20-30 minutes',
     lat: 51.8479,
-    lng: -1.3533
+    lng: -1.3533,
+    longDescription: [
+      'Woodstock is one of Oxfordshire’s most visited towns, thanks to the magnificent Blenheim Palace and its World Heritage parkland on the doorstep. That draws a constant flow of tourist traffic onto the A44 and into the town’s car parks, and the elegant but narrow Georgian streets around the High Street and Park Street mean kerbed alloys and tight-parking scrapes are among our most common Woodstock jobs.',
+      'Sitting just eight miles north of Oxford on the A44, Woodstock is one of the quickest towns for us to reach, and we cover the whole of it — the centre, the Hensington Road area, Old Woodstock across the bridge, and the Blenheim estate roads — as well as nearby Bladon and Wootton. Whether you’ve picked up a flat in a visitor car park or found a slow puncture on the driveway, our van comes to you stocked with Michelin, Continental, Pirelli and Bridgestone and ready to repair eligible punctures to BS AU 159, free off locking wheel nuts and jump-start flat batteries.',
+      'With such a direct run up the A44 from Oxford, Woodstock typically sees us within 20-30 minutes, any time of day or night.'
+    ],
+    coverageHighlights: [
+      'the High Street and Park Street',
+      'Blenheim Palace and its car parks',
+      'Hensington Road',
+      'Old Woodstock',
+      'the A44 toward Oxford and Chipping Norton',
+      'Bladon',
+      'Wootton',
+      'the Blenheim estate roads'
+    ],
+    localContext: 'Tourist traffic around Blenheim Palace and the narrow Georgian streets of Woodstock’s centre make kerbed alloys and tight-parking damage some of our most frequent callouts here.',
+    localFaqs: [
+      {
+        question: 'Can you fit a tyre near Blenheim Palace or in Woodstock’s visitor car parks?',
+        answer: 'Yes — we’re often called to the town’s car parks and the Blenheim visitor areas to fit a tyre for someone who’s discovered a flat after a day out. Just send us the car park and your tyre size.'
+      },
+      {
+        question: 'How quickly can you reach Woodstock?',
+        answer: 'Woodstock is only about eight miles up the A44 from our Oxford base, so it’s one of the faster towns for us — typically 20-30 minutes, day or night.'
+      }
+    ]
   },
   {
     name: 'Burford',
@@ -191,7 +562,33 @@ export const locations: LocationArea[] = [
     postcode: 'OX18',
     responseTime: '35-50 minutes',
     lat: 51.8089,
-    lng: -1.6363
+    lng: -1.6363,
+    longDescription: [
+      'Burford is famous for its dramatically steep High Street sweeping down to the medieval bridge over the River Windrush, and as the “Gateway to the Cotswolds” it pulls in heavy visitor traffic from the A40, especially at weekends and on bank holidays. That long hill and the tight, historic parking along it account for plenty of the kerb and alloy damage we attend, while the winding lanes of the Windrush valley hide potholes that catch drivers out year-round.',
+      'We cover the town from the top of the hill down to the bridge, the Sheep Street area, and out along the A40 and A361, as well as the surrounding hamlets of Fulbrook, Taynton, Swinbrook and Asthall and over toward Carterton. The Cotswold Wildlife Park just south of town adds its own weekend traffic. Because a garage means a real trek from this corner of the county, our come-to-you service is genuinely useful here — the van carries branded tyres and the kit to repair eligible punctures to BS AU 159, remove locking wheel nuts and jump-start flat batteries on the spot.',
+      'Out in the far west of Oxfordshire, Burford is a longer run for us, so we quote an honest 35-50 minutes via the A40, available around the clock.'
+    ],
+    coverageHighlights: [
+      'the High Street and the Windrush bridge',
+      'Sheep Street',
+      'the A40 toward Oxford and Cheltenham',
+      'the A361 toward Lechlade',
+      'the Cotswold Wildlife Park area',
+      'Fulbrook and Taynton',
+      'Swinbrook and Asthall',
+      'the road toward Carterton'
+    ],
+    localContext: 'Burford’s long, steep High Street and the potholed lanes of the Windrush valley are behind much of our work here — kerbed alloys on the hill and sharp-stone punctures on the surrounding Cotswold roads.',
+    localFaqs: [
+      {
+        question: 'Do you cover Burford’s surrounding villages and the Wildlife Park?',
+        answer: 'Yes. Fulbrook, Taynton, Swinbrook, Asthall and the Cotswold Wildlife Park area are all within our Burford coverage, along with the run toward Carterton. These rural lanes are a common puncture spot, so we come to you.'
+      },
+      {
+        question: 'How long will you take to reach Burford?',
+        answer: 'Burford is in the far west of the county, so we’re honest about a 35-50 minute response via the A40. If it’s a planned tyre change rather than an emergency, we can book a set time to suit you.'
+      }
+    ]
   },
 
   // ==================== OXFORD MICRO-AREAS ====================
@@ -1651,7 +2048,33 @@ export const locations: LocationArea[] = [
     postcode: 'OX1',
     responseTime: '20-40 minutes',
     lat: 51.6800,
-    lng: -1.2600
+    lng: -1.2600,
+    longDescription: [
+      'The A34 is one of the busiest dual carriageways in southern England, funnelling traffic and heavy freight from the M40 at Oxford south through Abingdon and Didcot toward Newbury and the M4. At national-speed-limit traffic, a tyre failure on the A34 is no minor inconvenience — a blowout or sudden deflation can be genuinely dangerous, and getting a damaged vehicle off the carriageway and to a garage is rarely straightforward. That’s where a mobile fitter who comes to the roadside makes the difference.',
+      'We attend tyre emergencies along the Oxfordshire stretch of the A34, from the Peartree interchange in the north down through the Botley, Hinksey Hill, Abingdon and Milton junctions toward the Berkshire border. The road is notorious for debris — shed loads, blown lorry tyres and pothole-edged carriageway all take their toll on car tyres at speed. Our van carries premium branded tyres and the equipment to fit a replacement or repair eligible damage to BS AU 159, free off locking wheel nuts and jump-start flat batteries, wherever you’ve managed to stop safely.',
+      'Because the A34 runs straight past our Oxford base, our response along the corridor is quick for a major road — typically 20-40 minutes depending on which junction you’re nearest.'
+    ],
+    coverageHighlights: [
+      'the Peartree interchange',
+      'the Botley and A40 junction',
+      'Hinksey Hill',
+      'the Abingdon junctions',
+      'the Milton interchange',
+      'the Chilton and Rowstock area',
+      'the run toward the Berkshire border',
+      'the laybys and junctions between Oxford and Didcot'
+    ],
+    localContext: 'The A34 is notorious for debris — shed loads and blown HGV tyres — and at national speed limits this causes sudden blowouts and sidewall failures that need an immediate roadside response.',
+    localFaqs: [
+      {
+        question: 'Is it safe for you to fit a tyre on the A34 itself?',
+        answer: 'We can only work where it’s safe to do so. If you’ve managed to reach a junction, layby or off-slip and are well clear of moving traffic, we’ll come to you. If you’re stranded in a live lane on the dual carriageway, get everyone behind a barrier and call National Highways and the emergency services first.'
+      },
+      {
+        question: 'Which part of the A34 do you cover?',
+        answer: 'We attend the Oxfordshire stretch of the A34, from the Peartree interchange in the north down past Abingdon and Didcot toward the Berkshire border. Tell us your nearest junction and direction of travel and we’ll give you an ETA.'
+      }
+    ]
   },
   {
     name: 'A40 Corridor',
@@ -1663,7 +2086,33 @@ export const locations: LocationArea[] = [
     postcode: 'OX29',
     responseTime: '15-35 minutes',
     lat: 51.7900,
-    lng: -1.3700
+    lng: -1.3700,
+    longDescription: [
+      'The A40 is the main artery west of Oxford, linking the city to Eynsham, Witney, Burford and ultimately Cheltenham. It’s a road of two halves — fast open stretches out toward the Cotswolds, and chronic congestion at the Wolvercote roundabout and the Eynsham bottleneck where queues build daily. Stop-start jams and sudden lane changes around these pinch points lead to plenty of kerb strikes and low-speed knocks, while the faster sections produce the occasional high-speed blowout.',
+      'We provide roadside tyre assistance along the whole Oxfordshire length of the A40, from the Wolvercote and Cassington junctions through the Eynsham roundabout and on to the Witney turn-offs and beyond toward Burford. Whether you’ve crept off the carriageway into a side road with a deflating tyre or pulled into a layby after picking up debris, our van comes to you stocked with branded tyres and ready to repair eligible punctures to BS AU 159, remove locking wheel nuts and jump-start flat batteries on the spot.',
+      'With the eastern end of the A40 right on our doorstep, we reach most points on the corridor within 15-35 minutes, day or night.'
+    ],
+    coverageHighlights: [
+      'the Wolvercote roundabout',
+      'the Cassington junction',
+      'the Eynsham roundabout and bottleneck',
+      'the Witney junctions',
+      'the run toward Burford',
+      'the A40 laybys west of Oxford',
+      'the Duke’s Cut and canal-bridge area',
+      'the approach to the Oxford ring road'
+    ],
+    localContext: 'Daily congestion at the Wolvercote roundabout and the Eynsham bottleneck means stop-start traffic and rushed lane changes, which is why kerbed alloys and low-speed knocks dominate our A40 callouts.',
+    localFaqs: [
+      {
+        question: 'Can you reach me if I break down in the A40 queues at Eynsham?',
+        answer: 'Yes. The Eynsham and Wolvercote pinch points are some of our most frequent A40 callouts. If you can edge off the carriageway into a side road, junction or layby, we’ll come to you with a replacement tyre — just don’t sit in a live lane.'
+      },
+      {
+        question: 'How far along the A40 do you cover?',
+        answer: 'We cover the Oxfordshire stretch from the Wolvercote roundabout out through Eynsham and Witney toward Burford. Give us your nearest junction and we’ll tell you how quickly we can get to you.'
+      }
+    ]
   },
   {
     name: 'A44 Corridor',
@@ -1675,7 +2124,33 @@ export const locations: LocationArea[] = [
     postcode: 'OX20',
     responseTime: '20-45 minutes',
     lat: 51.8500,
-    lng: -1.3500
+    lng: -1.3500,
+    longDescription: [
+      'The A44 strikes north-west out of Oxford as the Evesham Road, climbing through Woodstock and Chipping Norton before crossing the Cotswolds toward Evesham. It’s a scenic route past the gates of Blenheim Palace, but it changes character quickly — from the busy Peartree and ring-road end near Oxford to fast rural stretches and steep, pothole-scarred climbs higher into the hills. That variety means we see everything on the A44, from low-speed kerb damage in Woodstock to sharp-stone and pothole punctures up beyond Enstone.',
+      'We cover the full Oxfordshire length of the A44, from the Peartree interchange through Begbroke, Woodstock and Enstone up to Chipping Norton and the county boundary. The higher, more exposed sections can be a long way from the nearest garage, so a mobile fitter that comes to the roadside is especially valuable here. Our van carries premium branded tyres and the tools to fit a replacement or repair eligible damage to BS AU 159, remove locking wheel nuts and jump-start flat batteries wherever you’ve safely stopped.',
+      'Response times along the A44 vary with distance from Oxford, so we quote a realistic 20-45 minutes depending on whether you’re near Woodstock or up toward Chippy.'
+    ],
+    coverageHighlights: [
+      'the Peartree interchange',
+      'the Begbroke and Yarnton stretch',
+      'the Woodstock and Blenheim approach',
+      'the Enstone junction',
+      'the climb toward Chipping Norton',
+      'the run to the county boundary',
+      'the laybys along the Evesham Road',
+      'the A44/A4260 junctions'
+    ],
+    localContext: 'The A44 changes from busy ring-road traffic near Oxford to steep, pothole-scarred Cotswold climbs beyond Enstone, so callouts range from low-speed kerb damage to sharp-stone punctures depending on where you are on the road.',
+    localFaqs: [
+      {
+        question: 'How quickly can you reach me on the A44?',
+        answer: 'It depends where you are. Near Woodstock and the Oxford end we’re usually with you in around 20-30 minutes; up toward Chipping Norton and the county boundary it’s closer to 45. Tell us your nearest landmark or junction for an accurate ETA.'
+      },
+      {
+        question: 'Do you cover the A44 up into the Cotswolds?',
+        answer: 'Yes — we attend the full Oxfordshire stretch through Woodstock and Enstone up to Chipping Norton. The higher sections are far from the nearest garage, which is exactly where our come-to-you service earns its keep.'
+      }
+    ]
   },
   {
     name: 'M40 Corridor',
@@ -1687,7 +2162,33 @@ export const locations: LocationArea[] = [
     postcode: 'OX26',
     responseTime: '25-45 minutes',
     lat: 51.9000,
-    lng: -1.1500
+    lng: -1.1500,
+    longDescription: [
+      'The M40 carries a relentless stream of traffic between London and Birmingham, and the Oxfordshire stretch between Junction 7 at Thame and Junction 11 at Banbury is one of the busiest motorway sections in the region. A tyre blowout on a motorway hard shoulder is one of the most hazardous breakdowns a driver can face, and the priority is always getting everyone to safety behind the barrier before any thought of repairs. Once you’re safe and recovered to a place we can reach, we’ll get a fresh tyre on quickly.',
+      'We attend M40-related tyre emergencies across the Oxfordshire junctions — J7 (Thame), J8/8a (Wheatley and the A40), J9 (Bicester and Ardley), J10 (the A43 toward Brackley) and J11 (Banbury) — meeting you at the nearest safe stopping point, services or off-slip rather than on the live carriageway. The van is stocked with premium branded tyres and equipped to fit replacements, repair eligible damage to BS AU 159, free off locking wheel nuts and jump-start flat batteries. We work in around whatever recovery the motorway requires.',
+      'Given the distances along the motorway, we quote an honest 25-45 minute response depending on which junction you’re nearest, available 24 hours a day.'
+    ],
+    coverageHighlights: [
+      'Junction 7 (Thame)',
+      'Junction 8/8a (Wheatley and A40)',
+      'Junction 9 (Bicester and Ardley)',
+      'Junction 10 (A43 / Brackley)',
+      'Junction 11 (Banbury)',
+      'the Cherwell Valley services area',
+      'the off-slips and safe stopping points along the route',
+      'the A-roads feeding each junction'
+    ],
+    localContext: 'A blowout on the M40 hard shoulder is one of the most dangerous breakdowns there is — getting everyone behind the barrier comes first, which is why we meet you at the nearest safe junction or services rather than on the live carriageway.',
+    localFaqs: [
+      {
+        question: 'I’ve had a blowout on the M40 — can you come to the hard shoulder?',
+        answer: 'For safety and legal reasons we don’t work on the live motorway or hard shoulder. Get everyone behind the barrier, call National Highways on 0300 123 5000 and the emergency services, and once you’re recovered to a junction, services or safe off-slip we’ll fit a replacement tyre there.'
+      },
+      {
+        question: 'Which M40 junctions do you cover?',
+        answer: 'We cover the Oxfordshire stretch from Junction 7 at Thame up to Junction 11 at Banbury, including the Cherwell Valley services. Tell us your nearest junction and direction and we’ll meet you at the closest safe point.'
+      }
+    ]
   },
   {
     name: 'A420 Corridor',
@@ -1699,7 +2200,33 @@ export const locations: LocationArea[] = [
     postcode: 'OX2',
     responseTime: '15-45 minutes',
     lat: 51.7100,
-    lng: -1.4000
+    lng: -1.4000,
+    longDescription: [
+      'The A420 is the direct link between Oxford and Swindon, running south-west through Botley, past Cumnor and Kingston Bagpuize, and on through Faringdon and Shrivenham to the Wiltshire border. It’s a fast single-carriageway road with a poor safety reputation and several notoriously potholed and uneven stretches, and that combination produces a steady stream of sidewall splits, wheel damage and sudden punctures — a large share of our roadside corridor work happens here.',
+      'We provide emergency tyre fitting along the full Oxfordshire length of the A420, from the Botley interchange with the ring road out to the county boundary beyond Shrivenham. Because much of the road runs through open countryside with few facilities, being able to call a fitter to the roadside rather than limping miles to a garage is a real advantage. Our van carries premium branded tyres and the equipment to fit replacements, repair eligible damage to BS AU 159, remove locking wheel nuts and jump-start flat batteries wherever you’ve pulled over safely.',
+      'With the Botley end of the road just minutes from our base, response times range from around 15 minutes near Oxford to 45 minutes toward Swindon, day or night.'
+    ],
+    coverageHighlights: [
+      'the Botley interchange',
+      'the Cumnor and Dean Court stretch',
+      'Kingston Bagpuize',
+      'the Faringdon approach',
+      'Shrivenham and Watchfield',
+      'the run to the Wiltshire border',
+      'the A420 laybys and junctions',
+      'the A338 and A417 turn-offs'
+    ],
+    localContext: 'The A420 is a fast single carriageway with a poor accident record and several badly potholed stretches, so sidewall splits and wheel damage make up a large share of our callouts along this road.',
+    localFaqs: [
+      {
+        question: 'Where can you reach me on the A420?',
+        answer: 'We cover the whole Oxfordshire stretch from the Botley interchange out to the Wiltshire border beyond Shrivenham. If you’ve pulled into a layby, junction or side road clear of the traffic, we’ll come to you — the A420 is fast, so never attempt a change at the roadside yourself in a live lane.'
+      },
+      {
+        question: 'How quickly can you get to the A420?',
+        answer: 'It depends on the stretch — near Botley and Oxford we can be with you in around 15-20 minutes, while toward Faringdon and Shrivenham it’s closer to 35-45. Give us your nearest village or junction for an accurate ETA.'
+      }
+    ]
   },
 ];
 
