@@ -22,11 +22,10 @@ export function SiteHeader() {
         <div className="flex items-center justify-between h-16 md:h-20">
           <Link to="/" className="flex items-center">
             <img
-              src="/logo-360.webp"
+              src="/logo-288.webp"
               alt="NN Mobile Tyres"
-              width={360}
-              height={112}
-              fetchPriority="high"
+              width={288}
+              height={89}
               decoding="async"
               className="h-12 md:h-14 w-auto"
             />
@@ -131,10 +130,10 @@ export function SiteFooter() {
           <div className="md:col-span-2">
             <Link to="/" className="flex items-center gap-2 mb-4">
               <img
-                src="/logo-360.webp"
+                src="/logo-288.webp"
                 alt="NN Mobile Tyres"
-                width={360}
-                height={112}
+                width={288}
+                height={89}
                 loading="lazy"
                 decoding="async"
                 className="h-12 w-auto"

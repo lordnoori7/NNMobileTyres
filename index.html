@@ -37,10 +37,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
-    <!-- LCP preloads. The nav logo is the largest above-the-fold image on
-         mobile; the hero van is hidden below the lg breakpoint, so its preload
-         is media-scoped and phones never download it. -->
-    <link rel="preload" as="image" href="/logo-360.webp" type="image/webp" fetchpriority="high" />
+    <!-- The mobile LCP element is the hero <h1> text, so the nav logo is
+         deliberately NOT preloaded — a high-priority image fetch there only
+         competes with the CSS and font that actually gate the h1 paint.
+         The hero van is hidden below the lg breakpoint, so its preload is
+         media-scoped and phones never download it. -->
     <link rel="preload" as="image" href="/hero-car-1305.webp" type="image/webp" media="(min-width: 1024px)" fetchpriority="high" />
 
     <!-- LocalBusiness Schema -->

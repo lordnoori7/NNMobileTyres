@@ -18,8 +18,9 @@ const targets = [
   // Hero van — desktop only (hidden below lg), served as two responsive widths.
   ['hero-car.png', 'hero-car-672', 672, 80],
   ['hero-car.png', 'hero-car-1305', 1305, 78],
-  // Nav + footer logo — rendered at 48-56px tall, so 360px wide covers 2x DPR.
-  ['logo.png', 'logo-360', 360, 86],
+  // Nav + footer logo — rendered 154x48 CSS px on mobile, so 288px wide still
+  // covers a 1.75x DPR phone screen with room to spare.
+  ['logo.png', 'logo-288', 288, 72],
   // Tyre size guide — rendered inside max-w-md (448px), so 896px covers 2x.
   ['tyre-guide.jpg', 'tyre-guide-896', 896, 78],
   // Service page hero images.
