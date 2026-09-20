@@ -9,6 +9,21 @@
     <meta name="geo.position" content="51.718346;-1.1976922" />
     <meta name="ICBM" content="51.718346, -1.1976922" />
 
+    <!-- Google tag (gtag.js): GA4 G-CJPF2HFRQG + Google Ads AW-16448059556.
+         Config only runs on the production hostname so local dev and the
+         build-time prerender never send hits. Lead events (phone_click /
+         whatsapp_click) are fired from src/lib/analytics.ts. -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CJPF2HFRQG"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){ dataLayer.push(arguments); }
+      if (/(^|\.)nnmobiletyres\.co\.uk$/.test(location.hostname)) {
+        gtag('js', new Date());
+        gtag('config', 'G-CJPF2HFRQG');
+        gtag('config', 'AW-16448059556');
+      }
+    </script>
+
     <!-- Favicon -->
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />

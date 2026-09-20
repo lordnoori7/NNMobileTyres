@@ -107,6 +107,16 @@ async function main() {
   async function attemptRoute(route) {
     const page = await browser.newPage();
     try {
+      // Never let the build send analytics/ads hits: block the Google tag
+      // loader (and any hit endpoints) for every prerendered page.
+      await page.setRequestInterception(true);
+      page.on('request', (req) => {
+        const u = req.url();
+        if (/googletagmanager\.com|google-analytics\.com|analytics\.google\.com|googleadservices\.com|doubleclick\.net|googlesyndication\.com/.test(u)) {
+          return req.abort();
+        }
+        return req.continue();
+      });
       await page.goto(`http://localhost:${PORT}${route}`, {
         waitUntil: 'domcontentloaded',
         timeout: 45000,

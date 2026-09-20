@@ -22,6 +22,7 @@ import {
 import { Input } from '@/components/ui/input';
 import { toast } from 'sonner';
 import gsap from 'gsap';
+import { trackLead } from '@/lib/analytics';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -215,6 +216,9 @@ function App() {
     const message = `Hello NN Mobile Tyres!%0A%0AI need a quote for:%0A• Tyre Size: ${formData.tyreSize}%0A• Location: ${formData.location}%0A• Urgency: ${urgencyText}%0A%0APlease reply with your price. Thank you!`;
     
     const whatsappUrl = `https://wa.me/447362638978?text=${message}`;
+    // window.open bypasses the delegated <a> click tracking, so fire the
+    // WhatsApp lead event explicitly for the quote form.
+    trackLead('whatsapp_click', { link_url: 'https://wa.me/447362638978', link_text: 'quote_form' });
     window.open(whatsappUrl, '_blank');
     
     toast.success('Opening WhatsApp...');

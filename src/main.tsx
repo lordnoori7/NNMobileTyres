@@ -8,6 +8,10 @@ import AreasIndex from './components/AreasIndex.tsx'
 import LocationPage from './components/LocationPage.tsx'
 import BlogIndex from './components/BlogIndex.tsx'
 import BlogPost from './components/BlogPost.tsx'
+import { installLeadTracking } from './lib/analytics'
+
+// Fire GA4 / Google Ads lead events for every tel: and WhatsApp click.
+installLeadTracking()
 
 const app = (
   <StrictMode>
