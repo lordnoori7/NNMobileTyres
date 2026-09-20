@@ -14,4 +14,21 @@ export default defineConfig(({ command }) => ({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  build: {
+    rollupOptions: {
+      output: {
+        // React + the router/helmet shell are needed by every route, so they
+        // go in one long-lived vendor chunk that survives app-code deploys.
+        // GSAP is named explicitly so the lazily-imported animation chunk is
+        // easy to spot in the build output.
+        manualChunks(id: string) {
+          if (!id.includes('node_modules')) return;
+          if (/[\\/]node_modules[\\/]gsap[\\/]/.test(id)) return 'gsap';
+          if (/[\\/]node_modules[\\/](react|react-dom|scheduler|react-router|react-router-dom|react-helmet-async)[\\/]/.test(id)) {
+            return 'react-vendor';
+          }
+        },
+      },
+    },
+  },
 }));

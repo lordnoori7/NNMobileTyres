@@ -21,11 +21,7 @@ import {
 } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import { toast } from 'sonner';
-import gsap from 'gsap';
 import { trackLead } from '@/lib/analytics';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
-gsap.registerPlugin(ScrollTrigger);
 
 // Services data
 // Steps data
@@ -132,75 +128,59 @@ function App() {
     return () => clearInterval(interval);
   }, []);
 
-  // GSAP animations
+  // Scroll-reveal animations. GSAP + ScrollTrigger are ~50 KB gzipped and
+  // nothing above the fold depends on them, so they are pulled in with a
+  // dynamic import after paint instead of sitting in the critical bundle.
+  // The hero entrance animations are pure CSS (see .hero-title / .hero-subtitle
+  // / .hero-cta in index.css) so the LCP text paints without waiting for JS.
   useEffect(() => {
-    const ctx = gsap.context(() => {
-      // Hero animations
-      gsap.from('.hero-title', {
-        y: 100,
-        opacity: 0,
-        duration: 1,
-        ease: 'power4.out',
-        delay: 0.2
-      });
-      
-      gsap.from('.hero-subtitle', {
-        y: 50,
-        opacity: 0,
-        duration: 0.8,
-        ease: 'power4.out',
-        delay: 0.4
-      });
-      
-      gsap.from('.hero-cta', {
-        scale: 0.8,
-        opacity: 0,
-        duration: 0.8,
-        ease: 'elastic.out(1, 0.5)',
-        delay: 0.6
-      });
-      
-      gsap.from('.hero-car', {
-        x: 100,
-        opacity: 0,
-        duration: 1.2,
-        ease: 'power4.out',
-        delay: 0.4
-      });
+    let ctx: { revert: () => void } | undefined;
+    let cancelled = false;
 
-      // Scroll-triggered animations
-      gsap.utils.toArray<HTMLElement>('.section-reveal').forEach((section) => {
-        gsap.fromTo(section,
-          { y: 40, autoAlpha: 0 },
-          {
-            y: 0,
-            autoAlpha: 1,
-            duration: 0.8,
-            ease: 'power4.out',
-            scrollTrigger: {
-              trigger: section,
-              start: 'top 85%',
-              toggleActions: 'play none none none'
+    (async () => {
+      const [{ default: gsap }, { ScrollTrigger }] = await Promise.all([
+        import('gsap'),
+        import('gsap/ScrollTrigger'),
+      ]);
+      if (cancelled) return;
+      gsap.registerPlugin(ScrollTrigger);
+
+      ctx = gsap.context(() => {
+        gsap.utils.toArray<HTMLElement>('.section-reveal').forEach((section) => {
+          gsap.fromTo(section,
+            { y: 40, autoAlpha: 0 },
+            {
+              y: 0,
+              autoAlpha: 1,
+              duration: 0.8,
+              ease: 'power4.out',
+              scrollTrigger: {
+                trigger: section,
+                start: 'top 85%',
+                toggleActions: 'play none none none'
+              }
             }
+          );
+        });
+
+        gsap.from('.step-item', {
+          x: -30,
+          opacity: 0,
+          duration: 0.6,
+          stagger: 0.2,
+          ease: 'power4.out',
+          scrollTrigger: {
+            trigger: '.steps-container',
+            start: 'top 80%'
           }
-        );
+        });
       });
+    })();
 
-      // Steps animation
-      gsap.from('.step-item', {
-        x: -30,
-        opacity: 0,
-        duration: 0.6,
-        stagger: 0.2,
-        ease: 'power4.out',
-        scrollTrigger: {
-          trigger: '.steps-container',
-          start: 'top 80%'
-        }
-      });
-    });
-
-    return () => ctx.revert();
+    return () => {
+      cancelled = true;
+      ctx?.revert();
+    };
   }, []);
 
   // Handle WhatsApp form submission
@@ -297,8 +277,12 @@ function App() {
             {/* Logo */}
             <div className="flex items-center">
               <img
-                src="/logo.png"
+                src="/logo-360.webp"
                 alt="NN Mobile Tyres"
+                width={360}
+                height={112}
+                fetchPriority="high"
+                decoding="async"
                 className="h-12 md:h-14 w-auto"
               />
             </div>
@@ -450,9 +434,15 @@ function App() {
             {/* Right content - Car image */}
             <div className="hero-car relative hidden lg:block">
               <div className="relative animate-float">
-                <img 
-                  src="/hero-car.png" 
-                  alt="NN Mobile Tyres van — 24/7 mobile tyre fitting service in Oxford, Oxfordshire" 
+                <img
+                  src="/hero-car-1305.webp"
+                  srcSet="/hero-car-672.webp 672w, /hero-car-1305.webp 1305w"
+                  sizes="(min-width: 1024px) 45vw, 1px"
+                  alt="NN Mobile Tyres van — 24/7 mobile tyre fitting service in Oxford, Oxfordshire"
+                  width={1305}
+                  height={693}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full max-w-2xl mx-auto drop-shadow-2xl"
                 />
                 {/* Glow effect behind car */}
@@ -582,8 +572,12 @@ function App() {
             <div className="mt-8 p-5 rounded-2xl bg-white/5 border border-white/10 section-reveal">
               <p className="text-sm text-gray-400 mb-3 font-medium text-center">Not sure of your tyre size? Here&apos;s where to find it:</p>
               <img
-                src="/tyre-guide.jpg"
+                src="/tyre-guide-896.webp"
                 alt="Tyre size guide showing 205/55 R16 91V - Width, Profile, Rim Size and Speed Rating labels on tyre sidewall"
+                width={896}
+                height={478}
+                loading="lazy"
+                decoding="async"
                 className="w-full max-w-md mx-auto rounded-lg"
               />
               <p className="text-xs text-gray-500 mt-3 text-center">
@@ -875,10 +869,13 @@ function App() {
                 {Array.from({ length: 20 }, (_, i) => (
                   <div key={`r1-${setIdx}-${i}`} className="shrink-0 w-64 h-44 rounded-xl overflow-hidden">
                     <img
-                      src={`/work-${i + 1}.jpg`}
+                      src={`/work-${i + 1}.webp`}
                       alt={`NN Mobile Tyres work photo ${i + 1}`}
+                      width={512}
+                      height={352}
                       className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
                       loading="lazy"
+                      decoding="async"
                     />
                   </div>
                 ))}
@@ -895,10 +892,13 @@ function App() {
                 {Array.from({ length: 20 }, (_, i) => (
                   <div key={`r2-${setIdx}-${i}`} className="shrink-0 w-64 h-44 rounded-xl overflow-hidden">
                     <img
-                      src={`/work-${i + 21}.jpg`}
+                      src={`/work-${i + 21}.webp`}
                       alt={`NN Mobile Tyres work photo ${i + 21}`}
+                      width={512}
+                      height={352}
                       className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
                       loading="lazy"
+                      decoding="async"
                     />
                   </div>
                 ))}
@@ -951,9 +951,13 @@ function App() {
             {/* Brand */}
             <div className="md:col-span-2">
               <div className="flex items-center gap-2 mb-4">
-                <img 
-                  src="/logo.png" 
-                  alt="NN Mobile Tyres" 
+                <img
+                  src="/logo-360.webp"
+                  alt="NN Mobile Tyres"
+                  width={360}
+                  height={112}
+                  loading="lazy"
+                  decoding="async"
                   className="h-12 w-auto"
                 />
               </div>

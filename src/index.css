@@ -420,3 +420,43 @@
 .stagger-children.visible > *:nth-child(4) { transition-delay: 0.4s; }
 .stagger-children.visible > *:nth-child(5) { transition-delay: 0.5s; }
 .stagger-children.visible > *:nth-child(6) { transition-delay: 0.6s; }
+
+/* Hero entrance animations.
+   These used to be GSAP `gsap.from(..., { opacity: 0 })` tweens, which meant the
+   above-the-fold hero stayed invisible until the JS bundle had downloaded,
+   parsed and hydrated — that pushed mobile LCP past 8s. They are plain CSS now,
+   so the prerendered hero paints on first frame. The <h1> animates transform
+   only (never opacity) so it counts as painted immediately for LCP. */
+.hero-title {
+  animation: hero-rise 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.hero-subtitle {
+  animation: slide-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
+}
+
+.hero-cta {
+  animation: slide-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
+}
+
+.hero-car {
+  animation: fade-in 0.9s ease-out 0.2s both;
+}
+
+@keyframes hero-rise {
+  from {
+    transform: translateY(24px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-title,
+  .hero-subtitle,
+  .hero-cta,
+  .hero-car {
+    animation: none;
+  }
+}

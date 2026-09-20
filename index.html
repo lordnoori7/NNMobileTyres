@@ -31,10 +31,17 @@
     <link rel="icon" href="/favicon.ico" />
     <meta name="theme-color" content="#E84420" />
 
-    <!-- Fonts (preconnect for speed) -->
+    <!-- Fonts (preconnect for speed). Only the four weights the UI actually
+         uses are requested — 300 and 800 were never referenced. -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+    <!-- LCP preloads. The nav logo is the largest above-the-fold image on
+         mobile; the hero van is hidden below the lg breakpoint, so its preload
+         is media-scoped and phones never download it. -->
+    <link rel="preload" as="image" href="/logo-360.webp" type="image/webp" fetchpriority="high" />
+    <link rel="preload" as="image" href="/hero-car-1305.webp" type="image/webp" media="(min-width: 1024px)" fetchpriority="high" />
 
     <!-- LocalBusiness Schema -->
     <script type="application/ld+json">
