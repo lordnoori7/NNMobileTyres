@@ -55,7 +55,7 @@ const coverageAreas = [
   'Faringdon', 'Chipping Norton', 'Charlbury', 'Woodstock', 'Burford'
 ];
 
-// Google Reviews (real reviews from Google Business Profile - 4.9 stars, 133 reviews)
+// Google Reviews (real reviews from Google Business Profile - 4.9 stars, 151 reviews)
 const googleReviews = [
   {
     name: 'Jonny Smiley',
@@ -217,7 +217,7 @@ function App() {
     <div className="min-h-screen bg-black text-white overflow-x-hidden">
       <Helmet>
         <title>Mobile Tyre Fitting Oxford | 24/7 Emergency Service | NN Mobile Tyres</title>
-        <meta name="description" content="Flat tyre in Oxford? NN Mobile Tyres provides 24/7 emergency mobile tyre fitting across Oxfordshire. On-site in 30-45 minutes. Puncture repair, locking wheel nut removal, jump starts. 4.9 stars, 133 Google reviews. Call 07362 638978." />
+        <meta name="description" content="Flat tyre in Oxford? NN Mobile Tyres provides 24/7 emergency mobile tyre fitting across Oxfordshire. On-site in 30-45 minutes. Puncture repair, locking wheel nut removal, jump starts. 4.9 stars, 151 Google reviews. Call 07362 638978." />
         <link rel="canonical" href="https://nnmobiletyres.co.uk/" />
 
         <meta property="og:type" content="website" />
@@ -230,7 +230,7 @@ function App() {
 
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Mobile Tyre Fitting Oxford | 24/7 Emergency | NN Mobile Tyres" />
-        <meta name="twitter:description" content="Flat tyre? We come to you in 30-45 minutes across Oxford & Oxfordshire. 4.9★ from 133 Google reviews." />
+        <meta name="twitter:description" content="Flat tyre? We come to you in 30-45 minutes across Oxford & Oxfordshire. 4.9★ from 151 Google reviews." />
         <meta name="twitter:image" content="https://nnmobiletyres.co.uk/hero-car.png" />
       </Helmet>
 
@@ -413,7 +413,7 @@ function App() {
                 </div>
                 <div className="flex items-center gap-2">
                   <Star className="w-5 h-5 fill-yellow-400 text-yellow-400" />
-                  <span className="text-sm text-gray-300">4.9★ — 133 Reviews</span>
+                  <span className="text-sm text-gray-300">4.9★ — 151 Reviews</span>
                 </div>
               </div>
               
@@ -820,7 +820,7 @@ function App() {
                   <Star key={i} className="w-6 h-6 fill-yellow-400 text-yellow-400" />
                 ))}
               </div>
-              <span className="text-gray-400 text-lg">from 133 reviews</span>
+              <span className="text-gray-400 text-lg">from 151 reviews</span>
             </div>
             <a
               href={GOOGLE_MAPS_URL}

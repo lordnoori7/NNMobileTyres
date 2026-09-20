@@ -105,7 +105,7 @@ function ServicesIndex() {
               </div>
               <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10">
                 <Star className="w-5 h-5 fill-yellow-400 text-yellow-400" />
-                <span className="text-sm text-gray-300">4.9&#9733; &mdash; 133 Google reviews</span>
+                <span className="text-sm text-gray-300">4.9&#9733; &mdash; 151 Google reviews</span>
               </div>
               <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10">
                 <Shield className="w-5 h-5 text-[#1B3F8B]" />
