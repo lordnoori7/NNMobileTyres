@@ -13,6 +13,9 @@ const AreasIndex = lazy(() => import('./components/AreasIndex.tsx'))
 const LocationPage = lazy(() => import('./components/LocationPage.tsx'))
 const BlogIndex = lazy(() => import('./components/BlogIndex.tsx'))
 const BlogPost = lazy(() => import('./components/BlogPost.tsx'))
+const ServicesIndex = lazy(() => import('./components/ServicesIndex.tsx'))
+const ServicePage = lazy(() => import('./components/ServicePage.tsx'))
+const PricesPage = lazy(() => import('./components/PricesPage.tsx'))
 
 // Fire GA4 / Google Ads lead events for every tel: and WhatsApp click.
 installLeadTracking()
@@ -29,6 +32,9 @@ const app = (
             <Route path="/areas/:hubSlug/:slug" element={<LocationPage />} />
             <Route path="/blog" element={<BlogIndex />} />
             <Route path="/blog/:slug" element={<BlogPost />} />
+            <Route path="/services" element={<ServicesIndex />} />
+            <Route path="/services/:slug" element={<ServicePage />} />
+            <Route path="/prices" element={<PricesPage />} />
           </Routes>
         </Suspense>
       </BrowserRouter>

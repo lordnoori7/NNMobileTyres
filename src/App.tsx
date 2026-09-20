@@ -289,9 +289,12 @@ function App() {
             
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center gap-8">
-              <button onClick={() => scrollToSection('services')} className="text-sm text-gray-300 hover:text-white transition-colors">
+              <Link to="/services" className="text-sm text-gray-300 hover:text-white transition-colors">
                 Services
-              </button>
+              </Link>
+              <Link to="/prices" className="text-sm text-gray-300 hover:text-white transition-colors">
+                Prices
+              </Link>
               <button onClick={() => scrollToSection('how-it-works')} className="text-sm text-gray-300 hover:text-white transition-colors">
                 How It Works
               </button>
@@ -330,9 +333,12 @@ function App() {
         {mobileMenuOpen && (
           <div className="md:hidden glass border-t border-white/10">
             <div className="px-4 py-4 space-y-3">
-              <button onClick={() => scrollToSection('services')} className="block w-full text-left py-2 text-gray-300">
+              <Link to="/services" className="block w-full text-left py-2 text-gray-300" onClick={() => setMobileMenuOpen(false)}>
                 Services
-              </button>
+              </Link>
+              <Link to="/prices" className="block w-full text-left py-2 text-gray-300" onClick={() => setMobileMenuOpen(false)}>
+                Prices
+              </Link>
               <button onClick={() => scrollToSection('how-it-works')} className="block w-full text-left py-2 text-gray-300">
                 How It Works
               </button>
@@ -594,30 +600,39 @@ function App() {
           <div className="text-center mb-16 section-reveal">
             <span className="text-[#E84420] text-sm font-semibold tracking-wider uppercase">Our Services</span>
             <h2 className="text-3xl md:text-5xl font-bold mt-4">Services We Offer</h2>
+            <p className="text-gray-400 mt-4 max-w-2xl mx-auto">
+              Every service below has its own page explaining exactly what&apos;s included, how long it takes and what
+              it covers. We also explain{' '}
+              <Link to="/prices" className="text-[#E84420] hover:underline">how our pricing works</Link>.
+            </p>
           </div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 items-start">
             {[
               {
                 icon: Wrench,
+                href: '/services/mobile-tyre-fitting',
                 title: 'Tyre Fitting',
                 desc: 'Our dedicated team is committed to providing top-notch tyre services at your doorstep.',
                 blog: 'Whether you need a single tyre replaced or a full set, NN Mobile Tyres delivers professional mobile tyre fitting across Oxford and Oxfordshire. We carry a wide range of premium tyres from trusted brands including Michelin, Continental, Pirelli, and Bridgestone. Our fully-equipped van arrives at your home, workplace, or roadside location with everything needed for a fast, safe fitting. Every tyre is balanced on-site using professional equipment to ensure a smooth ride. We handle cars, vans, SUVs, and 4x4s — no job is too big or too small. With same-day availability and 24/7 emergency callouts, you never have to wait or waste time at a garage.'
               },
               {
                 icon: CircleDot,
+                href: '/services/puncture-repair',
                 title: 'Puncture Repair',
                 desc: 'Our dedicated team is committed to providing top-notch tyre services at your doorstep.',
                 blog: 'A puncture doesn\'t have to ruin your day. NN Mobile Tyres offers fast, reliable puncture repair wherever you are in Oxfordshire. Our technicians assess the damage on arrival — if the puncture is in the legal repair zone and meets British Standard BS AU 159, we\'ll fix it on the spot to get you safely back on the road. If the damage is too severe, we carry replacement tyres on board to get you back on the road immediately. We repair punctures caused by nails, screws, glass, and potholes. Don\'t risk driving on a slow puncture — call us and we\'ll come to you within 30-45 minutes, day or night.'
               },
               {
                 icon: Key,
+                href: '/services/locking-wheel-nut-removal',
                 title: 'Locking Wheel Nut Removal',
                 desc: 'Benefit from our expertise in the efficient and specialized removal of locking wheel nuts.',
                 blog: 'Lost your locking wheel nut key? Don\'t worry — it happens more often than you\'d think. NN Mobile Tyres specialises in non-destructive locking wheel nut removal using professional extraction tools. Whether your key has been lost, damaged, or rounded off, our experienced technicians can remove the locking nuts without damaging your alloy wheels. We carry a comprehensive set of removal tools and can handle all major brands and locking nut types. Once removed, we can fit replacement locking nuts or standard nuts so you\'re back on the road safely. This service is available 24/7 across Oxford and surrounding areas.'
               },
               {
                 icon: Battery,
+                href: '/services/jump-start',
                 title: 'Mobile Car Jump Start',
                 desc: 'Benefit from our expertise in the efficient and specialized jump start service.',
                 blog: 'Flat battery? NN Mobile Tyres provides a rapid mobile jump start service across Oxfordshire. Whether your battery has died overnight, in a car park, or at the roadside, we\'ll be with you within 30-45 minutes. Our professional-grade jump start equipment works on all vehicle types including cars, vans, and SUVs. We\'ll diagnose why your battery failed — whether it\'s age, a faulty alternator, or lights left on — and advise on whether you need a replacement. If a new battery is needed, we can source and fit one on the spot. Available 24/7, 365 days a year, because breakdowns don\'t wait for business hours.'
@@ -639,15 +654,48 @@ function App() {
                   </div>
                 )}
 
-                <button
-                  onClick={() => setExpandedService(expandedService === index ? null : index)}
-                  className={`flex items-center gap-2 text-sm font-semibold mt-auto pt-4 border-t border-white/10 ${index % 2 === 0 ? 'text-[#E84420]' : 'text-[#1B3F8B]'}`}
-                >
-                  {expandedService === index ? 'SHOW LESS' : 'READ MORE'}
-                  <ArrowRight className={`w-4 h-4 transition-transform ${expandedService === index ? 'rotate-90' : ''}`} />
-                </button>
+                <div className="mt-auto pt-4 border-t border-white/10 flex flex-col gap-3">
+                  <button
+                    onClick={() => setExpandedService(expandedService === index ? null : index)}
+                    className={`flex items-center gap-2 text-sm font-semibold ${index % 2 === 0 ? 'text-[#E84420]' : 'text-[#1B3F8B]'}`}
+                  >
+                    {expandedService === index ? 'SHOW LESS' : 'READ MORE'}
+                    <ArrowRight className={`w-4 h-4 transition-transform ${expandedService === index ? 'rotate-90' : ''}`} />
+                  </button>
+                  <Link
+                    to={service.href}
+                    className="flex items-center gap-2 text-sm text-gray-400 hover:text-white transition-colors"
+                  >
+                    Full {service.title.toLowerCase()} details
+                    <ChevronRight className="w-4 h-4" />
+                  </Link>
+                </div>
               </div>
             ))}
+          </div>
+
+          <div className="mt-10 flex flex-wrap justify-center gap-3 section-reveal">
+            <Link
+              to="/services/emergency-tyre-replacement"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-[#E84420]/30 text-[#E84420] hover:bg-[#E84420]/10 transition-colors text-sm font-semibold"
+            >
+              <Zap className="w-4 h-4" />
+              24/7 Emergency Tyre Replacement
+            </Link>
+            <Link
+              to="/services"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-white/20 text-white hover:bg-white/5 transition-colors text-sm font-semibold"
+            >
+              View all services
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+            <Link
+              to="/prices"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-[#1B3F8B]/30 text-[#1B3F8B] hover:bg-[#1B3F8B]/10 transition-colors text-sm font-semibold"
+            >
+              Prices &amp; quotes
+              <ArrowRight className="w-4 h-4" />
+            </Link>
           </div>
         </div>
       </section>
@@ -984,9 +1032,14 @@ function App() {
               <h4 className="font-semibold mb-4">Quick Links</h4>
               <ul className="space-y-3">
                 <li>
-                  <button onClick={() => scrollToSection('services')} className="text-gray-400 hover:text-[#E84420] transition-colors">
+                  <Link to="/services" className="text-gray-400 hover:text-[#E84420] transition-colors">
                     Services
-                  </button>
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/prices" className="text-gray-400 hover:text-[#E84420] transition-colors">
+                    Prices &amp; Quotes
+                  </Link>
                 </li>
                 <li>
                   <button onClick={() => scrollToSection('how-it-works')} className="text-gray-400 hover:text-[#E84420] transition-colors">
