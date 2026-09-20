@@ -22,6 +22,18 @@ declare global {
 
 export type LeadEvent = 'phone_click' | 'whatsapp_click';
 
+/**
+ * Google Ads conversion labels (account AW-16448059556). Each lead event is
+ * sent twice: once under its own name (GA4 key event) and once as an Ads
+ * `conversion` event with the matching send_to label, which is what the
+ * "NN Mobile Tyres (web) phone_click / whatsapp_click" conversion actions
+ * count.
+ */
+const ADS_CONVERSION_LABELS: Record<LeadEvent, string> = {
+  phone_click: 'AW-16448059556/ZLp0CN6plf8cEKTxhaM9',
+  whatsapp_click: 'AW-16448059556/edgkCOGplf8cEKTxhaM9',
+};
+
 function gtag(...args: unknown[]) {
   if (typeof window === 'undefined') return;
   window.dataLayer = window.dataLayer || [];
@@ -38,6 +50,7 @@ export function trackLead(event: LeadEvent, params: Record<string, string> = {})
     page_path: window.location.pathname,
     ...params,
   });
+  gtag('event', 'conversion', { send_to: ADS_CONVERSION_LABELS[event] });
 }
 
 function classify(anchor: HTMLAnchorElement): LeadEvent | null {
