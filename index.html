@@ -42,7 +42,15 @@
          competes with the CSS and font that actually gate the h1 paint.
          The hero van is hidden below the lg breakpoint, so its preload is
          media-scoped and phones never download it. -->
-    <link rel="preload" as="image" href="/hero-car-1305.webp" type="image/webp" media="(min-width: 1024px)" fetchpriority="high" />
+    <link
+      rel="preload"
+      as="image"
+      type="image/webp"
+      imagesrcset="/hero-car-672.webp 672w, /hero-car-1305.webp 1305w"
+      imagesizes="(min-width: 1024px) 45vw, 1px"
+      media="(min-width: 1024px)"
+      fetchpriority="high"
+    />
 
     <!-- LocalBusiness Schema -->
     <script type="application/ld+json">
