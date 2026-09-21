@@ -2,6 +2,7 @@ import { StrictMode, Suspense, lazy } from 'react'
 import { hydrateRoot, createRoot } from 'react-dom/client'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { HelmetProvider } from 'react-helmet-async'
+import { Toaster } from 'sonner'
 import './index.css'
 import App from './App.tsx'
 import { installLeadTracking } from './lib/analytics'
@@ -38,6 +39,11 @@ const app = (
           </Routes>
         </Suspense>
       </BrowserRouter>
+      {/* The quote form reports validation errors with toast.error(), so the
+          renderer has to be mounted once at the root or the message never
+          appears. Sonner renders an empty <section suppressHydrationWarning>
+          when there are no toasts, so it is prerender/hydration safe. */}
+      <Toaster position="top-center" richColors />
     </HelmetProvider>
   </StrictMode>
 )
