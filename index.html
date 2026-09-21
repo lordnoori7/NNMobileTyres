@@ -31,11 +31,19 @@
     <link rel="icon" href="/favicon.ico" />
     <meta name="theme-color" content="#E84420" />
 
-    <!-- Fonts (preconnect for speed). Only the four weights the UI actually
-         uses are requested — 300 and 800 were never referenced. -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <!-- Inter is self-hosted (see the @font-face rules in src/index.css), so
+         there is no render-blocking Google Fonts stylesheet and no extra DNS +
+         TLS handshake in front of the LCP text. Google ships Inter as one
+         variable woff2 whose per-weight files are byte-identical, so this
+         single latin file covers 400/500/600/700 and is the only font to
+         preload. -->
+    <link
+      rel="preload"
+      as="font"
+      type="font/woff2"
+      href="/fonts/inter-latin-var.woff2"
+      crossorigin
+    />
 
     <!-- The mobile LCP element is the hero <h1> text, so the nav logo is
          deliberately NOT preloaded — a high-priority image fetch there only
