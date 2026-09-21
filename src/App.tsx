@@ -57,18 +57,17 @@ const coverageAreas = [
 
 // The hero <h1> cycles these names every 2s, which caused two problems.
 //
-//  1. The names are not the same width, so the <h1> relaid out mid-cycle —
-//     measured on a 412px viewport it alternated between 135px and 180px tall,
-//     resizing the LCP element and shoving the whole hero down with it. The
-//     longest name is now reserved up front by a hidden sibling, which pins
-//     the slot to that name's real rendered width; a `ch` estimate would only
-//     approximate it, since Inter's glyphs are not uniform width.
+//  1. The names are not the same width, so the headline rewraps mid-cycle and
+//     used to resize the <h1> with it — on a 412px viewport it alternated
+//     between 135px and 180px tall, shoving the whole hero down every time a
+//     long name came round. The <h1> is now sized to its own worst-case wrap
+//     by a hidden ::after (see .hero-title in index.css), so the line breaks
+//     still move but the box never does. Reserving the widest name inline
+//     instead would stop the text rewrapping too, but it leaves a ~160px hole
+//     in the headline on a phone for every name shorter than the longest.
 //  2. The prerender freezes whichever name was on screen when it snapshotted,
 //     so a client that always booted at index 0 disagreed with that markup and
 //     React threw away the prerendered DOM with hydration error #418.
-const longestCoverageArea = coverageAreas.reduce((longest, area) =>
-  area.length > longest.length ? area : longest
-);
 
 // Read the index the prerendered HTML is showing so the first client render
 // matches it exactly and hydration succeeds, then carry on cycling from there.
@@ -413,22 +412,21 @@ function App() {
               </div>
               
               <h1 className="hero-title text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
-                Mobile Tyre Fitting in{' '}
-                <span className="area-cycle-slot" data-area-index={currentAreaIndex}>
-                  {/* Invisible, but still laid out: holds the slot open at the
-                      width of the longest name so the <h1> never resizes. */}
-                  <span aria-hidden="true" className="area-cycle-reserve">
-                    {longestCoverageArea}
-                  </span>
+                {/* The single child the reserve in .hero-title::after is sized
+                    against — see index.css. Keep the copy below in sync with
+                    that rule's `content`. */}
+                <span className="hero-title-text">
+                  Mobile Tyre Fitting in{' '}
                   <span
                     key={currentAreaIndex}
-                    className="area-cycle-text"
+                    className="inline-block area-cycle-text"
+                    data-area-index={currentAreaIndex}
                     style={{ color: currentAreaIndex % 2 === 0 ? '#3B82F6' : '#F97316' }}
                   >
                     {coverageAreas[currentAreaIndex]}
                   </span>
+                  {' '}&mdash; On-Site in 30 Minutes
                 </span>
-                {' '}&mdash; On-Site in 30 Minutes
               </h1>
               
               <p className="hero-subtitle text-lg md:text-xl text-gray-400 max-w-xl">

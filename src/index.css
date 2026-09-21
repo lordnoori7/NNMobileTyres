@@ -285,23 +285,6 @@
   }
 }
 
-/* The cycling town name sits in a slot pre-sized to the longest name, so the
-   <h1> keeps one fixed size for the whole cycle. Both children share the single
-   grid cell: the hidden one sets the width, the visible one paints over it. */
-.area-cycle-slot {
-  display: inline-grid;
-  vertical-align: bottom;
-}
-
-.area-cycle-slot > * {
-  grid-area: 1 / 1;
-  white-space: nowrap;
-}
-
-.area-cycle-reserve {
-  visibility: hidden;
-}
-
 .area-cycle-text {
   animation: area-cycle 2s ease-in-out;
 }
@@ -501,6 +484,40 @@
    only (never opacity) so it counts as painted immediately for LCP. */
 .hero-title {
   animation: hero-rise 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+
+  /* The headline cycles a town name every 2s and the names are not the same
+     width, so the text rewraps — on a 360px phone it swings between 3 and 5
+     lines. Left alone the <h1> resizes with it and shoves the whole hero down
+     mid-scroll.
+
+     So the <h1> is a one-cell grid holding two things: the real headline, and
+     a hidden ::after carrying the longest variant of the same sentence. The
+     cell takes the taller of the two, which means the box is always sized to
+     the worst-case wrap while the visible text still flows naturally. Doing it
+     this way rather than with per-breakpoint min-heights matters because the
+     worst case tracks the viewport width, not the breakpoint: inside the base
+     breakpoint alone the tallest headline measures 270px at 320px wide and
+     135px at 430px wide, so any single number is either short (it still
+     shifts) or generous (dead space). The browser re-measures at every width.
+
+     The reserve lives in `content` rather than in the markup so the duplicate
+     sentence never reaches the DOM, where it would read as a second copy of
+     the <h1> text. Keep it identical to the headline in App.tsx, with the
+     longest town name in place of the cycling one — and joined by \0000a0, a
+     non-breaking space, because the live name sits in an inline-block and so
+     can never be split across two lines either. */
+  display: grid;
+}
+
+.hero-title > .hero-title-text {
+  grid-area: 1 / 1;
+}
+
+.hero-title::after {
+  content: 'Mobile Tyre Fitting in Chipping\0000a0Norton — On-Site in 30 Minutes';
+  grid-area: 1 / 1;
+  visibility: hidden;
+  pointer-events: none;
 }
 
 .hero-subtitle {
