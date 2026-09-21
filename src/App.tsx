@@ -55,6 +55,35 @@ const coverageAreas = [
   'Faringdon', 'Chipping Norton', 'Charlbury', 'Woodstock', 'Burford'
 ];
 
+// The hero <h1> cycles these names every 2s, which caused two problems.
+//
+//  1. The names are not the same width, so the <h1> relaid out mid-cycle —
+//     measured on a 412px viewport it alternated between 135px and 180px tall,
+//     resizing the LCP element and shoving the whole hero down with it. The
+//     longest name is now reserved up front by a hidden sibling, which pins
+//     the slot to that name's real rendered width; a `ch` estimate would only
+//     approximate it, since Inter's glyphs are not uniform width.
+//  2. The prerender freezes whichever name was on screen when it snapshotted,
+//     so a client that always booted at index 0 disagreed with that markup and
+//     React threw away the prerendered DOM with hydration error #418.
+const longestCoverageArea = coverageAreas.reduce((longest, area) =>
+  area.length > longest.length ? area : longest
+);
+
+// Read the index the prerendered HTML is showing so the first client render
+// matches it exactly and hydration succeeds, then carry on cycling from there.
+// This runs during render, but only reads the DOM React is about to hydrate.
+function prerenderedAreaIndex(): number {
+  if (typeof document === 'undefined') return 0;
+  const raw = document
+    .querySelector('[data-area-index]')
+    ?.getAttribute('data-area-index');
+  const index = Number(raw);
+  return Number.isInteger(index) && index >= 0 && index < coverageAreas.length
+    ? index
+    : 0;
+}
+
 // Google Reviews (real reviews from Google Business Profile - 4.9 stars, 151 reviews)
 const googleReviews = [
   {
@@ -116,7 +145,7 @@ function App() {
     urgency: 'standard'
   });
   const [expandedService, setExpandedService] = useState<number | null>(null);
-  const [currentAreaIndex, setCurrentAreaIndex] = useState(0);
+  const [currentAreaIndex, setCurrentAreaIndex] = useState(prerenderedAreaIndex);
   const heroRef = useRef<HTMLDivElement>(null);
   const formRef = useRef<HTMLDivElement>(null);
 
@@ -385,12 +414,19 @@ function App() {
               
               <h1 className="hero-title text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
                 Mobile Tyre Fitting in{' '}
-                <span
-                  key={currentAreaIndex}
-                  className="inline-block area-cycle-text"
-                  style={{ color: currentAreaIndex % 2 === 0 ? '#3B82F6' : '#F97316' }}
-                >
-                  {coverageAreas[currentAreaIndex]}
+                <span className="area-cycle-slot" data-area-index={currentAreaIndex}>
+                  {/* Invisible, but still laid out: holds the slot open at the
+                      width of the longest name so the <h1> never resizes. */}
+                  <span aria-hidden="true" className="area-cycle-reserve">
+                    {longestCoverageArea}
+                  </span>
+                  <span
+                    key={currentAreaIndex}
+                    className="area-cycle-text"
+                    style={{ color: currentAreaIndex % 2 === 0 ? '#3B82F6' : '#F97316' }}
+                  >
+                    {coverageAreas[currentAreaIndex]}
+                  </span>
                 </span>
                 {' '}&mdash; On-Site in 30 Minutes
               </h1>

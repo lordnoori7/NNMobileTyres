@@ -3,6 +3,7 @@ import { readFile, writeFile, mkdir } from 'node:fs/promises';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import sirv from 'sirv';
+import { insertTextNodeSeparators } from './hydration-separators.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const projectRoot = resolve(__dirname, '..');
@@ -139,6 +140,10 @@ async function main() {
       await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
       // Allow reveal animations and Helmet updates to settle
       await new Promise((r) => setTimeout(r, 900));
+
+      // Put React's adjacent-text-node separators back before serializing, or
+      // every page hydrates with error #418 and is re-rendered from scratch.
+      await page.evaluate(insertTextNodeSeparators);
 
       const html = await page.content();
       const filePath = routeToFilePath(route);

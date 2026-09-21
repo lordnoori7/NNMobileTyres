@@ -285,6 +285,23 @@
   }
 }
 
+/* The cycling town name sits in a slot pre-sized to the longest name, so the
+   <h1> keeps one fixed size for the whole cycle. Both children share the single
+   grid cell: the hidden one sets the width, the visible one paints over it. */
+.area-cycle-slot {
+  display: inline-grid;
+  vertical-align: bottom;
+}
+
+.area-cycle-slot > * {
+  grid-area: 1 / 1;
+  white-space: nowrap;
+}
+
+.area-cycle-reserve {
+  visibility: hidden;
+}
+
 .area-cycle-text {
   animation: area-cycle 2s ease-in-out;
 }
