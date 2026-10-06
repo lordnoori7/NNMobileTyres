@@ -244,13 +244,13 @@ function App() {
   return (
     <div className="min-h-screen bg-black text-white overflow-x-hidden">
       <Helmet>
-        <title>Mobile Tyre Fitting Oxford | 24/7 Emergency Service | NN Mobile Tyres</title>
-        <meta name="description" content="Flat tyre in Oxford? NN Mobile Tyres provides 24/7 emergency mobile tyre fitting across Oxfordshire. On-site in 30-45 minutes. Puncture repair, locking wheel nut removal, jump starts. 4.9 stars, 151 Google reviews. Call 07362 638978." />
+        <title>Mobile Tyre Fitting Oxford | 24/7, No Call-Out Charge | NN Mobile Tyres</title>
+        <meta name="description" content="Flat tyre in Oxford? We come to you 24/7 at home, work or the roadside, typically in 30-45 minutes. No call-out charge, price agreed before we travel. 4.9★ from 151 Google reviews. Call 07362 638978." />
         <link rel="canonical" href="https://nnmobiletyres.co.uk/" />
 
         <meta property="og:type" content="website" />
         <meta property="og:locale" content="en_GB" />
-        <meta property="og:title" content="Mobile Tyre Fitting Oxford — On-Site in 30 Minutes | NN Mobile Tyres" />
+        <meta property="og:title" content="Mobile Tyre Fitting Oxford — With You in 30–45 Min | NN Mobile Tyres" />
         <meta property="og:description" content="24/7 emergency mobile tyre fitting in Oxford and Oxfordshire. We come to you. Puncture repair, tyre fitting, locking wheel nut removal. 4.9★ on Google. Call or WhatsApp now." />
         <meta property="og:image" content="https://nnmobiletyres.co.uk/hero-car.png" />
         <meta property="og:url" content="https://nnmobiletyres.co.uk/" />
@@ -425,7 +425,7 @@ function App() {
                   >
                     {coverageAreas[currentAreaIndex]}
                   </span>
-                  {' '}&mdash; On-Site in 30 Minutes
+                  {' '}&mdash; With You in 30–45 Min
                 </span>
               </h1>
               

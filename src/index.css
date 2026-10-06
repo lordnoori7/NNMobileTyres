@@ -514,7 +514,7 @@
 }
 
 .hero-title::after {
-  content: 'Mobile Tyre Fitting in Chipping\0000a0Norton — On-Site in 30 Minutes';
+  content: 'Mobile Tyre Fitting in Chipping\0000a0Norton — With You in 30–45 Min';
   grid-area: 1 / 1;
   visibility: hidden;
   pointer-events: none;

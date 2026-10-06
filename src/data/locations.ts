@@ -13,6 +13,8 @@ export interface LocationArea {
   localFaqs?: { question: string; answer: string }[];
   coverageHighlights?: string[];
   localContext?: string;
+  /** Overrides the default "Mobile Tyre Fitting <name>" title, e.g. to stop a hub competing with the homepage. */
+  metaTitle?: string;
 }
 
 export const locations: LocationArea[] = [
@@ -22,6 +24,7 @@ export const locations: LocationArea[] = [
     slug: 'oxford',
     hub: 'Oxford',
     isHub: true,
+    metaTitle: 'Tyres Oxford | Mobile Tyre Fitter for Headington, Cowley & Botley | NN Mobile Tyres',
     description: 'Our home base in Oxford means we can reach you fast, whether you are stuck on the Headington roundabout, parked near the Westgate Centre, or stranded on the Botley Road. With the city\'s mix of narrow college streets and busy ring roads, a flat tyre can cause chaos — we get to you in minutes.',
     nearbyAreas: ['Headington', 'Cowley', 'Summertown', 'Botley', 'Kidlington'],
     postcode: 'OX1',
@@ -597,12 +600,16 @@ export const locations: LocationArea[] = [
     slug: 'headington',
     hub: 'Oxford',
     isHub: false,
-    description: 'Headington is home to the John Radcliffe Hospital, Oxford Brookes University, and the famous Headington Shark. With London Road being one of Oxford\'s busiest routes, flat tyres here are a regular callout for us. We can reach you in Headington in around 15 minutes from our base.',
+    description: 'Headington is home to the John Radcliffe Hospital, Oxford Brookes University, and the famous Headington Shark. With London Road being one of Oxford\'s busiest routes, flat tyres here are a regular callout for us. We can reach you in Headington in 15-25 minutes from our base.',
     nearbyAreas: ['Old Headington', 'Marston', 'Risinghurst', 'Barton', 'Cowley'],
     postcode: 'OX3',
     responseTime: '15-25 minutes',
     lat: 51.7619,
-    lng: -1.2115
+    lng: -1.2115,
+    longDescription: ["Headington sits about 3 miles north of our Oxford base, so when a tyre goes on the A420 London Road or Windmill Road we aim to be with you in 15-25 minutes. We fit new branded tyres on the spot, balanced and ready to drive, whether the car is on your driveway, outside your workplace or pulled in at the side of the A40 North Way.", "If you're parked on the roads around the John Radcliffe Hospital, on the Shotover Trading Estate or in the Waitrose car park, tell us the exact spot and we'll come to the car. Where the damage sits in the repairable part of the tread, we repair the puncture to BS AU 159 rather than sell you a tyre you don't need. There's no call-out charge, and the price is agreed on the phone before we set off. Old Headington, Risinghurst and Marston are covered in the same way."],
+    coverageHighlights: ["the A420 London Road", "the B4495 Windmill Road", "the A40 North Way", "Shotover Trading Estate", "roads around the John Radcliffe Hospital", "the A4142 Eastern By-pass Road"],
+    localContext: "If a tyre fails on the London Road, the A40 North Way or the Eastern By-pass, move into a side street if it's safe to do so and call us with the nearest junction.",
+    localFaqs: [{"question": "How quickly can you reach me in Headington?", "answer": "We quote 15-25 minutes for Headington. We're about 3 miles away, and we confirm the price with you on the phone before we leave."}, {"question": "Can you fit a tyre on the Shotover Trading Estate?", "answer": "Yes. Give us the unit or road name and we'll fit and balance the tyre where your car is parked, provided there's safe space to work."}],
   },
   {
     name: 'Cowley',
@@ -614,7 +621,11 @@ export const locations: LocationArea[] = [
     postcode: 'OX4',
     responseTime: '15-25 minutes',
     lat: 51.7355,
-    lng: -1.2184
+    lng: -1.2184,
+    longDescription: ["Our Oxford base is only about a mile and a half from Cowley, so a flat tyre here rarely means a long wait. Whether your car is outside your house in Temple Cowley, on the B480 Oxford Road or parked up at Templars Square, we bring the tyres, the balancing kit and the van to you. Call 07362 638978, tell us the size and where you are, and we agree the price before we set off. There is no call-out charge.", "Cowley sits between Florence Park, Rose Hill and Donnington, with the B4495 Between Towns Road and the A4158 Rose Hill carrying most local traffic towards the A4142 Eastern By-pass. We fit new branded tyres on the driveway or at the kerb, repair punctures to BS AU 159 when the damage is in a repairable area, and remove locking wheel nuts when the key has gone missing. If the battery has died instead, we can jump start the car too."],
+    coverageHighlights: ["the B480 Oxford Road", "the B4495 Between Towns Road", "Templars Square car parks", "Templars Shopping Park", "the A4142 Eastern By-pass Road", "Temple Cowley and Florence Park streets"],
+    localContext: "Most Cowley call-outs are on residential streets off the B480 Oxford Road and Between Towns Road, or in the car parks at Templars Square and Templars Shopping Park.",
+    localFaqs: [{"question": "How quickly can you get to Cowley?", "answer": "We usually reach Cowley in 15-25 minutes from our Oxford base, depending on traffic. We will confirm the timing when you call."}, {"question": "Can you fit a tyre in the Templars Shopping Park car park?", "answer": "Yes, as long as the car is somewhere safe to work and the site allows it. Let us know which part of the car park you are in when you ring."}],
   },
   {
     name: 'Rose Hill',
@@ -626,7 +637,11 @@ export const locations: LocationArea[] = [
     postcode: 'OX4',
     responseTime: '15-25 minutes',
     lat: 51.7310,
-    lng: -1.2270
+    lng: -1.2270,
+    longDescription: ["Rose Hill is only about a mile and a half from our Oxford base, so a flat tyre on the estate roads here does not have to wreck your day. We bring new branded tyres to your driveway or kerbside, fit and balance them on the spot, and repair punctures to British Standard BS AU 159 whenever the damage is in a repairable part of the tread.", "The A4158 runs straight through Rose Hill, with Church Cowley Road (B4495) just off it and the Eastern Bypass and Southern By-pass Road both within about a mile. If you are caught out in the car park at Templars Shopping Park or at Eastpoint Business Park, we can come to you there too. We also cover Florence Park, Donnington and Littlemore next door. There is no call-out charge, and we agree the price with you by phone before we leave."],
+    coverageHighlights: ["the A4158 Rose Hill", "Church Cowley Road (B4495)", "the A4142 Eastern Bypass", "Templars Shopping Park", "Eastpoint Business Park"],
+    localContext: "If you are stuck on the A4158 Rose Hill, Church Cowley Road or the nearby Eastern Bypass, pull over somewhere safe and call us, and we will come to the car rather than you driving on a damaged tyre.",
+    localFaqs: [{"question": "How quickly can you reach Rose Hill?", "answer": "We typically arrive in Rose Hill within 15-25 minutes, as it is only about 1.5 miles from our Oxford base."}, {"question": "Can you fit a tyre in the Templars Shopping Park car park?", "answer": "Yes. As long as there is safe space around the car, we can fit or repair a tyre in a retail car park like Templars Shopping Park, so you can carry on with your shopping while we work."}],
   },
   {
     name: 'Iffley',
@@ -638,7 +653,11 @@ export const locations: LocationArea[] = [
     postcode: 'OX4',
     responseTime: '15-25 minutes',
     lat: 51.7356,
-    lng: -1.2397
+    lng: -1.2397,
+    longDescription: ["From our base, Iffley is only a couple of miles away, which puts most addresses in the village within 15-25 minutes of your call. The B4495 Donnington Bridge Road and the A4158 Iffley Road both run close by, with the Southern By-pass about a kilometre to the south, so we can reach you at home, at work or pulled over on the way into the city.", "A flat on the school run near The Iffley Academy or Larkrise Primary School, a slow puncture you spot in the Sainsbury's car park, or a locking wheel nut you can't remove because the key has gone missing: tell us where the car is and we'll come to it. New branded tyres are fitted and balanced at the kerbside, and repairable punctures are fixed to BS AU 159. Donnington, Rose Hill and Florence Park are covered on the same terms, with no call-out charge."],
+    coverageHighlights: ["the B4495 Donnington Bridge Road", "the A4158 Iffley Road", "the A423 Southern By-pass Road", "the A4144 Abingdon Road", "school-run streets near The Iffley Academy", "Newtec Place"],
+    localContext: "If a tyre fails on the Iffley Road, Donnington Bridge Road or the Southern By-pass, stop somewhere safe away from the main flow of traffic and call us with the nearest junction or landmark.",
+    localFaqs: [{"question": "How long will it take you to get to Iffley?", "answer": "Our quoted response time for Iffley is 15-25 minutes, and the price is agreed by phone before we set off."}, {"question": "Can you repair my puncture instead of replacing the tyre?", "answer": "If the damage is in the repairable area of the tread, yes. We repair to British Standard BS AU 159; if it isn't safely repairable we'll explain why and quote for a new tyre."}],
   },
   {
     name: 'Littlemore',
@@ -650,7 +669,11 @@ export const locations: LocationArea[] = [
     postcode: 'OX4',
     responseTime: '15-25 minutes',
     lat: 51.7222,
-    lng: -1.2218
+    lng: -1.2218,
+    longDescription: ["Littlemore is roughly a mile from where our van is based, which makes it one of the quickest places for us to reach. The A4142 Eastern By-pass Road passes right by, and the A4158 Oxford Road and the A4074 are all close, so getting to you is straightforward whether you are at home or at work.", "If you work at The Oxford Science Park, Eastpoint Business Park or the Nuffield Trade and Industrial Park, we can come to the car while you are at your desk. We supply and fit new branded tyres, balance them on site and take the old ones away. Punctures are repaired to BS AU 159 where the damage allows, and we can also remove a locking wheel nut if the key is lost. We cover neighbouring Blackbird Leys, Rose Hill and Kennington as well. No call-out charge, and the price is agreed on the phone first."],
+    coverageHighlights: ["The Oxford Science Park", "Eastpoint Business Park", "Nuffield Trade and Industrial Park", "the A4142 Eastern By-pass Road", "the A4158 Oxford Road", "the Tesco Superstore car park"],
+    localContext: "Drivers in Littlemore tend to need us at work on the business parks, at home off the A4158 Oxford Road, or at the roadside near the A4142 Eastern By-pass.",
+    localFaqs: [{"question": "Can you come to me at The Oxford Science Park?", "answer": "Yes. Give us the building or car park and your registration, and we can fit the tyre while you work, provided the car is in a safe spot and the site permits it."}, {"question": "How long will I wait in Littlemore?", "answer": "Our usual arrival time in Littlemore is 15-25 minutes."}],
   },
   {
     name: 'Blackbird Leys',
@@ -662,7 +685,11 @@ export const locations: LocationArea[] = [
     postcode: 'OX4',
     responseTime: '15-25 minutes',
     lat: 51.7190,
-    lng: -1.2088
+    lng: -1.2088,
+    longDescription: ["Our Oxford base is about half a mile from Blackbird Leys, which makes the estate one of the quickest places in the county for us to reach. Whether it is a nail in the tread on the driveway or a tyre that has gone flat overnight, we come to the car with the right size of new branded tyre, fit it and balance it there and then.", "The Eastern By-pass Road (A4142) is under a mile away, with the A4158 Oxford Road, the B480 Watlington Road and the A4074 all close by. We can meet you at the Nuffield Trade and Industrial Park, at Eastpoint Business Park, or in the Tesco Superstore car park, and we also cover neighbouring Littlemore, Rose Hill and Cowley. Lost the key for your locking wheel nuts? We can remove those as well. Ring 07362 638978 for a price before we travel."],
+    coverageHighlights: ["the A4142 Eastern By-pass Road", "the B480 Watlington Road", "Nuffield Trade and Industrial Park", "Eastpoint Business Park", "the Tesco Superstore car park"],
+    localContext: "Drivers in Blackbird Leys can call us to the estate roads at home, to the Nuffield Trade and Industrial Park during the working day, or to the Eastern By-pass Road and Watlington Road if a tyre fails on the move.",
+    localFaqs: [{"question": "How quickly can you reach Blackbird Leys?", "answer": "Blackbird Leys is about half a mile from our base, and we typically arrive within 15-25 minutes."}, {"question": "Can you come to me at work on the Nuffield Trade and Industrial Park?", "answer": "Yes. If your car is parked safely at the Nuffield Trade and Industrial Park, we can fit a new tyre or repair a puncture there while you carry on working."}],
   },
   {
     name: 'Temple Cowley',
@@ -674,7 +701,11 @@ export const locations: LocationArea[] = [
     postcode: 'OX4',
     responseTime: '15-25 minutes',
     lat: 51.7388,
-    lng: -1.2164
+    lng: -1.2164,
+    longDescription: ["At just 1.6 miles from our base, Temple Cowley is one of the closest areas we cover. Ring us about a flat on the B480 Oxford Road or Between Towns Road and we'll agree a price over the phone, then aim to be with you in 15-25 minutes, with no call-out charge added on top.", "Templars Square and the Templars Shopping Park are both on the doorstep, so if you come back to a soft tyre after shopping we can fit a replacement or repair the puncture where you've parked, as long as it's safe to work there. We carry new branded tyres and balance them on site, and we can also remove a locking wheel nut when the key has been lost. If the problem turns out to be a flat battery, a jump start is on offer too. Neighbouring Cowley, Florence Park and Rose Hill are covered day and night."],
+    coverageHighlights: ["the B480 Oxford Road", "the B4495 Between Towns Road", "Templars Square", "Templars Shopping Park", "the A4142 Eastern By-pass Road", "streets near Oxford Spires Academy"],
+    localContext: "Between Towns Road, the Oxford Road and the retail car parks at Templars Square are where we'd ask you to give us a precise spot, as they're busy and easy to miss each other in.",
+    localFaqs: [{"question": "Can you come to me at Templars Shopping Park?", "answer": "Yes. Tell us which part of the car park you're in and the car's colour, and we'll fit or repair the tyre there if there's safe space to work."}, {"question": "How quickly can you get to Temple Cowley?", "answer": "We quote 15-25 minutes for Temple Cowley, which is about 1.6 miles from our base."}],
   },
   {
     name: 'Marston',
@@ -686,7 +717,11 @@ export const locations: LocationArea[] = [
     postcode: 'OX3',
     responseTime: '15-25 minutes',
     lat: 51.7692,
-    lng: -1.2293
+    lng: -1.2293,
+    longDescription: ["Between the B4150 Marsh Lane, the B4495 Headley Way and the A40 Northern By-pass Road, Marston is easy for us to reach from the south of the city. We come to your home, your workplace or the side of the road with new branded tyres ready to fit and balance, and we confirm the price on the phone before travelling.", "If you work at or are visiting the John Radcliffe Hospital, we can meet your car there as long as it is parked somewhere we can safely work. Residents of Northway, Old Headington and Headington get the same service. Alongside tyre fitting we handle puncture repairs to BS AU 159 where the tyre is repairable, locking wheel nut removal, and jump starts for flat batteries. We are available 24/7 for emergencies, and there is never a call-out charge."],
+    coverageHighlights: ["the B4150 Marsh Lane", "the B4495 Headley Way", "the A40 Northern By-pass Road", "John Radcliffe Hospital parking", "Northway and Old Headington", "the Marston Road"],
+    localContext: "In Marston, help is usually needed on the residential streets off Marsh Lane and Headley Way, near the John Radcliffe Hospital, or at the roadside on the A40 Northern By-pass.",
+    localFaqs: [{"question": "How quickly can you reach Marston?", "answer": "We usually arrive in Marston within 15-25 minutes of your call."}, {"question": "Can you change a tyre near the John Radcliffe Hospital?", "answer": "We can, provided the car is somewhere safe and the parking area allows work to be carried out. Tell us exactly where you are parked when you ring."}],
   },
   {
     name: 'Summertown',
@@ -698,7 +733,11 @@ export const locations: LocationArea[] = [
     postcode: 'OX2',
     responseTime: '15-25 minutes',
     lat: 51.7762,
-    lng: -1.2631
+    lng: -1.2631,
+    longDescription: ["With the A4165 Banbury Road running through the middle of Summertown and the Woodstock Road only a few hundred metres away, most cars here spend their lives parked tight to the kerb. When a tyre does give up, you do not need to find a garage slot. We drive out from our Oxford base, about 4.9 miles away, and fit a new branded tyre where the car is parked.", "Marston Ferry Road (B4495) connects Summertown across to Marston, and the A40 Northern By-pass Road is a little over a mile to the north, so we can also reach you on the move. Oxford Parkway station is about 3 km away if you have come back to a flat in the car park. Puncture repairs follow BS AU 159 where the tyre is repairable. We also cover North Oxford, Cutteslowe and Jericho, with no call-out charge."],
+    coverageHighlights: ["the A4165 Banbury Road", "the A4144 Woodstock Road", "Marston Ferry Road (B4495)", "the A40 Northern By-pass Road", "Oxford Parkway station car park"],
+    localContext: "In Summertown we can work at the kerbside on the side streets off the Banbury Road and Woodstock Road, and we can also come out to the A40 Northern By-pass Road or Marston Ferry Road if a tyre fails while you are driving.",
+    localFaqs: [{"question": "Can you change a tyre on a residential street in Summertown?", "answer": "Yes. We fit tyres at the kerbside as long as there is safe room to jack the car up and work around the wheel. If space is tight, tell us when you call and we will plan around it."}, {"question": "How quickly can you reach Summertown?", "answer": "We typically arrive in Summertown within 15-25 minutes of your call."}],
   },
   {
     name: 'Jericho',
@@ -710,7 +749,11 @@ export const locations: LocationArea[] = [
     postcode: 'OX2',
     responseTime: '15-25 minutes',
     lat: 51.7598,
-    lng: -1.2677
+    lng: -1.2677,
+    longDescription: ["Jericho's terraced streets sit between the Woodstock Road and the canal, about 4 miles from our Oxford base. That's close enough for us to quote 15-25 minutes for most addresses, and our van carries everything needed to fit and balance a new tyre at the kerb outside your house.", "Oxford station is only 0.7 km away, so if you come back from a train journey to a flat tyre, or to a car that won't start, call us with your location and we'll come to the car. Punctures in the repairable part of the tread are fixed to BS AU 159; anything beyond that gets a new branded tyre. Parking is tight on many of these streets, so let us know if you're on a narrow road and we'll plan where to pull up. North Oxford, Osney and Botley are covered on the same terms, with the price agreed before we travel."],
+    coverageHighlights: ["the A4144 Woodstock Road", "the A4165 Banbury Road", "the A420 Botley Road", "Oxford station (0.7 km)", "Little Clarendon Street", "streets near St Barnabas School"],
+    localContext: "Tell us whether you're on a narrow side street, on the Woodstock Road or near the station when you call, so we can plan where to stop safely while we work.",
+    localFaqs: [{"question": "How fast can you reach Jericho?", "answer": "Our quoted response time for Jericho is 15-25 minutes. There's no call-out charge and we agree the price on the phone first."}, {"question": "Can you jump start my car as well as fix tyres?", "answer": "Yes. If the car won't start rather than having a flat, we can come out and give it a jump start."}],
   },
   {
     name: 'Osney',
@@ -722,7 +765,11 @@ export const locations: LocationArea[] = [
     postcode: 'OX2',
     responseTime: '15-25 minutes',
     lat: 51.7488,
-    lng: -1.2726
+    lng: -1.2726,
+    longDescription: ["Tucked between the river and the railway, Osney is less than a kilometre from Oxford station and right next to the A420 Botley Road. Our van can work on the quieter residential streets here, so you do not need to drive anywhere on a damaged tyre.", "We fit new branded tyres at your door, balance them on the spot and dispose of the old ones. If you have picked up a nail, we will check whether it can be repaired to BS AU 159 before suggesting a replacement. Locking wheel nut removal and jump starts are also part of what we do. Osney sits close to North Hinksey, Botley, Jericho and South Hinksey, and we cover all of them, along with drivers caught out around Frideswide Square or the Westgate area. Call 07362 638978 and we will agree the price before we travel."],
+    coverageHighlights: ["the A420 Botley Road", "Oxford station area", "Frideswide Square", "Littlemead Business Park", "Westgate", "North Hinksey and Botley"],
+    localContext: "Osney drivers usually need us on their own street, along the A420 Botley Road or around the station and Frideswide Square.",
+    localFaqs: [{"question": "Can your van get onto Osney's streets?", "answer": "Yes. We work from the roadside outside your home where it is safe to do so. If parking is tight, let us know when you call and we will plan around it."}, {"question": "How fast can you reach Osney?", "answer": "Our usual arrival time is 15-25 minutes."}],
   },
   {
     name: 'Botley',
@@ -734,7 +781,11 @@ export const locations: LocationArea[] = [
     postcode: 'OX2',
     responseTime: '15-25 minutes',
     lat: 51.7507,
-    lng: -1.2890
+    lng: -1.2890,
+    longDescription: ["Botley sits where the A420 Botley Road meets the A34 Southern By-pass Road, so a tyre failure here can happen at home, in a car park or in queuing traffic heading into Oxford. Wherever the car has stopped, we bring the van to you, about 4.5 miles from our Oxford base, and deal with it on the spot.", "We fit new branded tyres at Botley Road Retail Park, Seacourt Retail Park and the West Way Shopping Centre car parks, as well as on driveways off the B4044 West Way. Businesses on the Curtis Industrial Estate and at Hinksey Business Centre can call us out too. Nails and screws in the tread are repaired to BS AU 159 where the damage allows. North Hinksey, Osney and South Hinksey are all covered from the same trip."],
+    coverageHighlights: ["the A420 Botley Road", "the B4044 West Way", "West Way Shopping Centre", "Botley Road Retail Park", "Seacourt Retail Park", "Curtis Industrial Estate"],
+    localContext: "If a tyre goes on the A420 Botley Road or near the A34 junction, get to a safe stopping place and call us; around Botley we can also meet you at the retail parks or the West Way shops.",
+    localFaqs: [{"question": "Can you meet me at Seacourt Retail Park or Botley Road Retail Park?", "answer": "Yes. We can fit or repair a tyre in either car park, as long as the car is parked safely with room to work around the wheel."}, {"question": "How quickly can you reach Botley?", "answer": "We typically reach Botley within 15-25 minutes of your call."}],
   },
   {
     name: 'North Oxford',
@@ -746,7 +797,11 @@ export const locations: LocationArea[] = [
     postcode: 'OX2',
     responseTime: '15-25 minutes',
     lat: 51.7680,
-    lng: -1.2610
+    lng: -1.2610,
+    longDescription: ["Whether your car is on a driveway off the Banbury Road or parked along Moreton Road, we bring the tyre to you. North Oxford is about 4.4 miles from our base and we quote 15-25 minutes for call-outs here, with no call-out charge and the price agreed before we leave.", "Wychwood School, St Clare's and Oxford High School are all close by, so if a tyre lets you down on the school run we can come to wherever you've pulled in safely. New branded tyres are fitted and balanced on site, punctures are repaired to BS AU 159 where the damage allows, and we can remove a locking wheel nut when the key is missing or damaged. If you need us late at night, the emergency tyre service runs 24/7. Summertown, Jericho and Cutteslowe are covered in the same way."],
+    coverageHighlights: ["the A4165 Banbury Road", "the A4144 Woodstock Road", "the B4495 Moreton Road", "streets near Oxford High School", "Oxford Parkway (4.1 km)"],
+    localContext: "The Banbury and Woodstock Roads carry steady traffic, so if a tyre fails there it's usually safer to turn into a side road before calling us with the street name.",
+    localFaqs: [{"question": "How quickly can you get to North Oxford?", "answer": "We quote 15-25 minutes for North Oxford, and we'll confirm the price on the phone before travelling."}, {"question": "Can you fit a tyre on my driveway?", "answer": "Yes. As long as there's room to jack the car safely, we fit and balance the new tyre on your driveway."}],
   },
   {
     name: 'Wolvercote',
@@ -758,7 +813,11 @@ export const locations: LocationArea[] = [
     postcode: 'OX2',
     responseTime: '15-25 minutes',
     lat: 51.7861,
-    lng: -1.2859
+    lng: -1.2859,
+    longDescription: ["Five main roads meet within a short distance of Wolvercote: the A40, the A44 and A4144 Woodstock Road, the A34 Western By-pass Road and the A4165 Banbury Road. That makes it simple for us to reach you, and it is also where many drivers here end up needing help. We come out at any hour with new branded tyres, fitted and balanced at the roadside or at home.", "Oxford Parkway station is about two kilometres away, so if you return to a flat after a day in London, we can meet you at your car where it is safe to work. We also cover Jordan Hill Business Park, the Oxford North area and nearby Cutteslowe, Summertown and Yarnton. Punctures are repaired to BS AU 159 where possible, and we can remove locking wheel nuts or jump start a flat battery. No call-out charge."],
+    coverageHighlights: ["the A40 and A44 junction area", "the A34 Western By-pass Road", "Oxford Parkway station", "Jordan Hill Business Park", "Oxford North", "Cutteslowe and Summertown"],
+    localContext: "Around Wolvercote, drivers most often need us near the A40 and A44 junction, on the A34 Western By-pass, or at Oxford Parkway station.",
+    localFaqs: [{"question": "Can you come to Oxford Parkway station car park?", "answer": "Yes, provided the car is in a safe spot and parking rules allow it. Tell us where you are parked and the tyre size if you know it."}, {"question": "How quickly can you reach Wolvercote?", "answer": "We typically arrive in Wolvercote within 15-25 minutes."}],
   },
   {
     name: 'Cutteslowe',
@@ -770,7 +829,11 @@ export const locations: LocationArea[] = [
     postcode: 'OX2',
     responseTime: '15-25 minutes',
     lat: 51.7875,
-    lng: -1.2620
+    lng: -1.2620,
+    longDescription: ["Cutteslowe backs right onto the A40 Elsfield Way, which makes it easy for our van to get to you and easy for a damaged tyre to turn into a problem on the bypass. We come out from our Oxford base, roughly 5.5 miles away, to homes across Cutteslowe and to drivers who have stopped nearby.", "The Banbury Road (A4165) and Woodstock Road are both within about a mile, and Oxford Parkway station is around 2 km away if you come back to a soft tyre after a day in London. We also attend the Jordan Hill Business Park and the Oxford North development. Along with fitting new branded tyres, we repair punctures where it is safe to do so and can remove locking wheel nuts when the key has gone missing. Summertown, Wolvercote and North Oxford are covered too."],
+    coverageHighlights: ["the A40 Elsfield Way", "the A4165 Banbury Road", "Oxford Parkway station car park", "Jordan Hill Business Park", "Oxford North"],
+    localContext: "Around Cutteslowe, the A40 Elsfield Way and the Banbury Road are where a tyre is most likely to let you down on the move, and Oxford Parkway car park is a good place to call us if you return to a flat.",
+    localFaqs: [{"question": "Can you come to Oxford Parkway station car park?", "answer": "Yes. Oxford Parkway is about 2 km from Cutteslowe, and we can fit a tyre or repair a puncture in the car park so it is ready for your drive home."}, {"question": "How quickly can you reach Cutteslowe?", "answer": "We typically arrive in Cutteslowe within 15-25 minutes."}],
   },
   {
     name: 'Barton',
@@ -782,7 +845,11 @@ export const locations: LocationArea[] = [
     postcode: 'OX3',
     responseTime: '15-25 minutes',
     lat: 51.7758,
-    lng: -1.1990
+    lng: -1.1990,
+    longDescription: ["Barton and the newer Barton Park homes sit on the north-east edge of the city, about 4 miles from our base and a short hop from the A40 North Way. We aim to reach Barton in 15-25 minutes, day or night, and fit new branded tyres on your driveway, in a residents' car park or at the roadside.", "Parents near Barton Park Primary School or Bayards Hill Primary School can call us if a tyre goes flat on the school run, and we'll come to wherever you've stopped safely. We talk through the problem first, agree a price on the phone and then head over. Where a puncture is repairable we fix it to BS AU 159; otherwise we replace the tyre. If the battery is flat instead, we can provide a jump start. Risinghurst, Northway and Old Headington are covered on the same basis, with no call-out charge."],
+    coverageHighlights: ["the A40 North Way", "the A4142 Eastern By-pass Road", "the A420 London Road", "Barton Park", "school-run streets near Bayards Hill Primary School"],
+    localContext: "If you're on the A40 North Way or the Eastern By-pass when a tyre fails, leave at the next safe exit or lay-by if you can and call us from there.",
+    localFaqs: [{"question": "How long will it take you to reach Barton?", "answer": "We quote 15-25 minutes for Barton, which is about 4 miles from our base."}, {"question": "Do you cover the new homes at Barton Park?", "answer": "Yes. Give us the street name and we'll come to your driveway or parking space."}],
   },
   {
     name: 'Risinghurst',
@@ -794,7 +861,11 @@ export const locations: LocationArea[] = [
     postcode: 'OX3',
     responseTime: '15-25 minutes',
     lat: 51.7650,
-    lng: -1.1918
+    lng: -1.1918,
+    longDescription: ["Sitting beside the A40 London Road and the A4142 Eastern By-pass Road, Risinghurst is about three miles from our base and quick to reach. We bring everything with us, so whether you are at home, at work on the Shotover Trading Estate or stuck at the side of the A420, the tyre can be fitted where the car is.", "Our service covers new branded tyres fitted and balanced on site, puncture repairs to British Standard BS AU 159 when the damage is in a repairable area, and removal of locking wheel nuts when the key is missing. We are on call 24/7 for emergencies. Neighbouring Sandhills, Barton and Headington are all within our core Oxford area too. Ring 07362 638978, tell us where you are, and we will agree the price with you before setting off. There is no call-out charge."],
+    coverageHighlights: ["the A40 London Road", "the A4142 Eastern By-pass Road", "the A420 London Road", "Shotover Trading Estate", "the Aldi car park", "Sandhills and Barton"],
+    localContext: "Risinghurst call-outs tend to be at home, at the Shotover Trading Estate, or on the A40 and A420 London Road close to the Eastern By-pass junction.",
+    localFaqs: [{"question": "Can you fit a tyre at the Shotover Trading Estate?", "answer": "Yes. Give us the unit or car park, and we will fit the tyre there as long as the car is safe to work on."}, {"question": "How long will you take to reach Risinghurst?", "answer": "Our usual arrival time is 15-25 minutes."}],
   },
   {
     name: 'Sandhills',
@@ -806,7 +877,11 @@ export const locations: LocationArea[] = [
     postcode: 'OX3',
     responseTime: '15-25 minutes',
     lat: 51.7625,
-    lng: -1.1791
+    lng: -1.1791,
+    longDescription: ["Sandhills lies right on the A40 London Road on the eastern side of Oxford, about 3.2 miles north of our base. A puncture here can mean a car stuck on the drive or a car pulled over on a fast road. We handle both, bringing new branded tyres to you and fitting and balancing them where the car has stopped.", "The Eastern By-pass Road (A4142), the A420 London Road and the B4027 Wheatley Road are all within a couple of kilometres, and the Shotover Trading Estate is close by if you are at work when it happens. Because we run a 24/7 service, a late-night blowout on the A40 is covered as well. We also reach Risinghurst, Barton and Headington from here. Call 07362 638978 and we will agree a price before setting off."],
+    coverageHighlights: ["the A40 London Road", "the A4142 Eastern By-pass Road", "the B4027 Wheatley Road", "Shotover Trading Estate"],
+    localContext: "If a tyre fails on the A40 London Road near Sandhills, move to a safe spot well away from traffic before calling us; we can also come to the Shotover Trading Estate or to your home.",
+    localFaqs: [{"question": "Do you come out at night to the A40 near Sandhills?", "answer": "Yes. Our emergency tyre replacement runs 24/7, so we can come to you on the A40 London Road or nearby roads at any hour, once you are stopped somewhere safe."}, {"question": "How quickly can you reach Sandhills?", "answer": "We typically reach Sandhills within 15-25 minutes of your call."}],
   },
   {
     name: 'Kennington',
@@ -818,7 +893,11 @@ export const locations: LocationArea[] = [
     postcode: 'OX1',
     responseTime: '15-25 minutes',
     lat: 51.7168,
-    lng: -1.2441
+    lng: -1.2441,
+    longDescription: ["Kennington lies about 2 miles west of our base, tucked between the A34 and the A4144 Abingdon Road, and we quote 15-25 minutes to reach you. We can come to your home, your workplace or a safe stopping point near the A423 Southern By-pass.", "If you commute from Radley station, 3.5 km away, and come back to a flat, call us and we'll meet you at the car. Businesses on the Sandford Lane Industrial Estate are within easy reach too. We carry new branded tyres and balance them on site, repair punctures to BS AU 159 where the damage allows, and offer 24/7 emergency tyre replacement if you're stuck late at night. There's no call-out charge, and the price is agreed on the phone before we set off. Littlemore, Rose Hill and Iffley are covered as well."],
+    coverageHighlights: ["the A4144 Abingdon Road", "the A423 Southern By-pass Road", "the A34", "the A4074", "Sandford Lane Industrial Estate", "Radley station (3.5 km)"],
+    localContext: "Do not try to change a wheel on the A34; get to a safe exit or lay-by first, then call us with your location near Kennington.",
+    localFaqs: [{"question": "How quickly can you get to Kennington?", "answer": "Our quoted response time for Kennington is 15-25 minutes."}, {"question": "Can you come to me on Sandford Lane Industrial Estate?", "answer": "Yes. Tell us the unit or road and we'll fit or repair the tyre in your work car park if there's safe space."}],
   },
   {
     name: 'South Hinksey',
@@ -830,7 +909,11 @@ export const locations: LocationArea[] = [
     postcode: 'OX1',
     responseTime: '15-25 minutes',
     lat: 51.7350,
-    lng: -1.2660
+    lng: -1.2660,
+    longDescription: ["South Hinksey is small, but the A34 Southern By-pass Road runs only a couple of hundred metres away, and the A423 and the A4144 Abingdon Road are close by. If a tyre fails on any of these, or on the car outside your home, we can come straight to you at any time of day or night.", "Our van carries new branded tyres in common sizes, and we fit and balance them where you are. A nail or screw does not always mean a new tyre: we repair punctures to BS AU 159 if the damage is in a repairable part of the tread. Locking wheel nut removal and jump starts are also available. We cover North Hinksey, Osney, Iffley and Donnington from the same base, about three miles away, and there is no call-out charge."],
+    coverageHighlights: ["the A34 Southern By-pass Road", "the A423 Southern By-pass Road", "the A4144 Abingdon Road", "Oxford Garden Centre car park", "North Hinksey"],
+    localContext: "Help in South Hinksey is usually needed at home or at a safe stopping place near the A34 Southern By-pass and the A4144 Abingdon Road.",
+    localFaqs: [{"question": "I have a flat on the A34 near South Hinksey. What should I do?", "answer": "Pull over somewhere safe, away from live traffic if you can, then call 07362 638978 and tell us where you are. We will confirm whether we can work at that spot."}, {"question": "How quickly can you get to South Hinksey?", "answer": "We usually arrive within 15-25 minutes."}],
   },
   {
     name: 'North Hinksey',
@@ -842,7 +925,11 @@ export const locations: LocationArea[] = [
     postcode: 'OX2',
     responseTime: '15-25 minutes',
     lat: 51.7427,
-    lng: -1.2828
+    lng: -1.2828,
+    longDescription: ["The A34 Southern By-pass Road runs within a stone's throw of North Hinksey, so the village is never far from a busy trunk road even though its own lanes are quiet. If a tyre fails on the bypass or you find a flat on the drive, we can be with you from our Oxford base about 4 miles away.", "Botley Road (A420) and West Way (B4044) are both a short drive, and we can fit tyres in retail and business car parks such as Botley Road Retail Park, Littlemead Business Park and the Curtis Industrial Estate. Punctures are repaired to BS AU 159 if the damage is in a repairable area; if not, we fit a new branded tyre and balance it on the spot. We also cover Botley, Osney and South Hinksey nearby."],
+    coverageHighlights: ["the A34 Southern By-pass Road", "the A420 Botley Road", "Littlemead Business Park", "Botley Road Retail Park", "Curtis Industrial Estate"],
+    localContext: "Call us to your home in North Hinksey or to a safe stopping place near the A34 or Botley Road; on a trunk road, get the car to a safe place before you ring us.",
+    localFaqs: [{"question": "Can you help if I get a puncture on the A34 near North Hinksey?", "answer": "Yes, once the car is stopped somewhere safe away from live traffic. Tell us exactly where you are and we will come to you with the right tyre."}, {"question": "How quickly can you reach North Hinksey?", "answer": "We typically arrive in North Hinksey within 15-25 minutes."}],
   },
   {
     name: 'Florence Park',
@@ -854,7 +941,11 @@ export const locations: LocationArea[] = [
     postcode: 'OX4',
     responseTime: '15-25 minutes',
     lat: 51.7349,
-    lng: -1.2262
+    lng: -1.2262,
+    longDescription: ["Only 1.7 miles separate our base from Florence Park, and Church Cowley Road and Henley Avenue run right alongside it. When you call, we agree the price on the phone and aim to arrive within 15-25 minutes, with no call-out charge.", "Kerbside fitting suits the residential streets here: we fit and balance a new branded tyre outside your house, or repair the puncture to BS AU 159 if the damage is in the repairable area. If you discover the problem at Templars Square or the Templars Shopping Park, we can come to you there instead. Parents near St Frideswide Church of England Primary School or Larkrise Primary School can call us too. Need a locking wheel nut removed or a jump start? We do those as well. Rose Hill, Cowley and Temple Cowley are covered alongside Florence Park, around the clock."],
+    coverageHighlights: ["the B4495 Church Cowley Road", "the A4158 Henley Avenue", "the B480 Cowley Road", "Templars Shopping Park", "Templars Square"],
+    localContext: "Henley Avenue and Church Cowley Road are the main routes past Florence Park; if a tyre fails on either, pull into a side street and call us with the road name.",
+    localFaqs: [{"question": "How quickly can you reach Florence Park?", "answer": "We quote 15-25 minutes for Florence Park, which is about 1.7 miles from our base."}, {"question": "Can you remove a locking wheel nut if I've lost the key?", "answer": "Yes. We can remove the locking wheel nut so the tyre can be changed."}],
   },
   {
     name: 'Donnington',
@@ -866,7 +957,11 @@ export const locations: LocationArea[] = [
     postcode: 'OX4',
     responseTime: '15-25 minutes',
     lat: 51.7345,
-    lng: -1.2372
+    lng: -1.2372,
+    longDescription: ["Donnington is just two miles from our base, between the B4495 Donnington Bridge Road and the A4158 Henley Avenue. That short distance means we can usually be with you soon after you call, whether it is a planned tyre change on your driveway or an emergency.", "We fit new branded tyres and balance them on the spot, and we repair punctures to BS AU 159 where the damage is repairable. Locking wheel nuts without a key are no problem, and we can jump start a car with a flat battery. Iffley, Florence Park, Rose Hill and East Oxford are all neighbours we cover in the same way. If you are near the A4144 Abingdon Road or Newtec Place, we can come to you there. Call 07362 638978 for a price agreed before we travel, with no call-out charge."],
+    coverageHighlights: ["the B4495 Donnington Bridge Road", "the A4158 Henley Avenue", "the A4144 Abingdon Road", "Newtec Place", "Iffley and Florence Park"],
+    localContext: "Donnington drivers usually need us outside their home, along Donnington Bridge Road and Henley Avenue, or near the A4144 Abingdon Road.",
+    localFaqs: [{"question": "How quickly can you reach Donnington?", "answer": "Our usual arrival time in Donnington is 15-25 minutes."}, {"question": "Can you repair my puncture instead of replacing the tyre?", "answer": "If the damage is in a repairable area and the tyre is otherwise sound, we repair it to BS AU 159. If not, we will explain why and quote for a replacement before doing anything."}],
   },
   {
     name: 'Northway',
@@ -878,7 +973,11 @@ export const locations: LocationArea[] = [
     postcode: 'OX3',
     responseTime: '15-25 minutes',
     lat: 51.7742,
-    lng: -1.2177
+    lng: -1.2177,
+    longDescription: ["Tucked between the A40 Northern By-pass Road and Marsh Lane, Northway is about 4 miles north of our Oxford base and easy for our van to reach. We come to your home on the estate roads, fit a new branded tyre or repair a puncture where it is safe to do so, and leave you ready to drive.", "The B4150 Marsh Lane and Headley Way (B4495) lead towards Marston and Headington, while the A420 London Road and the Eastern By-pass Road are both within about 2 km. That makes us a practical option if you work at the John Radcliffe Hospital or you have a flat on the way to it. We also cover Marston, Old Headington and Barton next door, and can remove locking wheel nuts if the key is lost."],
+    coverageHighlights: ["the A40 Northern By-pass Road", "the B4150 Marsh Lane", "Headley Way (B4495)", "John Radcliffe Hospital area"],
+    localContext: "In Northway we can come to the estate roads at home, to Marsh Lane or Headley Way, or to the A40 Northern By-pass Road if you have stopped there safely.",
+    localFaqs: [{"question": "Can you come to me near the John Radcliffe Hospital?", "answer": "We can come to a car parked safely near the hospital, but hospital car parks have their own rules, so let us know exactly where the car is when you call and we will confirm we can work there."}, {"question": "How quickly can you reach Northway?", "answer": "We typically reach Northway within 15-25 minutes."}],
   },
   {
     name: 'Old Headington',
@@ -890,7 +989,11 @@ export const locations: LocationArea[] = [
     postcode: 'OX3',
     responseTime: '15-25 minutes',
     lat: 51.7660,
-    lng: -1.2130
+    lng: -1.2130,
+    longDescription: ["Old Headington's lanes are narrow, so when you call we'll ask exactly where the car is and plan how to approach before we set off. The village is about 3.4 miles north of our base, with the A40 Northern By-pass just 0.3 km away, and we aim to be with you in 15-25 minutes.", "We fit new branded tyres at your door and balance them on site, and we repair punctures to BS AU 159 where the damage sits in the repairable area. If you're parked on one of the roads around the John Radcliffe Hospital, we can come to you there as well. There's no call-out charge and the price is agreed before we travel. If it's the battery rather than a tyre, a jump start is also available. Headington, Marston and Barton are covered too, 24 hours a day."],
+    coverageHighlights: ["the A40 Northern By-pass Road", "the A420 London Road", "the B4495 Windmill Road", "roads around the John Radcliffe Hospital", "the B4150 Marston Road"],
+    localContext: "In Old Headington's narrow lanes, give us a landmark or house name and let us know if access is tight so we can work safely without blocking the road.",
+    localFaqs: [{"question": "Can you work in Old Headington's narrow lanes?", "answer": "Yes. Tell us exactly where you are and how much space there is, and we'll plan where to stop so the work can be done safely."}, {"question": "How long will you take to arrive?", "answer": "Our quoted response time for Old Headington is 15-25 minutes."}],
   },
   {
     name: 'East Oxford',
@@ -902,7 +1005,11 @@ export const locations: LocationArea[] = [
     postcode: 'OX4',
     responseTime: '15-25 minutes',
     lat: 51.7460,
-    lng: -1.2380
+    lng: -1.2380,
+    longDescription: ["For a car parked on a side street off the Cowley Road or the Iffley Road, a mobile fitter saves you driving on a flat to a garage. We are about two and a half miles away, and we do the work by the kerb where it is safe to do so.", "East Oxford is bordered by the A4158 Iffley Road, the B480 Cowley Road, the A420 St Clements Street and the B4150 Marston Road, and we cover all of it, along with Iffley, Donnington, Florence Park and Temple Cowley. We fit new branded tyres and balance them on site, repair punctures to BS AU 159 where the damage is repairable, and remove locking wheel nuts. Jump starts are available too, day or night. There is no call-out charge, and we agree the price with you on the phone before we travel."],
+    coverageHighlights: ["the B480 Cowley Road", "the A4158 Iffley Road", "the A420 St Clements Street", "the B4150 Marston Road", "Iffley and Temple Cowley"],
+    localContext: "In East Oxford we mostly work on residential side streets off the Cowley Road, Iffley Road and St Clements, where the car is parked at the kerb.",
+    localFaqs: [{"question": "Can you work on a car parked on a busy street?", "answer": "We will work at the kerbside where it is safe. If it is not, we will talk through a nearby spot with you on the phone before we arrive."}, {"question": "How long will you take to reach East Oxford?", "answer": "We usually arrive within 15-25 minutes."}],
   },
 
   // ==================== ABINGDON MICRO-AREAS ====================
@@ -916,7 +1023,11 @@ export const locations: LocationArea[] = [
     postcode: 'OX14',
     responseTime: '20-30 minutes',
     lat: 51.6557,
-    lng: -1.2868
+    lng: -1.2868,
+    longDescription: ["Drayton sits about 5.8 miles south-west of our Oxford base and just over a mile from Abingdon, with the B4017 Drayton Road heading north into town. When a tyre goes flat here, we drive out to the house, the roadside or your workplace and fit a replacement on the spot.", "The A415 at New Culham Bridge, the B4016 and the A34 are all within about 2 km, so a breakdown on the move is just as easy for us to reach. Businesses on the Drayton Road Industrial Estate can call us out for a single car or a van. We stock a range of branded tyres, repair punctures to BS AU 159 where possible and handle jump starts if a flat battery is the real problem. Steventon, Sutton Courtenay and Milton are covered nearby."],
+    coverageHighlights: ["the B4017 Drayton Road", "the B4016", "the A415 near New Culham Bridge", "Drayton Road Industrial Estate", "the A34"],
+    localContext: "Around Drayton, the B4017 into Abingdon, the B4016 and the nearby A34 are the roads to watch, and we can also come to the Drayton Road Industrial Estate if you are at work.",
+    localFaqs: [{"question": "How quickly can you reach Drayton?", "answer": "We typically arrive in Drayton within 20-30 minutes of your call."}, {"question": "Can you fit a tyre at the Drayton Road Industrial Estate?", "answer": "Yes, as long as the vehicle is parked safely with room to work. We can fit a new tyre or repair a puncture there while you carry on with your day."}],
   },
   {
     name: 'Sutton Courtenay',
@@ -928,7 +1039,11 @@ export const locations: LocationArea[] = [
     postcode: 'OX14',
     responseTime: '25-35 minutes',
     lat: 51.6394,
-    lng: -1.2581
+    lng: -1.2581,
+    longDescription: ["About 6 miles south-west of our Oxford base and 2.4 miles from Abingdon, Sutton Courtenay is reached via the A415 and the B4016 Appleford Road. We quote 25-35 minutes for a call-out here and agree the price on the phone before setting off, with no call-out charge.", "Appleford station is just over a kilometre away and Culham a little further, so if you come back to a flat at either we can meet you at the car. Parents at Sutton Courtenay C of E Primary School or Europa School UK can call us too. We fit and balance new branded tyres on site, carry out BS AU 159 puncture repairs where the damage allows, and offer jump starts when the battery has given up. Milton, Drayton and Culham are covered on the same terms, at any hour."],
+    coverageHighlights: ["the B4016 Appleford Road", "the A415 Abingdon Road", "Appleford station (1.1 km)", "Culham station (2.2 km)", "Sutton Courtenay C of E Primary School"],
+    localContext: "The B4016 Appleford Road is the main route in and out; if a tyre fails there, find a verge or gateway clear of traffic and call with the nearest landmark.",
+    localFaqs: [{"question": "How quickly can you reach Sutton Courtenay?", "answer": "We quote 25-35 minutes for Sutton Courtenay, about 6 miles from our base."}, {"question": "Can you meet me at Appleford or Culham station?", "answer": "Yes. Tell us which station and where the car is parked, and we'll fit or repair the tyre there."}],
   },
   {
     name: 'Culham',
@@ -940,7 +1055,11 @@ export const locations: LocationArea[] = [
     postcode: 'OX14',
     responseTime: '25-35 minutes',
     lat: 51.6556,
-    lng: -1.2279
+    lng: -1.2279,
+    longDescription: ["About four and a half miles south of our Oxford base, Culham is reached via the A415 Abingdon Road, with the B4015 Oxford Road not far off. Culham station is less than a kilometre from the village, and the Culham Campus is close by, so we are as likely to meet you in a car park as on your driveway.", "Wherever you are, we bring new branded tyres and fit and balance them on site. We repair punctures to British Standard BS AU 159 where the tyre allows, remove locking wheel nuts when the key is lost, and jump start cars with a flat battery. Our 24/7 emergency service covers Clifton Hampden, Sutton Courtenay, Radley and Long Wittenham as well. Call 07362 638978, and the price is agreed before we head out. No call-out charge."],
+    coverageHighlights: ["the A415 Abingdon Road", "Culham station", "Culham Campus", "the B4015 Oxford Road", "Clifton Hampden and Sutton Courtenay"],
+    localContext: "Around Culham, drivers usually need us at Culham Campus, at Culham station, at home in the village or along the A415 Abingdon Road.",
+    localFaqs: [{"question": "Can you come to me at Culham Campus?", "answer": "Yes, as long as the car is somewhere safe to work and site access allows it. Tell us which car park you are in when you call."}, {"question": "How quickly can you get to Culham?", "answer": "Our usual arrival time in Culham is 25-35 minutes."}],
   },
   {
     name: 'Radley',
@@ -952,7 +1071,11 @@ export const locations: LocationArea[] = [
     postcode: 'OX14',
     responseTime: '20-30 minutes',
     lat: 51.6873,
-    lng: -1.2435
+    lng: -1.2435,
+    longDescription: ["Commuters who use Radley station, just a few hundred metres from the village, sometimes return to the car to find a tyre down. That is exactly where a mobile fitter helps. We come out from our base, about 2.9 miles away, and fit or repair the tyre in place so you are not left changing a wheel in the dark.", "Radley's roads link up to the A4183 towards Abingdon and the A34 beyond it, both within a couple of kilometres. We also attend the Radley Road and Sandford Lane industrial estates, and homes throughout the village. Repairs are carried out to BS AU 159 when the damage is in the repairable zone; otherwise we fit and balance a new branded tyre. Kennington, Abingdon and Culham are close by and covered as well, with no call-out charge."],
+    coverageHighlights: ["Radley station car park", "the A4183 towards Abingdon", "Radley Road Industrial Estate", "Sandford Lane Industrial Estate", "the A34"],
+    localContext: "Radley drivers can call us to the station car park after a commute, to homes in the village, or to the A4183 and A34 if a tyre fails between Oxford and Abingdon.",
+    localFaqs: [{"question": "Can you fix my tyre in the Radley station car park?", "answer": "Yes. We can repair a puncture or fit a new tyre in the station car park, as long as there is safe room to work around the car."}, {"question": "How quickly can you reach Radley?", "answer": "We typically arrive in Radley within 20-30 minutes."}],
   },
   {
     name: 'Marcham',
@@ -964,7 +1087,11 @@ export const locations: LocationArea[] = [
     postcode: 'OX13',
     responseTime: '25-35 minutes',
     lat: 51.6632,
-    lng: -1.3302
+    lng: -1.3302,
+    longDescription: ["Marcham sits on the A415 Marcham Road, with the A34 just over a kilometre to the east. From our base it's about 7 miles, and we quote 25-35 minutes to reach you, with the price agreed over the phone before we set off.", "Abingdon Business Park and the Drayton Road Industrial Estate are close by, as are Fairacres Retail Park and the Tesco Extra, so we can come to you at work or while you shop as well as at home. If a tyre is beyond repair we fit a new branded one and balance it on the spot; if the puncture is repairable we fix it to BS AU 159. We can also remove a locking wheel nut if the key has gone missing. Steventon, Drayton and Abingdon are covered as well, 24/7, with no call-out charge."],
+    coverageHighlights: ["the A415 Marcham Road", "the A34", "Abingdon Business Park", "Drayton Road Industrial Estate", "Fairacres Retail Park", "the B4017 Drayton Road"],
+    localContext: "Drivers on the A415 through Marcham should pull off into a side road or car park before calling; on the A34, wait for the next exit or a lay-by.",
+    localFaqs: [{"question": "How quickly can you get to Marcham?", "answer": "Our quoted response time for Marcham is 25-35 minutes."}, {"question": "Can you come to Abingdon Business Park?", "answer": "Yes. Give us the building or unit and we'll fit or repair the tyre where you've parked, if there's safe space to work."}],
   },
   {
     name: 'Steventon',
@@ -976,7 +1103,11 @@ export const locations: LocationArea[] = [
     postcode: 'OX13',
     responseTime: '25-35 minutes',
     lat: 51.6384,
-    lng: -1.3203
+    lng: -1.3203,
+    longDescription: ["Steventon lies just off the A34, with the B4017 Steventon Road and the B4016 High Street running through and around it. From our base about seven and a half miles away, we come to you with new branded tyres and fit them at home, at work or at the roadside.", "Being so close to the A34 means a slow puncture can turn into a flat on the way to work. If that happens, find somewhere safe to stop and call us on 07362 638978. We repair punctures to BS AU 159 where the damage is in a repairable area, and otherwise fit and balance a new tyre on the spot. Locking wheel nut removal and jump starts are also on offer. We cover Milton, Marcham, Drayton and Sutton Courtenay too, with no call-out charge and a price agreed before we leave."],
+    coverageHighlights: ["the A34 near Steventon", "the B4017 Steventon Road", "the B4016 High Street", "the A4130", "Milton and Drayton"],
+    localContext: "In Steventon we tend to help drivers at home in the village, along the B4017 and B4016, or after a puncture on the nearby A34.",
+    localFaqs: [{"question": "How quickly can you reach Steventon?", "answer": "We usually reach Steventon in 25-35 minutes."}, {"question": "Do you cover the area around Milton as well?", "answer": "Yes. Milton, Drayton, Marcham and Sutton Courtenay are all covered by the same 24/7 service."}],
   },
   {
     name: 'Milton',
@@ -988,7 +1119,11 @@ export const locations: LocationArea[] = [
     postcode: 'OX14',
     responseTime: '25-35 minutes',
     lat: 51.6262,
-    lng: -1.2856
+    lng: -1.2856,
+    longDescription: ["Milton Park is one of the largest business parks in the region, and that makes Milton a place where cars sit in staff car parks all day. If you walk out to a flat tyre, we can come to the car rather than you calling a recovery truck. Our Oxford base is about 7.4 miles to the north-east, with the A34 bringing us down quickly.", "The A4130 is under a kilometre away, the A34 about 1.5 km, and the B4016 Drayton Road and B4017 High Street lead towards Drayton and Steventon. Beyond fitting new branded tyres, we repair punctures to British Standard BS AU 159 where possible, remove locking wheel nuts without the key and offer jump starts. Sutton Courtenay, Steventon and Didcot are covered from the same route, and the price is agreed on the phone first."],
+    coverageHighlights: ["Milton Park", "the A4130", "the A34", "the B4016 Drayton Road", "the Asda car park"],
+    localContext: "For Milton, the main places we are needed are the staff car parks at Milton Park, the A4130 and the A34 junction nearby; let us know your building or car park when you call.",
+    localFaqs: [{"question": "Can you come to my car at Milton Park while I am at work?", "answer": "Yes. Give us the building or car park and where the car is parked, and we can fit or repair the tyre while you work, provided we can access the vehicle safely."}, {"question": "How quickly can you reach Milton?", "answer": "We typically arrive in Milton within 25-35 minutes of your call."}],
   },
 
   // ==================== BANBURY MICRO-AREAS ====================
@@ -1002,7 +1137,11 @@ export const locations: LocationArea[] = [
     postcode: 'OX15',
     responseTime: '35-50 minutes',
     lat: 52.0477,
-    lng: -1.3307
+    lng: -1.3307,
+    longDescription: ["Bodicote borders Banbury on the A4260 Oxford Road, about a mile from the town and roughly 23.5 miles north of our Oxford base. Our response time here is 35-50 minutes, and the price is agreed by phone before we set off.", "The M40 is under 2 km away and Banbury station only 1.4 km, so whether you're coming off the motorway, back from the train or at work on the Swan or Tramway Industrial Estates, we can come to you. We fit new branded tyres on site and balance them, repair punctures to BS AU 159 where possible, and remove locking wheel nuts when the key has gone missing. There's no call-out charge, and the emergency service runs 24/7. Adderbury, Broughton and Bloxham are covered as well."],
+    coverageHighlights: ["the A4260 Oxford Road", "the B4100 Oxford Road", "the A361 Bloxham Road", "Banbury station (1.4 km)", "Swan Industrial Estate", "Tramway Industrial Estate"],
+    localContext: "If a tyre fails on the A4260 into Banbury or near the M40, leave the main carriageway at the first safe point and call us with the road name or junction.",
+    localFaqs: [{"question": "How quickly can you reach Bodicote?", "answer": "We quote 35-50 minutes for Bodicote, which is about 23.5 miles north of our Oxford base."}, {"question": "Can you come to me on the Tramway or Swan Industrial Estate?", "answer": "Yes. Tell us the unit and where the car is parked, and we'll fit or repair the tyre there."}],
   },
   {
     name: 'Adderbury',
@@ -1014,7 +1153,11 @@ export const locations: LocationArea[] = [
     postcode: 'OX17',
     responseTime: '35-50 minutes',
     lat: 52.0155,
-    lng: -1.3152
+    lng: -1.3152,
+    longDescription: ["Adderbury is around 21 miles north of our Oxford base, just south of Banbury on the A4260 Oxford Road, and we cover it as part of our north Oxfordshire service. With the B4100 Aynho Road nearby and the M40 a couple of kilometres away, it is well connected for us to reach.", "When you call, tell us the tyre size and where the car is, whether that is your home, Station Yard Industrial Estate or Banbury Business Park. We bring new branded tyres, fit and balance them on site, and take the old ones away. Punctures can often be repaired to BS AU 159, and we can remove a locking wheel nut if the key is missing. Kings Sutton, Bodicote, Deddington and Bloxham are covered too. There is no call-out charge, and the price is fixed on the phone first."],
+    coverageHighlights: ["the A4260 Oxford Road", "the B4100 Aynho Road", "Station Yard Industrial Estate", "Banbury Business Park", "King's Sutton station", "Bodicote and Bloxham"],
+    localContext: "Adderbury drivers usually need us at home, at the business estates near the village, or on the A4260 Oxford Road towards Banbury.",
+    localFaqs: [{"question": "How long does it take you to reach Adderbury?", "answer": "Our usual arrival time in Adderbury is 35-50 minutes, which we will confirm when you call."}, {"question": "Can you come to Banbury Business Park?", "answer": "Yes. Give us the unit or car park, and we will fit the tyre there if the car is in a safe spot."}],
   },
   {
     name: 'Bloxham',
@@ -1026,7 +1169,11 @@ export const locations: LocationArea[] = [
     postcode: 'OX15',
     responseTime: '35-50 minutes',
     lat: 52.0192,
-    lng: -1.3770
+    lng: -1.3770,
+    longDescription: ["About 22 miles north of our Oxford base and roughly 3.4 miles from Banbury, Bloxham is one of the further-flung villages we cover, but distance does not mean you pay a call-out charge. We agree the price by phone, then bring the right new branded tyre to you and fit and balance it on site.", "The A361 runs right through the village as the High Street, so a puncture is as likely on the main road as on a driveway. Businesses at the Bloxham Mill Business Centre can call us out too, and we can work in the school-run area around Bloxham School or Bloxham C of E Primary School once the car is safely parked off the road. Broughton, Adderbury and Bodicote are covered nearby. Call 07362 638978 for a price."],
+    coverageHighlights: ["the A361 High Street", "Bloxham Mill Business Centre", "Bloxham School", "Bloxham C of E Primary School"],
+    localContext: "In Bloxham, the A361 High Street is the main road where a tyre can let you down, and we can also come to the Bloxham Mill Business Centre or to your home.",
+    localFaqs: [{"question": "Do you charge extra to come out to Bloxham?", "answer": "No. There is no call-out charge. We give you the price over the phone before we travel, and that is what you pay."}, {"question": "How quickly can you reach Bloxham?", "answer": "We typically arrive in Bloxham within 35-50 minutes."}],
   },
   {
     name: 'Kings Sutton',
@@ -1038,7 +1185,11 @@ export const locations: LocationArea[] = [
     postcode: 'OX17',
     responseTime: '40-55 minutes',
     lat: 52.0230,
-    lng: -1.2824
+    lng: -1.2824,
+    longDescription: ["Kings Sutton sits near the Northamptonshire border, about 21 miles from our Oxford base and 3.7 miles from Banbury. The M40 passes under a kilometre from the village, with the B4100 Aynho Road and the A4260 both nearby, and we quote 40-55 minutes to reach you.", "King's Sutton station is right in the village, just 0.2 km away, so if you return from the train to a flat tyre we can meet you at the car. Banbury Business Park and the Station Yard Industrial Estate are also within reach. We carry new branded tyres, fit and balance them on the spot, and repair punctures to BS AU 159 when the damage is repairable. Locking wheel nut removal and jump starts are available too. Adderbury, Bodicote and Deddington are covered as well, with no call-out charge."],
+    coverageHighlights: ["King's Sutton station (0.2 km)", "the B4100 Aynho Road", "the A4260 Banbury Road", "the M40", "Banbury Business Park", "Station Yard Industrial Estate"],
+    localContext: "On the M40 near Kings Sutton, get to the next exit or a safe stopping place before calling; in the village, the station and the B4100 are easy reference points to give us.",
+    localFaqs: [{"question": "Can you come to King's Sutton station?", "answer": "Yes. Tell us where the car is parked and we'll fit or repair the tyre there."}, {"question": "How long will it take you to get to Kings Sutton?", "answer": "Our quoted response time for Kings Sutton is 40-55 minutes, and we agree the price on the phone before travelling."}],
   },
   {
     name: 'Deddington',
@@ -1050,7 +1201,11 @@ export const locations: LocationArea[] = [
     postcode: 'OX15',
     responseTime: '35-50 minutes',
     lat: 51.9814,
-    lng: -1.3220
+    lng: -1.3220,
+    longDescription: ["The A4260 runs straight through Deddington as its High Street, meeting the B4031 at the Market Place. We are about 19 miles south, and we come out to the village with new branded tyres ready to fit and balance.", "If your car is parked at home or a tyre goes flat on the A4260, call 07362 638978 and let us know where you are. We check every puncture against BS AU 159 and repair it when the damage is in a repairable area. If it is not, we fit a new tyre on site. We also deal with locking wheel nuts when the key has gone missing, and we can jump start a flat battery. Adderbury, Kings Sutton, Bloxham and Steeple Aston are covered too. There is no call-out charge, and the price is agreed before we set off."],
+    coverageHighlights: ["the A4260 High Street", "the B4031 Market Place", "Deddington Church of England Primary School area", "Adderbury and Steeple Aston"],
+    localContext: "In Deddington, help is most often needed at home in the village or on the A4260 as it passes through between Oxford and Banbury.",
+    localFaqs: [{"question": "How quickly can you get to Deddington?", "answer": "We usually reach Deddington in 35-50 minutes."}, {"question": "Do you charge extra to come out to Deddington?", "answer": "No. There is no call-out charge. We agree the full price with you by phone before we travel."}],
   },
   {
     name: 'Cropredy',
@@ -1062,7 +1217,11 @@ export const locations: LocationArea[] = [
     postcode: 'OX17',
     responseTime: '40-55 minutes',
     lat: 52.0943,
-    lng: -1.3491
+    lng: -1.3491,
+    longDescription: ["Cropredy is right at the northern end of our patch, about 26.8 miles from our Oxford base and a little over 2 miles from Banbury. If you are stuck with a flat, call us and we will quote a price on the phone, then drive up with a branded replacement and fit it at your door or wherever the car has stopped.", "The A423 Southam Road is under a kilometre away, the B4100 Warwick Road a little further, and the M40 is about 2 km from the village. On the Banbury side, we can meet you at the Cherwell Business Village, Hardwick Business Park, the Beaumont Industrial Estate or Banbury Cross Retail Park. Banbury station is around 4 km away. We also cover Bodicote and Broughton, and offer puncture repairs to BS AU 159 and locking wheel nut removal."],
+    coverageHighlights: ["the A423 Southam Road", "the B4100 Warwick Road", "Hardwick Business Park", "Beaumont Industrial Estate", "Banbury Cross Retail Park"],
+    localContext: "Around Cropredy, the A423 Southam Road and B4100 Warwick Road are the main routes to watch, and on the edge of Banbury we can come to Hardwick Business Park or Banbury Cross Retail Park.",
+    localFaqs: [{"question": "How quickly can you reach Cropredy?", "answer": "We typically arrive in Cropredy within 40-55 minutes of your call."}, {"question": "Can you come to me on the A423 near Cropredy?", "answer": "Yes, once you have pulled in somewhere safe off the carriageway. Give us your location and we will bring the right tyre."}],
   },
   {
     name: 'Broughton',
@@ -1074,7 +1233,11 @@ export const locations: LocationArea[] = [
     postcode: 'OX15',
     responseTime: '40-55 minutes',
     lat: 52.0497,
-    lng: -1.3826
+    lng: -1.3826,
+    longDescription: ["West of Banbury along the B4035, Broughton is about 24 miles from our Oxford base and 2 miles from the town. We quote 40-55 minutes for a call-out here and agree the price before we set off, so there are no surprises when we arrive.", "Families at Tudor Hall School or Bishop Carpenter CE Primary School, and people working at Vantage Business Park or the Colin Sanders Business Innovation Centre, can have a tyre fitted where the car is parked, as long as it's safe to work. New branded tyres are fitted and balanced on site, and repairable punctures are fixed to BS AU 159. If the battery is the problem rather than a tyre, we can jump start the car. Bloxham, Bodicote and Banbury are covered alongside Broughton, with no call-out charge and 24/7 emergency replacement."],
+    coverageHighlights: ["the B4035", "the A361", "Vantage Business Park", "the Colin Sanders Business Innovation Centre", "Tudor Hall School", "Banbury station (3.9 km)"],
+    localContext: "If a tyre fails on the B4035 near Broughton, pull into a gateway or lay-by clear of traffic and tell us the nearest landmark when you call.",
+    localFaqs: [{"question": "How quickly can you reach Broughton?", "answer": "We quote 40-55 minutes for Broughton, which is about 24 miles from our Oxford base."}, {"question": "Can you come to Vantage Business Park?", "answer": "Yes. Give us the unit and car park details and we'll come to the car."}],
   },
 
   // ==================== BICESTER MICRO-AREAS ====================
@@ -1088,7 +1251,11 @@ export const locations: LocationArea[] = [
     postcode: 'OX25',
     responseTime: '25-40 minutes',
     lat: 51.8881,
-    lng: -1.1165
+    lng: -1.1165,
+    longDescription: ["Just under two miles from Bicester, Ambrosden is close to the A41 Aylesbury Road, the A4421 Charbridge Lane and the B4011. We are about 12 miles away and cover the village every day of the year, including nights for emergencies.", "You might be at home, at work on Symmetry Park or the Telford Road Industrial Estate, or heading for Bicester Village station, which is a couple of kilometres away. Wherever the car is, we fit new branded tyres on site and balance them before you drive off. Punctures are repaired to BS AU 159 where possible, and we can remove locking wheel nuts and jump start flat batteries. Our service extends to Launton, Chesterton and Kingsmere. Ring 07362 638978 for a price agreed upfront, with no call-out charge."],
+    coverageHighlights: ["the A41 Aylesbury Road", "the A4421 Charbridge Lane", "Symmetry Park", "Telford Road Industrial Estate", "the Aldi car park", "Launton and Chesterton"],
+    localContext: "Ambrosden drivers usually need us at home, on the business sites at Symmetry Park and Telford Road, or on the A41 and A4421 around Bicester.",
+    localFaqs: [{"question": "How quickly can you reach Ambrosden?", "answer": "Our usual arrival time is 25-40 minutes."}, {"question": "Can you come to me at Symmetry Park?", "answer": "Yes, if the car is somewhere safe to work and the site allows it. Tell us the unit or car park when you call."}],
   },
   {
     name: 'Launton',
@@ -1100,7 +1267,11 @@ export const locations: LocationArea[] = [
     postcode: 'OX26',
     responseTime: '25-40 minutes',
     lat: 51.9028,
-    lng: -1.1124
+    lng: -1.1124,
+    longDescription: ["Just under 2 miles east of Bicester, Launton is about 13.3 miles north of our Oxford base. For a puncture on the drive or a tyre damaged on the way into town, we come straight to the car, fit a new branded tyre and balance it there, so there is no need to limp to a garage.", "The A4421 Bicester Road is about a kilometre from the village. Both Bicester North and Bicester Village stations are under 3 km away, so we can come to you in either station car park. We also cover the Telford Road Industrial Estate and Link 9 on the edge of town, and the Lidl and Aldi car parks. Ambrosden, Caversfield and Bicester itself are close by. There is no call-out charge."],
+    coverageHighlights: ["the A4421 Bicester Road", "Bicester North station car park", "Bicester Village station car park", "Telford Road Industrial Estate", "Bicester Motion"],
+    localContext: "From Launton, the A4421 is the main road into Bicester, and we can come to you there, at either Bicester station car park, or on the Telford Road Industrial Estate.",
+    localFaqs: [{"question": "How quickly can you reach Launton?", "answer": "We typically arrive in Launton within 25-40 minutes."}, {"question": "Can you meet me at Bicester North station?", "answer": "Yes. Bicester North is about 2.6 km from Launton, and we can fit or repair your tyre in the station car park as long as there is safe room to work."}],
   },
   {
     name: 'Chesterton',
@@ -1112,7 +1283,11 @@ export const locations: LocationArea[] = [
     postcode: 'OX26',
     responseTime: '25-40 minutes',
     lat: 51.8821,
-    lng: -1.1574
+    lng: -1.1574,
+    longDescription: ["Chesterton is just over a mile from Bicester and about 11 miles north of our Oxford base, with the A41 Oxford Road less than a kilometre away. We aim to reach you in 25-40 minutes and agree the price on the phone before we leave.", "Bicester Village station is 1.3 km away and Bicester Village Outlet Shopping is close by, so a flat discovered after shopping or a train trip doesn't have to mean waiting for a recovery truck. We fit new branded tyres and balance them on the spot, repair punctures to BS AU 159 where the damage is repairable, and remove locking wheel nuts. Where a car park doesn't allow work, we'll suggest a nearby safe spot. Kingsmere, Ambrosden and Caversfield are within the same coverage, with no call-out charge, 24/7."],
+    coverageHighlights: ["the A41 Oxford Road", "the B4030 Vendee Drive", "the A4421 Seelscheid Way", "Bicester Village station (1.3 km)", "Bicester North station (2.4 km)", "Catalyst Bicester"],
+    localContext: "The A41 and the A4421 around Bicester are the roads to watch; if a tyre fails there, leave at the next roundabout or lay-by and call us from somewhere safe.",
+    localFaqs: [{"question": "How quickly can you reach Chesterton?", "answer": "Our quoted response time for Chesterton is 25-40 minutes."}, {"question": "Can you meet me at Bicester Village station?", "answer": "Yes. Tell us where the car is parked and we'll fit or repair the tyre there if there's safe space to work, or arrange a nearby spot if not."}],
   },
   {
     name: 'Caversfield',
@@ -1124,7 +1299,11 @@ export const locations: LocationArea[] = [
     postcode: 'OX27',
     responseTime: '25-40 minutes',
     lat: 51.9141,
-    lng: -1.1457
+    lng: -1.1457,
+    longDescription: ["Caversfield sits on the northern edge of Bicester where the A4095 Southwold Lane and the A4421 Skimmingdish Lane meet, with the B4100 Banbury Road nearby. Bicester North station is only a little over a kilometre away, and Bicester Motion is right on the doorstep.", "We drive up from Oxford, about 14 miles, and fit new branded tyres wherever you are: your driveway, the Elmsbrook Local Centre, a station car park or the roadside. Tyres are balanced on site. If a puncture is in a repairable area, we repair it to BS AU 159 instead. We also remove locking wheel nuts and jump start cars with flat batteries. Bicester, Launton, Kingsmere and Ambrosden are covered in the same way. No call-out charge, and the price is agreed on the phone before we travel."],
+    coverageHighlights: ["the A4421 Skimmingdish Lane", "the A4095 Southwold Lane", "the B4100 Banbury Road", "Bicester North station", "Bicester Motion", "Elmsbrook Local Centre"],
+    localContext: "In Caversfield we mostly help drivers at home, at Bicester North station, at Bicester Motion or on the A4421 and A4095.",
+    localFaqs: [{"question": "Can you meet me at Bicester North station?", "answer": "Yes, where the car is parked safely and the car park rules allow it. Tell us your location in the car park when you call."}, {"question": "How quickly can you reach Caversfield?", "answer": "We usually reach Caversfield within 25-40 minutes."}],
   },
   {
     name: 'Steeple Aston',
@@ -1136,7 +1315,11 @@ export const locations: LocationArea[] = [
     postcode: 'OX25',
     responseTime: '30-45 minutes',
     lat: 51.9348,
-    lng: -1.2658
+    lng: -1.2658,
+    longDescription: ["Steeple Aston is a rural village about 15.2 miles north of our Oxford base and 5.3 miles from Bicester. Away from the towns, a flat tyre can feel like a bigger problem, but we come to you, whether that is outside your home or pulled over in a lay-by on the way out.", "The B4030 Lower Heyford Road is about 2 km away, and Heyford station is just under 3 km. We carry a range of new branded tyres and fit and balance them where the car is parked, or repair a puncture to BS AU 159 if the damage allows. A flat battery is covered too, with a jump start. Fritwell, Deddington and Middle Barton are all within our reach from the same journey, and we agree the price before setting off."],
+    coverageHighlights: ["the B4030 Lower Heyford Road", "Heyford station", "the route towards Fritwell", "village lanes and driveways"],
+    localContext: "In and around Steeple Aston we can come to the car at home or on the B4030 Lower Heyford Road; give us clear directions, as rural addresses can be hard to pinpoint.",
+    localFaqs: [{"question": "How quickly can you reach Steeple Aston?", "answer": "We typically arrive in Steeple Aston within 30-45 minutes of your call."}, {"question": "Can you help if my battery is flat as well as my tyre?", "answer": "Yes. We offer jump starts as well as tyre fitting and puncture repair, so let us know both problems when you call."}],
   },
   {
     name: 'Fritwell',
@@ -1148,7 +1331,11 @@ export const locations: LocationArea[] = [
     postcode: 'OX27',
     responseTime: '30-45 minutes',
     lat: 51.9509,
-    lng: -1.2195
+    lng: -1.2195,
+    longDescription: ["Fritwell is a rural village about 16 miles north of our base, near where the M40, the A43 and the B430 meet. We quote 30-45 minutes for a call-out, agree the price on the phone first, and don't add a call-out charge.", "If you're stuck on the B4100 or the B430, or at work on the Baynards Green Trading Estate, we'll bring a new branded tyre and fit and balance it on the spot. Parents at Fritwell Church of England Primary School can call us too. Punctures in the repairable area are fixed to BS AU 159, and we can jump start a car that won't turn over. There's no station nearby, so having the car back on the road quickly matters; the emergency service runs 24 hours a day. Steeple Aston, Caversfield and Bicester are covered as well."],
+    coverageHighlights: ["the B430", "the B4100", "the A43", "the M40", "Baynards Green Trading Estate", "Fritwell Church of England Primary School"],
+    localContext: "On the M40 or A43 near Fritwell, wait for the next exit or a safe lay-by before calling; on the B430 and B4100, a gateway clear of traffic is fine.",
+    localFaqs: [{"question": "How quickly can you reach Fritwell?", "answer": "We quote 30-45 minutes for Fritwell, about 16 miles north of our base."}, {"question": "Can you come to Baynards Green Trading Estate?", "answer": "Yes. Tell us the unit and where the car is parked and we'll come to you."}],
   },
   {
     name: 'Bicester Village',
@@ -1160,7 +1347,11 @@ export const locations: LocationArea[] = [
     postcode: 'OX26',
     responseTime: '25-40 minutes',
     lat: 51.8938,
-    lng: -1.1530
+    lng: -1.1530,
+    longDescription: ["Bicester Village station is a few hundred metres from the outlet centre, and the A41, the B4100 Manorsfield Road and the A4421 Neunkirchen Way all run close by. If you return to your car to find a flat tyre, call us rather than struggling with a space-saver.", "We travel about 12 miles from our Oxford base and fit new branded tyres where the car is parked, as long as the spot is safe and the car park operator allows the work. Every tyre is balanced on site. Punctures are repaired to BS AU 159 when the damage is repairable, and we can remove locking wheel nuts or jump start a dead battery. Our coverage includes the rest of Bicester, Kingsmere, Chesterton and Caversfield. There is no call-out charge, and the price is agreed on the phone before we set off."],
+    coverageHighlights: ["Bicester Village outlet car parks", "Bicester Village station", "the A41", "the B4100 Manorsfield Road", "Talisman Business Centre", "Kingsmere and Chesterton"],
+    localContext: "Around Bicester Village, drivers typically need us in the outlet and station car parks, at home in Kingsmere or Chesterton, or near the A41.",
+    localFaqs: [{"question": "Can you fit a tyre in the Bicester Village car park?", "answer": "We can, provided the car is in a safe space and the car park operator permits the work. Tell us which car park and roughly where you are when you call."}, {"question": "How quickly can you reach Bicester Village?", "answer": "Our usual arrival time is 25-40 minutes."}],
   },
   {
     name: 'Kingsmere',
@@ -1172,7 +1363,11 @@ export const locations: LocationArea[] = [
     postcode: 'OX26',
     responseTime: '25-40 minutes',
     lat: 51.8907,
-    lng: -1.1672
+    lng: -1.1672,
+    longDescription: ["Less than a mile from Bicester town centre, Kingsmere sits right beside the A41 Oxford Road, which puts it about 12 miles north of our Oxford base. For a tyre that has gone flat on the drive, we come to the house with a new branded tyre and fit and balance it there.", "The B4030 and A4095 Vendee Drive, the B4100 Manorsfield Road and the A4421 Neunkirchen Way are all within 2 km. Shoppers at Bicester Shopping Park or Bicester Village can call us to the car park, and Bicester Village station is about 1.2 km away. We repair punctures to BS AU 159 where it is safe to do so, and can remove locking wheel nuts without the key. Chesterton and Bicester town are covered on the same route."],
+    coverageHighlights: ["the A41 Oxford Road", "Vendee Drive (B4030/A4095)", "Bicester Shopping Park", "Bicester Village station", "Bicester Village Outlet Shopping"],
+    localContext: "Kingsmere drivers can call us to home, to the A41 Oxford Road or Vendee Drive, or to the Bicester Shopping Park and Bicester Village car parks.",
+    localFaqs: [{"question": "Can you come to me at Bicester Shopping Park?", "answer": "Yes. As long as there is safe space around the car, we can fit a tyre or repair a puncture in the Bicester Shopping Park car park."}, {"question": "How quickly can you reach Kingsmere?", "answer": "We typically reach Kingsmere within 25-40 minutes."}],
   },
 
   // ==================== WITNEY MICRO-AREAS ====================
@@ -1186,7 +1381,11 @@ export const locations: LocationArea[] = [
     postcode: 'OX29',
     responseTime: '25-40 minutes',
     lat: 51.7738,
-    lng: -1.4834
+    lng: -1.4834,
+    longDescription: ["Just under a mile from Witney and around 13 miles west of our Oxford base, Ducklington sits beside the A40, with the A4095 Ducklington Lane and the A415 close by. We quote 25-40 minutes for a call-out here.", "Several of Witney's industrial estates are within 3 km of the village, including Parkside, Wessex, Station Lane and Two Rivers, so we can fit a tyre in your work car park as well as at home. Sainsbury's and Lidl are nearby too. We carry new branded tyres and balance them on site, repair punctures to BS AU 159 where possible, and remove locking wheel nuts when the key is missing. There's no call-out charge, and we agree the price before travelling. Witney, Cogges and Standlake are covered on the same terms."],
+    coverageHighlights: ["the A40", "the A4095 Ducklington Lane", "the A415", "Parkside Industrial Estate", "Two Rivers Industrial Estate", "Station Lane Industrial Estate"],
+    localContext: "If a tyre fails on the A40 near Ducklington, leave at the next junction or lay-by; on Ducklington Lane, a side road or nearby car park is the safest place to wait.",
+    localFaqs: [{"question": "Can you come to me on Station Lane or Two Rivers Industrial Estate?", "answer": "Yes. Give us the unit and car park and we'll fit or repair the tyre there."}, {"question": "How long will it take you to reach Ducklington?", "answer": "Our quoted response time for Ducklington is 25-40 minutes."}],
   },
   {
     name: 'Minster Lovell',
@@ -1198,7 +1397,11 @@ export const locations: LocationArea[] = [
     postcode: 'OX29',
     responseTime: '25-40 minutes',
     lat: 51.7979,
-    lng: -1.5283
+    lng: -1.5283,
+    longDescription: ["On the B4047 Burford Road, about two miles west of Witney, Minster Lovell is roughly 15 miles from our Oxford base. The A40 is around two kilometres away, so whether you are at home or have stopped on the main road, we can reach you.", "If you work on the Windrush Industrial Estate or the Crawley Mill Industrial Estate, we can fit tyres there while you carry on with your day. We bring new branded tyres and balance them on site, and if the tyre has picked up a nail in a repairable area we repair it to BS AU 159. Locking wheel nut removal is available too. We also cover Swinbrook, Asthall and Ducklington. Call 07362 638978 and we will agree the price before travelling. There is never a call-out charge."],
+    coverageHighlights: ["the B4047 Burford Road", "the A40 near Minster Lovell", "Windrush Industrial Estate", "Crawley Mill Industrial Estate", "Swinbrook and Asthall"],
+    localContext: "Minster Lovell call-outs are usually at home, on the B4047 Burford Road, or on the industrial estates on the Witney side.",
+    localFaqs: [{"question": "How quickly can you reach Minster Lovell?", "answer": "We usually arrive in Minster Lovell within 25-40 minutes."}, {"question": "Can you fit a tyre at the Windrush Industrial Estate?", "answer": "Yes. Tell us the unit or car park, and we will work there as long as the car is in a safe place."}],
   },
   {
     name: 'Cogges',
@@ -1210,7 +1413,11 @@ export const locations: LocationArea[] = [
     postcode: 'OX29',
     responseTime: '25-40 minutes',
     lat: 51.7879,
-    lng: -1.4696
+    lng: -1.4696,
+    longDescription: ["On the eastern side of Witney, Cogges is about 12.6 miles north-west of our Oxford base, with the A40 about a kilometre away. When you find a flat or a bulge in a sidewall, we drive out to you and swap the tyre where the car is parked, with no call-out charge added.", "The B4022 and A4095 Oxford Hill run close to the estates, with the B4047 Woodstock Road a short distance away. We can also come to the Station Lane Industrial Estate or the Waitrose and Sainsbury's car parks in Witney. Every new tyre we fit is a branded tyre, balanced on site, and we repair punctures to BS AU 159 where the damage allows. Witney town, Ducklington and North Leigh are covered too."],
+    coverageHighlights: ["the B4022 Oxford Hill", "the A4095 Oxford Hill", "the A40", "Station Lane Industrial Estate", "the B4047 Woodstock Road"],
+    localContext: "In Cogges, Oxford Hill and the A40 junction are the main roads where drivers get caught out, and we can also meet you at the Station Lane Industrial Estate or a Witney supermarket car park.",
+    localFaqs: [{"question": "How quickly can you reach Cogges?", "answer": "We typically arrive in Cogges within 25-40 minutes of your call."}, {"question": "Can you come to Station Lane Industrial Estate?", "answer": "Yes. If your car is parked safely at the Station Lane Industrial Estate, we can fit or repair the tyre while you are at work."}],
   },
   {
     name: 'Standlake',
@@ -1222,7 +1429,11 @@ export const locations: LocationArea[] = [
     postcode: 'OX29',
     responseTime: '30-45 minutes',
     lat: 51.7510,
-    lng: -1.4458
+    lng: -1.4458,
+    longDescription: ["Standlake lies about 11 miles west of our base and 3 miles south of Witney, with the A415 Standlake Road and the B4449 both running close to the village. Our quoted response time is 30-45 minutes, and the price is agreed on the phone before we travel.", "There's no railway station nearby, so if a tyre fails on the A415 or the B4449 we come to you rather than you having to reach a garage. Lakeside Industrial Estate is within reach, as is Cokethorpe School for parents on the school run. New branded tyres are fitted and balanced at the roadside or on your driveway, and repairable punctures are fixed to BS AU 159. If the car won't start, a jump start is available too. Ducklington, Cogges and Eynsham are covered as well, and there's no call-out charge."],
+    coverageHighlights: ["the A415 Standlake Road", "the B4449", "Lakeside Industrial Estate", "Cokethorpe School"],
+    localContext: "On the A415 and B4449 around Standlake, look for a lay-by or wide verge before stopping, then call us with the nearest landmark.",
+    localFaqs: [{"question": "How quickly can you reach Standlake?", "answer": "We quote 30-45 minutes for Standlake, about 11 miles west of our base."}, {"question": "Can you fix a puncture rather than replace the tyre?", "answer": "If the damage is repairable we fix it to BS AU 159. If not, we'll fit a new branded tyre and balance it on site."}],
   },
   {
     name: 'Eynsham',
@@ -1234,7 +1445,11 @@ export const locations: LocationArea[] = [
     postcode: 'OX29',
     responseTime: '20-35 minutes',
     lat: 51.7826,
-    lng: -1.3770
+    lng: -1.3770,
+    longDescription: ["We cover Eynsham from our Oxford base, around nine miles away along the A40. The A40 passes about half a kilometre from the village, with the B4449 and the B4044 Oxford Road close by, so there are several routes for us to reach you.", "Local workplaces include the Oasis Business Park, Horizon Technology Park and the Oakfields Industrial Estate, and we can fit a tyre there or outside your home. New branded tyres are supplied, fitted and balanced on site. We repair punctures to BS AU 159 when the damage is repairable, and we can remove locking wheel nuts or jump start a flat battery. If you have stopped on the A40 with a flat, pull in safely and call 07362 638978. We also serve Cassington, Long Hanborough and Freeland. No call-out charge, and the price is agreed first."],
+    coverageHighlights: ["the A40 near Eynsham", "the B4449", "the B4044 Oxford Road", "Oasis Business Park", "Oakfields Industrial Estate", "Horizon Technology Park"],
+    localContext: "In Eynsham, drivers usually need us on the A40, at the business parks on the edge of the village, or at home.",
+    localFaqs: [{"question": "How long will it take you to reach Eynsham?", "answer": "Our usual arrival time in Eynsham is 20-35 minutes."}, {"question": "Can you come to the Oasis Business Park?", "answer": "Yes, provided the car is somewhere safe to work and the site allows it."}],
   },
   {
     name: 'Long Hanborough',
@@ -1246,7 +1461,11 @@ export const locations: LocationArea[] = [
     postcode: 'OX29',
     responseTime: '25-40 minutes',
     lat: 51.8133,
-    lng: -1.3794
+    lng: -1.3794,
+    longDescription: ["With Hanborough station on the Cotswold Line only about 1.4 km away, Long Hanborough has plenty of drivers who leave their car parked all day. If you come back to a flat, or find one on the drive in the morning, we can be with you from our Oxford base about 10 miles away.", "The A4095 Main Road links the village towards Witney and Woodstock, and the Hanborough Business Park is close by for anyone at work. We fit and balance new branded tyres on site, carry out puncture repairs to BS AU 159 when the tyre is repairable, and offer a 24/7 emergency service for when it happens at an awkward time. Freeland, Bladon and Eynsham are nearby and covered. Ring 07362 638978 for a price before we travel."],
+    coverageHighlights: ["Hanborough station car park", "the A4095 Main Road", "Hanborough Business Park", "Combe station"],
+    localContext: "Around Long Hanborough we can come to the Hanborough station car park, the Hanborough Business Park, or the A4095 Main Road if a tyre fails while you are driving.",
+    localFaqs: [{"question": "Can you fit a tyre at Hanborough station?", "answer": "Yes. We can work in the station car park as long as the car is parked with safe room around it."}, {"question": "How quickly can you reach Long Hanborough?", "answer": "We typically reach Long Hanborough within 25-40 minutes."}],
   },
   {
     name: 'Freeland',
@@ -1258,7 +1477,11 @@ export const locations: LocationArea[] = [
     postcode: 'OX29',
     responseTime: '25-40 minutes',
     lat: 51.8123,
-    lng: -1.4141
+    lng: -1.4141,
+    longDescription: ["On the A4095 between Witney and Woodstock, Freeland is about 11 miles north-west of our Oxford base. We aim to reach you within 25-40 minutes and fit new branded tyres right where the car is parked, with the price agreed by phone first.", "Combe and Hanborough stations are both within 3.5 km, so if you drive to the train and return to a flat we can meet you at the car. Northleigh Business Park and the Wroslyn Road Industrial Estate are close by as well. Where the damage is repairable, we fix punctures to BS AU 159 rather than replacing the tyre, and every new tyre is balanced on site. Locking wheel nut removal and jump starts are part of the service too. North Leigh, Long Hanborough and Stonesfield are covered on the same terms, with no call-out charge."],
+    coverageHighlights: ["the A4095", "Hanborough station (3.2 km)", "Combe station (2.6 km)", "Northleigh Business Park", "Wroslyn Road Industrial Estate", "Freeland CE Primary School"],
+    localContext: "If a tyre goes on the A4095 near Freeland, pull into a lay-by or side road and call us with the nearest junction.",
+    localFaqs: [{"question": "How quickly can you reach Freeland?", "answer": "Our quoted response time for Freeland is 25-40 minutes."}, {"question": "Can you come to Hanborough station?", "answer": "Yes. Tell us where the car is parked and we'll fit or repair the tyre there."}],
   },
   {
     name: 'North Leigh',
@@ -1270,7 +1493,11 @@ export const locations: LocationArea[] = [
     postcode: 'OX29',
     responseTime: '25-40 minutes',
     lat: 51.8148,
-    lng: -1.4442
+    lng: -1.4442,
+    longDescription: ["North Leigh is reached via the A4095 Woodstock Road, which runs less than a kilometre from the village, and the B4047 further south. We are about twelve and a half miles from here, and we come out to homes, workplaces and roadside stops across the area.", "Local business sites include the Northleigh Business Park and the New Yatt Business Centre, and we can fit a tyre in the car park while you work. We carry new branded tyres and balance them on site. For punctures, we check whether the damage can be repaired to BS AU 159 before suggesting a replacement. Lost locking wheel nut keys and flat batteries are covered too. Freeland, Stonesfield, Finstock and Witney are all within the same service. Call 07362 638978 for a price agreed before we travel. No call-out charge."],
+    coverageHighlights: ["the A4095 Woodstock Road", "the B4047 Woodstock Road", "Northleigh Business Park", "New Yatt Business Centre", "Freeland and Stonesfield"],
+    localContext: "North Leigh drivers usually need us at home in the village, at the business parks, or on the A4095 between Witney and Woodstock.",
+    localFaqs: [{"question": "How quickly can you reach North Leigh?", "answer": "We usually reach North Leigh in 25-40 minutes."}, {"question": "Can you fit tyres at Northleigh Business Park?", "answer": "Yes, as long as the car is parked somewhere safe and the site allows it."}],
   },
   {
     name: 'Cassington',
@@ -1282,7 +1509,11 @@ export const locations: LocationArea[] = [
     postcode: 'OX29',
     responseTime: '20-30 minutes',
     lat: 51.7924,
-    lng: -1.3391
+    lng: -1.3391,
+    longDescription: ["Cassington sits just off the A40, about 7.9 miles north-west of our Oxford base, so we can reach both the village and the main road quickly. Whether it is a slow puncture on the drive or a tyre that has failed on the dual carriageway, we come to the car and sort it out on the spot.", "The A40 is only about 300 metres from the village, with the B4449 and the B4044 Oxford Road towards Eynsham a little further out. Oxford Parkway and Hanborough stations are both within 5 km. We fit new branded tyres, repair punctures to BS AU 159 where possible and can get you going again with a jump start if the battery has died too. Yarnton, Eynsham and Begbroke are covered nearby, with no call-out charge."],
+    coverageHighlights: ["the A40", "the B4449", "the B4044 Oxford Road", "Worton Park"],
+    localContext: "From Cassington, the A40 is the road where a tyre failure is most disruptive; stop somewhere safe off the carriageway before calling, and we will come to you there or at home.",
+    localFaqs: [{"question": "How quickly can you reach Cassington?", "answer": "We typically arrive in Cassington within 20-30 minutes of your call."}, {"question": "Can you help if I have a puncture on the A40 near Cassington?", "answer": "Yes, once you have stopped safely away from live traffic. Tell us where you are and which direction you were travelling."}],
   },
   {
     name: 'Carterton',
@@ -1294,7 +1525,11 @@ export const locations: LocationArea[] = [
     postcode: 'OX18',
     responseTime: '30-45 minutes',
     lat: 51.7602,
-    lng: -1.5935
+    lng: -1.5935,
+    longDescription: ["Carterton is about 17 miles west of our Oxford base, reached via the B4477 Upavon Way and the B4020 Burford Road. We quote 30-45 minutes for a call-out and agree the price over the phone before travelling, with no call-out charge.", "Whether your car is at home, at the West Oxon Industrial Park, Carterton South Industrial Estate or Viscount Industrial Estate, or in the Asda, Morrisons or Aldi car park, we can fit a new branded tyre on the spot and balance it. Repairable punctures are fixed to BS AU 159, and we offer jump starts and locking wheel nut removal too. Our 24/7 emergency service means a late-night flat doesn't have to wait until morning. Asthall, Minster Lovell and Burford are covered as well."],
+    coverageHighlights: ["the B4477 Upavon Way", "the B4020 Burford Road", "West Oxon Industrial Park", "Carterton South Industrial Estate", "Viscount Industrial Estate", "Asda, Morrisons and Aldi car parks"],
+    localContext: "The B4477 and B4020 are the main routes into Carterton; if a tyre fails on either, a side road or one of the supermarket car parks is a safe place to wait for us.",
+    localFaqs: [{"question": "Can you come to West Oxon Industrial Park?", "answer": "Yes. Give us the unit and where the car is parked, and we'll fit or repair the tyre there."}, {"question": "How quickly can you reach Carterton?", "answer": "We quote 30-45 minutes for Carterton, which is about 17 miles from our base."}],
   },
 
   // ==================== DIDCOT MICRO-AREAS ====================
@@ -1308,7 +1543,11 @@ export const locations: LocationArea[] = [
     postcode: 'OX11',
     responseTime: '25-40 minutes',
     lat: 51.5927,
-    lng: -1.2798
+    lng: -1.2798,
+    longDescription: ["Harwell village sits on the A417 London Road beside the B4493 Harwell Link Road, with the A34 about a mile and a half away. We are roughly nine miles north, and we bring new branded tyres to your home, workplace or a safe roadside stop.", "If you are travelling from Didcot Parkway, which is a little over three kilometres away, or picking up from UTC Oxfordshire or Aureus School, tell us where the car is and we will come to you. We fit and balance tyres on site, repair punctures to BS AU 159 where the damage allows, and remove locking wheel nuts when the key is lost. We can also jump start a flat battery. Rowstock, Chilton, Didcot and Harwell Campus are covered too. There is no call-out charge, and the price is agreed by phone first."],
+    coverageHighlights: ["the A417 London Road", "the B4493 Harwell Link Road", "the A34 near Harwell", "the A4185 Newbury Road", "Didcot Parkway station", "the Asda car park"],
+    localContext: "In Harwell, help is usually needed at home in the village, on the A417 and B4493 towards Didcot, or after a puncture on the nearby A34.",
+    localFaqs: [{"question": "How quickly can you get to Harwell?", "answer": "Our usual arrival time in Harwell is 25-40 minutes."}, {"question": "Do you also cover Harwell Campus?", "answer": "Yes. Harwell Campus, Chilton and Rowstock are all covered by the same service."}],
   },
   {
     name: 'East Hagbourne',
@@ -1320,19 +1559,27 @@ export const locations: LocationArea[] = [
     postcode: 'OX11',
     responseTime: '25-40 minutes',
     lat: 51.5960,
-    lng: -1.2250
+    lng: -1.2250,
+    longDescription: ["Only about a mile from Didcot, East Hagbourne is roughly 8.5 miles south of our Oxford base. If a tyre lets you down in the village, we drive out to you and fit a branded replacement, balanced on the spot, so you can avoid a trip to a tyre garage.", "The B4016 New Road is under a kilometre away, the A4130 Hadden Hill just over, and the B4493 Wantage Road a little further. Didcot Parkway station is about 2 km away, and we can come to you in the station car park or at the Orchard Centre in Didcot. Punctures are repaired to BS AU 159 if the damage is in the repairable zone. We also cover Blewbury, Harwell and Didcot itself."],
+    coverageHighlights: ["the B4016 New Road", "the A4130 Hadden Hill", "Didcot Parkway station car park", "the Orchard Centre, Didcot"],
+    localContext: "For East Hagbourne drivers, the B4016 New Road and the A4130 into Didcot are the main routes, and Didcot Parkway car park is a good place to call us from if you return to a flat.",
+    localFaqs: [{"question": "Can you come to Didcot Parkway station car park?", "answer": "Yes. It is about 2 km from East Hagbourne, and we can fit or repair a tyre there as long as there is safe room to work."}, {"question": "How quickly can you reach East Hagbourne?", "answer": "We typically reach East Hagbourne within 25-40 minutes."}],
   },
   {
     name: 'Blewbury',
     slug: 'blewbury',
     hub: 'Didcot',
     isHub: false,
-    description: 'Blewbury is a beautiful downland village beneath the Berkshire Downs, with thatched cottages, cob walls, and watercress beds. The narrow lanes through the village and the A417 link to Didcot can be tricky. We reach Blewbury from Didcot in about 10 minutes.',
+    description: 'Blewbury is a beautiful downland village beneath the Berkshire Downs, with thatched cottages, cob walls, and watercress beds. The narrow lanes through the village and the A417 link to Didcot can be tricky. Blewbury is a short run from Didcot, so help is never far away.',
     nearbyAreas: ['Didcot', 'East Hagbourne', 'Harwell', 'Chilton', 'Wallingford'],
     postcode: 'OX11',
     responseTime: '30-45 minutes',
     lat: 51.5730,
-    lng: -1.2293
+    lng: -1.2293,
+    longDescription: ["Below the Berkshire Downs, Blewbury is about 10 miles south of our base and 2.4 miles from Didcot, with the B4016 Bessels Way and the A417 running past. We quote 30-45 minutes for a call-out and agree the price on the phone first.", "Didcot Parkway is just over 4 km away, so if you drive to the station and come back to a flat tyre we can meet you there. At home in the village, we fit and balance a new branded tyre outside your house, or repair the puncture to BS AU 159 if it's repairable. Many lanes here are narrow, so tell us how much room there is and we'll plan where to stop. Locking wheel nut removal is also available. East Hagbourne, Harwell and Didcot are all covered, with no call-out charge."],
+    coverageHighlights: ["the B4016 Bessels Way", "the A417 Blewbury Hill", "Didcot Parkway (4.3 km)", "Blewbury C of E Primary School"],
+    localContext: "On the A417 Blewbury Hill, find a lay-by or turning before you stop; inside the village, tell us the lane and a nearby house name so we can find you.",
+    localFaqs: [{"question": "How quickly can you get to Blewbury?", "answer": "Our quoted response time for Blewbury is 30-45 minutes."}, {"question": "Can you meet me at Didcot Parkway?", "answer": "Yes. Tell us which car park and where you've parked, and we'll come to the car."}],
   },
   {
     name: 'Chilton',
@@ -1344,7 +1591,11 @@ export const locations: LocationArea[] = [
     postcode: 'OX11',
     responseTime: '25-40 minutes',
     lat: 51.5755,
-    lng: -1.3047
+    lng: -1.3047,
+    longDescription: ["Chilton is right next to the Harwell Science and Innovation Campus, about half a mile away, with the A4185 Newbury Road on its doorstep and the A34 just over a kilometre off. From our Oxford base, about eleven miles away, we come out to staff car parks, homes and roadside stops.", "If a tyre goes down while you are at work on the campus, we can fit a replacement in the car park as long as the site allows access. We supply new branded tyres, fit and balance them, and take the old ones away. Punctures are repaired to BS AU 159 where the damage is repairable, and we can remove a locking wheel nut if the key is missing. Harwell, East Hendred and Rowstock are covered in the same way. Ring 07362 638978. There is no call-out charge."],
+    coverageHighlights: ["Harwell Campus car parks", "the A4185 Newbury Road", "the B4493 Hagbourne Hill", "the A34 near Chilton", "Chilton Primary School area", "Harwell and East Hendred"],
+    localContext: "Chilton drivers most often need us at Harwell Campus, at home in the village, or on the A4185 and A34.",
+    localFaqs: [{"question": "Can you fit a tyre at Harwell Campus?", "answer": "Yes, if site access is allowed and the car is parked safely. Let us know which building or car park you are near when you call."}, {"question": "How quickly can you reach Chilton?", "answer": "We usually arrive in Chilton within 25-40 minutes."}],
   },
   {
     name: 'Long Wittenham',
@@ -1356,7 +1607,11 @@ export const locations: LocationArea[] = [
     postcode: 'OX14',
     responseTime: '25-40 minutes',
     lat: 51.6302,
-    lng: -1.1903
+    lng: -1.1903,
+    longDescription: ["About 6 miles south of our Oxford base, Long Wittenham is a quiet Thames-side village a few miles from Didcot. When you find a flat or damaged tyre, we bring a branded replacement to the car and fit it there, or repair the puncture to BS AU 159 if the damage is repairable.", "The A4130 Hadden Hill is around 2 km from the village and the B4016 Lady Grove a little further, which are the main routes towards Didcot. Appleford station is under 4 km away. For a car that will not start as well as a tyre problem, we can provide a jump start on the same visit. Clifton Hampden, Dorchester-on-Thames and Brightwell-cum-Sotwell are nearby and covered. We agree the price before we leave, with no call-out charge."],
+    coverageHighlights: ["the A4130 Hadden Hill", "the B4016 Lady Grove", "village roads and driveways", "Appleford station"],
+    localContext: "The A4130 and B4016 are the main roads from Long Wittenham towards Didcot, and we can come to you there or at home in the village.",
+    localFaqs: [{"question": "How quickly can you reach Long Wittenham?", "answer": "We typically arrive in Long Wittenham within 25-40 minutes of your call."}, {"question": "Do you charge a call-out fee for Long Wittenham?", "answer": "No. There is no call-out charge, and we agree the full price with you on the phone before we travel."}],
   },
   {
     name: 'Brightwell-cum-Sotwell',
@@ -1368,7 +1623,11 @@ export const locations: LocationArea[] = [
     postcode: 'OX10',
     responseTime: '25-40 minutes',
     lat: 51.6085,
-    lng: -1.1698
+    lng: -1.1698,
+    longDescription: ["Brightwell-cum-Sotwell sits just off the A4130 Hadden Hill, around 8 miles south of our Oxford base and about 2 miles from Wallingford. We quote 25-40 minutes to reach you, and the price is agreed over the phone before we leave.", "If you work on the Hithercroft Industrial Estate or at Verda Park, or drive to Cholsey station, we can fit a tyre where your car is parked. The Lidl is within easy reach too. We carry new branded tyres and balance them on site; punctures are repaired to BS AU 159 if the damage is repairable. If the car won't start, a jump start may be all you need. Long Wittenham, Wallingford and Dorchester-on-Thames are covered too, and there's no call-out charge for any of them."],
+    coverageHighlights: ["the A4130 Hadden Hill", "Hithercroft Industrial Estate", "Verda Park", "Cholsey station (4.3 km)", "Brightwell-cum-Sotwell Church of England Primary School"],
+    localContext: "If a tyre fails on the A4130 near Brightwell-cum-Sotwell, pull off into the village or a lay-by and call us with your location.",
+    localFaqs: [{"question": "How quickly can you reach Brightwell-cum-Sotwell?", "answer": "We quote 25-40 minutes for Brightwell-cum-Sotwell."}, {"question": "Can you come to Hithercroft Industrial Estate?", "answer": "Yes. Tell us the unit and car park and we'll fit or repair the tyre there."}],
   },
   {
     name: 'Rowstock',
@@ -1380,7 +1639,11 @@ export const locations: LocationArea[] = [
     postcode: 'OX11',
     responseTime: '25-40 minutes',
     lat: 51.5995,
-    lng: -1.2661
+    lng: -1.2661,
+    longDescription: ["Rowstock sits at the meeting point of several busy roads on the western side of Didcot, with the B4493 Didcot Road, the A417, the A34 and the A4130 all within a couple of kilometres. That makes it straightforward for us to reach, about nine miles from our base.", "If a tyre fails on one of these roads, pull over somewhere safe and call 07362 638978. We come with new branded tyres and fit and balance them on site. Where a puncture is in a repairable area we fix it to BS AU 159 instead. Locking wheel nut removal and jump starts are part of the service. We also cover Harwell, Didcot, East Hagbourne and Milton, and can meet you at Didcot Parkway, about two kilometres away. There is no call-out charge, and the price is agreed before we travel."],
+    coverageHighlights: ["the B4493 Didcot Road", "the A417", "the A34 near Rowstock", "the A4130", "Didcot Parkway station", "the Asda and Sainsbury's car parks"],
+    localContext: "Around Rowstock, drivers typically need us after a flat on the A34, A417 or A4130, or at home and in the station and supermarket car parks around Didcot.",
+    localFaqs: [{"question": "How quickly can you reach Rowstock?", "answer": "Our usual arrival time is 25-40 minutes."}, {"question": "I have a flat near the Rowstock roundabout. What should I do?", "answer": "Move to a safe place away from traffic if you can, then call us with your location. We will confirm where we can safely work."}],
   },
 
   // ==================== WANTAGE MICRO-AREAS ====================
@@ -1394,7 +1657,11 @@ export const locations: LocationArea[] = [
     postcode: 'OX12',
     responseTime: '30-45 minutes',
     lat: 51.6044,
-    lng: -1.4111
+    lng: -1.4111,
+    longDescription: ["Grove sits just north of Wantage, about 12.1 miles south-west of our Oxford base. With the A338 Station Road and the A417 King Alfred Way both within a kilometre, a tyre can fail here on a busy road as easily as on the drive. Wherever it happens, we come to the car.", "We fit new branded tyres and balance them on site, repair punctures to BS AU 159 where it is safe, and can remove a locking wheel nut if the key has gone missing. If you are at work at the Elms Farm Business Park, or shopping at Millbrook Square or in the Lidl or Sainsbury's car parks, we can meet you there. We also cover Wantage, Ardington and East Hanney. Call 07362 638978 for a price."],
+    coverageHighlights: ["the A338 Station Road", "the A417 King Alfred Way", "Elms Farm Business Park", "Millbrook Square"],
+    localContext: "In Grove we can come to homes across the village, the A338 Station Road and A417 King Alfred Way, or business and shopping car parks such as Elms Farm Business Park and Millbrook Square.",
+    localFaqs: [{"question": "How quickly can you reach Grove?", "answer": "We typically arrive in Grove within 30-45 minutes of your call."}, {"question": "Can you come to Elms Farm Business Park?", "answer": "Yes. If the car is parked safely at Elms Farm Business Park, we can fit or repair the tyre while you are at work."}],
   },
   {
     name: 'East Hanney',
@@ -1406,7 +1673,11 @@ export const locations: LocationArea[] = [
     postcode: 'OX12',
     responseTime: '30-45 minutes',
     lat: 51.6282,
-    lng: -1.3884
+    lng: -1.3884,
+    longDescription: ["East Hanney lies off the A338 Oxford Road, about 10 miles south-west of our base and 3 miles from Wantage. We quote 30-45 minutes for a call-out and agree the price before setting off, so you know where you stand.", "The A338 is the main road between Wantage and the A420, so if a tyre goes on that stretch, stop somewhere safe and give us a call. We also come to homes in the village and to parents near St James Church of England Primary School. New branded tyres are fitted and balanced on site, repairable punctures are fixed to BS AU 159, and jump starts are available if it's the battery. Our emergency tyre replacement runs 24/7, with no call-out charge. Grove, Steventon and Kingston Bagpuize are covered as well."],
+    coverageHighlights: ["the A338 Oxford Road", "St James Church of England Primary School", "routes towards Grove and Wantage", "village streets in East Hanney"],
+    localContext: "On the A338 near East Hanney, use a lay-by or the turning into the village rather than stopping on the carriageway, then call us.",
+    localFaqs: [{"question": "How quickly can you reach East Hanney?", "answer": "Our quoted response time for East Hanney is 30-45 minutes."}, {"question": "Do you charge extra to come out to East Hanney?", "answer": "No. There's no call-out charge; we agree the price on the phone before we travel."}],
   },
   {
     name: 'Ardington',
@@ -1418,7 +1689,11 @@ export const locations: LocationArea[] = [
     postcode: 'OX12',
     responseTime: '30-45 minutes',
     lat: 51.5912,
-    lng: -1.3963
+    lng: -1.3963,
+    longDescription: ["Ardington is on the A417 Reading Road, about a mile and a quarter east of Wantage and roughly twelve miles from our Oxford base. The A338 and the B4507 Portway are also close, so we can reach the village from several directions.", "We fit new branded tyres at home, at work or in a supermarket car park in Wantage, balancing them on site and taking the old ones away. Elms Farm Business Park and the Charlton Park Garden Centre are within reach too. We repair punctures to BS AU 159 where the damage allows, deal with locking wheel nuts when the key is lost, and jump start flat batteries. Grove, Wantage, East Hendred and Letcombe Regis are all covered. Call 07362 638978 for a price agreed before we leave. No call-out charge."],
+    coverageHighlights: ["the A417 Reading Road", "the A338 Ormond Road", "the B4507 Portway", "Elms Farm Business Park", "Wantage supermarket car parks", "Grove and East Hendred"],
+    localContext: "In Ardington, help is usually needed at home, on the A417 Reading Road, or in Wantage car parks a short drive away.",
+    localFaqs: [{"question": "How quickly can you get to Ardington?", "answer": "We usually reach Ardington within 30-45 minutes."}, {"question": "Can you come to a supermarket car park in Wantage?", "answer": "Yes, as long as the car is somewhere safe to work and the car park allows it. Tell us which store you are at when you call."}],
   },
   {
     name: 'Letcombe Regis',
@@ -1430,7 +1705,11 @@ export const locations: LocationArea[] = [
     postcode: 'OX12',
     responseTime: '30-45 minutes',
     lat: 51.5724,
-    lng: -1.4429
+    lng: -1.4429,
+    longDescription: ["Letcombe Regis is about 14.6 miles south-west of our Oxford base, just over a mile from Wantage. If a tyre has gone flat at home or on one of the lanes towards the Downs, call us and we will drive the replacement out to you.", "The A338 Manor Road is about a kilometre away, with the B4507 Ickleton Road, the A417 Challow Road and the B4494 Chain Hill all within 2 km. In Wantage, we can also meet you in the Waitrose or Sainsbury's car parks or at the King Alfred's Academy pick-up, provided the car is safely parked. We repair punctures to BS AU 159 when the damage allows; if not, we fit and balance a new branded tyre. Childrey, Grove and Ardington are covered too."],
+    coverageHighlights: ["the A338 Manor Road", "the B4507 Ickleton Road", "the A417 Challow Road", "the B4494 Chain Hill"],
+    localContext: "Around Letcombe Regis, the B4507 Ickleton Road, A338 and A417 are the main routes out of the village; on narrow lanes, try to find a wider verge or gateway before calling.",
+    localFaqs: [{"question": "How quickly can you reach Letcombe Regis?", "answer": "We typically arrive in Letcombe Regis within 30-45 minutes of your call."}, {"question": "Can you fit a tyre on a narrow lane outside Letcombe Regis?", "answer": "We need safe space to jack the car and work around the wheel. If the lane is narrow, move to a wider verge, gateway or lay-by if you can, and tell us where you are."}],
   },
   {
     name: 'Childrey',
@@ -1442,7 +1721,11 @@ export const locations: LocationArea[] = [
     postcode: 'OX12',
     responseTime: '35-50 minutes',
     lat: 51.5753,
-    lng: -1.4780
+    lng: -1.4780,
+    longDescription: ["Childrey sits on the B4001 New Road west of Wantage, about 15.6 miles from our Oxford base. Our quoted response time is 35-50 minutes, there's no call-out charge, and the price is agreed on the phone before we set off.", "The B4507 runs just outside the village at the foot of the downs, and the A417 is a little further out. If you get a flat on either, or at home in the village, we'll bring a new branded tyre, fit it and balance it on the spot. Repairable punctures are fixed to BS AU 159 rather than replaced. We can also help with jump starts and locking wheel nut removal. Parents near The Ridgeway Church of England Primary School can call us too. Letcombe Regis, Wantage and Grove are within the same coverage."],
+    coverageHighlights: ["the B4001 New Road", "the B4507", "the A417 Main Street", "W&G Industrial Estate", "The Ridgeway Church of England Primary School"],
+    localContext: "If a tyre fails on the B4507 or B4001 around Childrey, pull into a gateway or verge clear of traffic and give us the nearest landmark.",
+    localFaqs: [{"question": "How quickly can you reach Childrey?", "answer": "We quote 35-50 minutes for Childrey."}, {"question": "Can you fit the tyre at my house?", "answer": "Yes. If there's safe space to jack the car, we fit and balance the new tyre on your driveway or outside your home."}],
   },
   {
     name: 'East Hendred',
@@ -1454,7 +1737,11 @@ export const locations: LocationArea[] = [
     postcode: 'OX12',
     responseTime: '30-45 minutes',
     lat: 51.5792,
-    lng: -1.3565
+    lng: -1.3565,
+    longDescription: ["About twelve miles south-west of our Oxford base, East Hendred lies just south of the A417 Reading Road and about two miles from Harwell Campus. We cover the village and the surrounding lanes, coming to you wherever the car has stopped.", "If you commute to Harwell Campus or the Rutherford Appleton Laboratory, we can fit a tyre in the car park where site access allows. At home, we work on the driveway or at the kerb. We supply new branded tyres and balance them on site, and we repair punctures to BS AU 159 when the damage is in a repairable area. Locking wheel nut removal is available too. Ardington, Chilton and Grove are covered by the same service. Call 07362 638978. There is no call-out charge, and we agree the price before travelling."],
+    coverageHighlights: ["the A417 Reading Road", "Harwell Campus", "Rutherford Appleton Laboratory car parks", "The Hendreds Church of England School area", "Ardington and Chilton"],
+    localContext: "East Hendred drivers usually need us at home in the village, on the A417, or at work at Harwell Campus.",
+    localFaqs: [{"question": "How quickly can you reach East Hendred?", "answer": "Our usual arrival time is 30-45 minutes."}, {"question": "Can you come to me at work on Harwell Campus?", "answer": "Yes, provided site access is permitted and the car is parked safely."}],
   },
   {
     name: 'Harwell Campus',
@@ -1466,7 +1753,11 @@ export const locations: LocationArea[] = [
     postcode: 'OX11',
     responseTime: '25-40 minutes',
     lat: 51.5714,
-    lng: -1.3136
+    lng: -1.3136,
+    longDescription: ["Harwell Campus brings together organisations such as the Rutherford Appleton Laboratory, UKAEA and the National Satellite Test Facility, which means a lot of cars parked for long working days. If you walk out to a flat tyre, we can come to the car from our Oxford base about 11.3 miles away.", "The A4185 Newbury Road is just under a kilometre away, the B4493 Hagbourne Hill about 1.4 km, and the A34 is under 2 km, so we can reach you quickly either on site or on the way home. We fit new branded tyres and balance them in place, repair punctures to BS AU 159 if possible, and offer jump starts. Chilton, Harwell village and East Hendred are covered from the same route."],
+    coverageHighlights: ["Rutherford Appleton Laboratory", "UKAEA Harwell", "the A4185 Newbury Road", "the B4493 Hagbourne Hill", "the A34"],
+    localContext: "On Harwell Campus, tell us your building and car park when you call, as the campus is large; we can also come to the A4185 Newbury Road or the A34 nearby.",
+    localFaqs: [{"question": "Can you get onto Harwell Campus to fix my tyre?", "answer": "We can work in campus car parks where access is permitted. Let us know your building and car park, and whether we need to be signed in, so we can arrange access before we arrive."}, {"question": "How quickly can you reach Harwell Campus?", "answer": "We typically reach Harwell Campus within 25-40 minutes."}],
   },
 
   // ==================== KIDLINGTON MICRO-AREAS ====================
@@ -1475,12 +1766,16 @@ export const locations: LocationArea[] = [
     slug: 'yarnton',
     hub: 'Kidlington',
     isHub: false,
-    description: 'Yarnton is a village just west of Kidlington, close to the A44 and the Peartree interchange. The village sits near Yarnton Garden Centre and the A40/A44 junction. We reach Yarnton in under 20 minutes and regularly attend roadside calls along the A44.',
+    description: 'Yarnton is a village just west of Kidlington, close to the A44 and the Peartree interchange. The village sits near Yarnton Garden Centre and the A40/A44 junction. We reach Yarnton in 20-30 minutes, including roadside calls along the A44.',
     nearbyAreas: ['Kidlington', 'Wolvercote', 'Cassington', 'Begbroke', 'Woodstock'],
     postcode: 'OX5',
     responseTime: '20-30 minutes',
     lat: 51.8060,
-    lng: -1.3149
+    lng: -1.3149,
+    longDescription: ["Yarnton is about 8 miles north-west of our base, beside the A44 Woodstock Road and a short drive from the A40 Northern By-pass. We aim to reach you in 20-30 minutes, with the price agreed by phone before we set off.", "Oxford Parkway is 2.7 km away, so commuters who return to a flat in the station car park can call us out there. We also come to homes in the village, to the Budgens, Sainsbury's or Tesco car parks nearby, and to parents near William Fletcher Primary School. New branded tyres are fitted and balanced on site, punctures are repaired to BS AU 159 where possible, and we offer jump starts and locking wheel nut removal. Begbroke, Cassington and Kidlington are covered on the same terms, with no call-out charge."],
+    coverageHighlights: ["the A44 Woodstock Road", "the A40 Northern By-pass Road", "the A4260 Frieze Way", "Oxford Parkway (2.7 km)", "William Fletcher Primary School"],
+    localContext: "If a tyre fails on the A44 or the A40 near Yarnton, leave at the next roundabout or lay-by and call us from there.",
+    localFaqs: [{"question": "Can you come to Oxford Parkway station car park?", "answer": "Yes. Tell us where you're parked and we'll fit or repair the tyre there."}, {"question": "How quickly can you reach Yarnton?", "answer": "Our quoted response time for Yarnton is 20-30 minutes."}],
   },
   {
     name: 'Begbroke',
@@ -1492,7 +1787,11 @@ export const locations: LocationArea[] = [
     postcode: 'OX5',
     responseTime: '20-30 minutes',
     lat: 51.8151,
-    lng: -1.3129
+    lng: -1.3129,
+    longDescription: ["The A44 Woodstock Road runs right past Begbroke, with the A4260 Banbury Road just under two kilometres away. We are about eight miles from the village, and our van can get to homes, workplaces and roadside stops here quickly.", "Begbroke Science Park and the Chancerygate Business Centre are both nearby, and we can fit your tyre in the car park while you work. Oxford Parkway station is under three kilometres away, so commuters can also arrange a fitting there. We supply new branded tyres, balance them on site and recycle the old ones. Punctures are repaired to BS AU 159 where possible, and locking wheel nuts and flat batteries are dealt with too. Yarnton, Kidlington and Cassington are covered as well. There is no call-out charge, and the price is agreed on the phone before we set off."],
+    coverageHighlights: ["the A44 Woodstock Road", "the A4260 Banbury Road", "Begbroke Science Park", "Chancerygate Business Centre", "Oxford Parkway station", "Yarnton and Kidlington"],
+    localContext: "In Begbroke we mostly help drivers at home, at the science park and business centre, or along the A44 Woodstock Road.",
+    localFaqs: [{"question": "How quickly can you reach Begbroke?", "answer": "We usually reach Begbroke within 20-30 minutes."}, {"question": "Can you fit a tyre at Begbroke Science Park?", "answer": "Yes, provided site access is allowed and the car is in a safe spot."}],
   },
   {
     name: 'Bletchingdon',
@@ -1504,7 +1803,11 @@ export const locations: LocationArea[] = [
     postcode: 'OX5',
     responseTime: '25-35 minutes',
     lat: 51.8479,
-    lng: -1.2535
+    lng: -1.2535,
+    longDescription: ["Bletchingdon is about 9.3 miles north of our Oxford base and a couple of miles from Kidlington, with the B4027 Islip Road running past the village. If you have a flat at home or on the way to the A34, we bring the van to you and change or repair the tyre on the spot.", "The A34 is about 1.6 km from the village and the B430 Northampton Road a little further. Islip station is around 2.7 km away. We fit new branded tyres and balance them on site, carry out puncture repairs to BS AU 159 when the tyre is repairable, and offer jump starts. Kirtlington, Islip and Kidlington are nearby and covered. There is no call-out charge, and the price is agreed on the phone first."],
+    coverageHighlights: ["the B4027 Islip Road", "the A34", "the B430 Northampton Road", "Islip station"],
+    localContext: "In Bletchingdon, the B4027 Islip Road and the nearby A34 are the main roads where we may need to come out to you; on the A34, stop well clear of traffic before calling.",
+    localFaqs: [{"question": "How quickly can you reach Bletchingdon?", "answer": "We typically arrive in Bletchingdon within 25-35 minutes of your call."}, {"question": "Can you help me on the A34 near Bletchingdon?", "answer": "Yes, once you are stopped safely away from the carriageway. Give us your location and direction of travel."}],
   },
   {
     name: 'Islip',
@@ -1516,7 +1819,11 @@ export const locations: LocationArea[] = [
     postcode: 'OX5',
     responseTime: '20-30 minutes',
     lat: 51.8268,
-    lng: -1.2265
+    lng: -1.2265,
+    longDescription: ["Islip is around 7.6 miles north of our Oxford base, on the B4027 High Street and under 2 km from the A34. We aim to reach you in 20-30 minutes and agree the price over the phone before we set off.", "Islip station is 0.8 km from the village centre, so if you've parked there and come back to a flat tyre, call us and we'll come to the station car park. Parents at Dr South's Church of England Primary School can call us too. We fit new branded tyres on site and balance them, and repair punctures to BS AU 159 where the damage allows. Locking wheel nut removal and jump starts are available as well. Bletchingdon, Kidlington and Kirtlington are covered on the same terms, with no call-out charge."],
+    coverageHighlights: ["the B4027 High Street", "the A34", "Islip station car park", "Dr South's Church of England Primary School", "Oxford Parkway (4.2 km)"],
+    localContext: "On the A34 near Islip, carry on to the next exit or a safe lay-by before stopping; on the B4027 High Street, pull in somewhere clear of traffic and call us.",
+    localFaqs: [{"question": "Can you come to me at Islip station car park?", "answer": "Yes. Tell us where the car is parked and we'll fit or repair the tyre there."}, {"question": "How quickly can you get to Islip?", "answer": "We quote 20-30 minutes for Islip."}],
   },
   {
     name: 'Kirtlington',
@@ -1528,7 +1835,11 @@ export const locations: LocationArea[] = [
     postcode: 'OX5',
     responseTime: '25-35 minutes',
     lat: 51.8594,
-    lng: -1.2636
+    lng: -1.2636,
+    longDescription: ["Kirtlington is about ten miles north of our Oxford base, with the B4027 passing The Green and the A4095 Station Road a little further out. We cover the village and its neighbours with new branded tyres, fitted and balanced at your door.", "Tackley and Islip stations are both within around four kilometres, so if you leave the car at either and come back to a flat, we can meet you there where it is safe to work. If the tyre has a nail in it, we check whether it can be repaired to BS AU 159 before suggesting a new one. We also remove locking wheel nuts and jump start cars with flat batteries. Bletchingdon, Tackley, Islip and Kidlington are covered too. Call 07362 638978 and we will agree the price before we travel. No call-out charge."],
+    coverageHighlights: ["the B4027 The Green", "the A4095 Station Road", "Tackley station", "Islip station", "Bletchingdon and Tackley"],
+    localContext: "Kirtlington drivers usually need us at home in the village, on the A4095, or at Tackley or Islip station.",
+    localFaqs: [{"question": "How quickly can you reach Kirtlington?", "answer": "Our usual arrival time is 25-35 minutes."}, {"question": "Can you meet me at Tackley station?", "answer": "Yes, as long as the car is parked safely and the car park allows the work."}],
   },
 
   // ==================== THAME MICRO-AREAS ====================
@@ -1542,7 +1853,11 @@ export const locations: LocationArea[] = [
     postcode: 'OX39',
     responseTime: '30-45 minutes',
     lat: 51.7009,
-    lng: -0.9074
+    lng: -0.9074,
+    longDescription: ["At the foot of the Chilterns, Chinnor is about 12.5 miles east of our Oxford base and 4.5 miles from Thame. A flat tyre this far out does not have to mean a long wait for a recovery truck. We drive out with the right branded tyre and fit and balance it where your car is parked.", "The B4009 Station Road runs through the village and the B4445 Thame Road heads north-west towards Thame. For anyone travelling by train, Princes Risborough station is under 5 km away. We repair punctures to BS AU 159 when the damage allows, remove locking wheel nuts if you have lost the key and offer a 24/7 emergency service. Thame and Tetsworth are covered too. Call 07362 638978 for a price before we travel."],
+    coverageHighlights: ["the B4009 Station Road", "the B4445 Thame Road", "Chinnor village centre", "Princes Risborough station"],
+    localContext: "In Chinnor, the B4009 Station Road and the B4445 Thame Road are the main routes where we may need to come out, and we can also come to your home in the village.",
+    localFaqs: [{"question": "How quickly can you reach Chinnor?", "answer": "We typically arrive in Chinnor within 30-45 minutes of your call."}, {"question": "Can you remove a locking wheel nut if I have lost the key?", "answer": "Yes. We can remove locking wheel nuts without the key, then fit or repair the tyre on the same visit."}],
   },
   {
     name: 'Long Crendon',
@@ -1554,7 +1869,11 @@ export const locations: LocationArea[] = [
     postcode: 'HP18',
     responseTime: '25-40 minutes',
     lat: 51.7694,
-    lng: -0.9907
+    lng: -0.9907,
+    longDescription: ["Across the Buckinghamshire border from Thame, Long Crendon is about 9.5 miles east of our Oxford base, with the B4011 Thame Road running through. We quote 25-40 minutes for a call-out and agree the price on the phone first.", "Crendon Industrial Estate is on the doorstep, so we can fit a tyre in your work car park, and Haddenham and Thame Parkway is 3.4 km away if you've driven to the train. The Waitrose and Sainsbury's car parks in Thame are within reach too. We fit and balance new branded tyres on site, fix repairable punctures to BS AU 159, and offer jump starts when the battery has gone flat. Thame, Haddenham and Tetsworth are covered on the same terms, with no call-out charge and 24/7 emergency replacement."],
+    coverageHighlights: ["the B4011 Thame Road", "the A418 Western Bypass", "Crendon Industrial Estate", "Haddenham and Thame Parkway (3.4 km)", "Long Crendon School"],
+    localContext: "If a tyre fails on the B4011 between Long Crendon and Thame, pull in somewhere clear of traffic and call us with the nearest landmark.",
+    localFaqs: [{"question": "Can you come to Crendon Industrial Estate?", "answer": "Yes. Tell us the unit and car park and we'll fit or repair the tyre there."}, {"question": "How quickly can you reach Long Crendon?", "answer": "Our quoted response time for Long Crendon is 25-40 minutes."}],
   },
   {
     name: 'Haddenham',
@@ -1566,7 +1885,11 @@ export const locations: LocationArea[] = [
     postcode: 'HP17',
     responseTime: '30-45 minutes',
     lat: 51.7730,
-    lng: -0.9352
+    lng: -0.9352,
+    longDescription: ["Just over the Buckinghamshire border, about twelve miles east of our Oxford base, Haddenham has Haddenham and Thame Parkway station half a kilometre from the village. The A418 Aylesbury Road and the A4129 Thame Road are both close, and we cover the village from Oxford.", "Commuters who come back to a flat at the station can call us, and we will fit the tyre in the car park where it is safe and allowed. We can also work at home or on the Haddenham Industrial Park. New branded tyres are supplied, fitted and balanced on site, punctures are repaired to BS AU 159 when the damage is repairable, and we can remove locking wheel nuts. Long Crendon, Thame and Chinnor are covered as well. Ring 07362 638978 for a price agreed first. No call-out charge."],
+    coverageHighlights: ["Haddenham and Thame Parkway station", "the A418 Aylesbury Road", "the A4129 Thame Road", "Haddenham Industrial Park", "Banks Parade", "Long Crendon and Thame"],
+    localContext: "In Haddenham, drivers most often need us at the Parkway station car park, at home, or on the Haddenham Industrial Park.",
+    localFaqs: [{"question": "Can you fit a tyre at Haddenham and Thame Parkway station?", "answer": "Yes, provided the car is parked safely and the car park operator allows it. Tell us roughly where you are parked when you call."}, {"question": "How quickly can you reach Haddenham?", "answer": "We usually arrive within 30-45 minutes."}],
   },
   {
     name: 'Tetsworth',
@@ -1578,7 +1901,11 @@ export const locations: LocationArea[] = [
     postcode: 'OX9',
     responseTime: '25-40 minutes',
     lat: 51.7150,
-    lng: -1.0151
+    lng: -1.0151,
+    longDescription: ["Tetsworth has the A40 running right along its High Street, about 7.8 miles east of our Oxford base, and the M40 is under 1.5 km away. If a tyre fails in the village or on the approach roads, we come to you with a branded replacement and fit it on the spot.", "The A329 Rycote Lane and B4012 are both around 2.4 km away, and businesses at the Camp Industrial Estate can call us out too. We repair punctures to BS AU 159 where the damage is repairable, and our emergency service runs 24/7. We also cover Great Milton, Thame and Long Crendon. There is no call-out charge, and the price is agreed on the phone before we set off."],
+    coverageHighlights: ["the A40 High Street", "the M40", "the A329 Rycote Lane", "Camp Industrial Estate"],
+    localContext: "In Tetsworth, the A40 High Street and the approaches to the M40 are the roads to think about; never try to change a wheel on the hard shoulder of the motorway, and call for help from somewhere safe.",
+    localFaqs: [{"question": "How quickly can you reach Tetsworth?", "answer": "We typically arrive in Tetsworth within 25-40 minutes of your call."}, {"question": "Can you come to the Camp Industrial Estate?", "answer": "Yes. As long as the vehicle is parked safely with room to work, we can fit or repair a tyre there."}],
   },
   {
     name: 'Great Milton',
@@ -1590,7 +1917,11 @@ export const locations: LocationArea[] = [
     postcode: 'OX44',
     responseTime: '25-40 minutes',
     lat: 51.7244,
-    lng: -1.0571
+    lng: -1.0571,
+    longDescription: ["Great Milton sits on the A329, beside the A40 London Road and about a kilometre from the M40. It's 6 miles east of our base, and we quote 25-40 minutes to reach you, with the price agreed by phone before we leave.", "There's no station or supermarket in the immediate area, so rather than you trying to get the car somewhere, we bring the tyre to you. Camp Industrial Estate is also within reach. We fit and balance a new branded tyre on the spot, repair punctures to BS AU 159 where the damage is repairable, and can jump start a car with a flat battery. If a locking wheel nut is stopping you changing the wheel, we can remove it. Tetsworth, Wheatley and Thame are covered too, with no call-out charge, around the clock."],
+    coverageHighlights: ["the A329", "the A40 London Road", "the M40", "the A418 Oxford Road", "Camp Industrial Estate"],
+    localContext: "On the A40 or near the M40 by Great Milton, get to a safe lay-by or exit before stopping, then call us with your location.",
+    localFaqs: [{"question": "How quickly can you reach Great Milton?", "answer": "We quote 25-40 minutes for Great Milton, about 6 miles east of our base."}, {"question": "Can you help if I can't remove my locking wheel nut?", "answer": "Yes. We can remove a locking wheel nut when the key is lost or damaged."}],
   },
   {
     name: 'Wheatley',
@@ -1602,7 +1933,11 @@ export const locations: LocationArea[] = [
     postcode: 'OX33',
     responseTime: '20-35 minutes',
     lat: 51.7472,
-    lng: -1.1337
+    lng: -1.1337,
+    longDescription: ["Just over three miles north-east of our base, Wheatley sits beside the A40 Wheatley Bypass, with the M40 Wheatley Spur and the A418 London Road nearby. If a tyre fails on any of these roads, or the car will not move off the drive, we can come straight out.", "Local business sites include the Littleworth Industrial Estate and The Boundary Business Park, and we can fit a tyre there while you work. We supply new branded tyres and balance them on site. Punctures are repaired to BS AU 159 where the damage allows, and we remove locking wheel nuts and jump start flat batteries. Sandhills, Risinghurst, Barton and Headington are covered by the same 24/7 service. Call 07362 638978 and we will confirm the price before setting off. There is no call-out charge."],
+    coverageHighlights: ["the A40 Wheatley Bypass", "the M40 Wheatley Spur", "the B4027 Wheatley Road", "Littleworth Industrial Estate", "The Boundary Business Park", "the Asda car park"],
+    localContext: "Wheatley drivers usually need us after a flat on the A40 or near the M40, at the industrial estates, or at home in the village.",
+    localFaqs: [{"question": "How quickly can you get to Wheatley?", "answer": "Our usual arrival time is 20-35 minutes."}, {"question": "Can you help if I have a flat on the A40 near Wheatley?", "answer": "Yes. Stop somewhere safe away from traffic, call us with your location, and we will confirm where we can safely work."}],
   },
 
   // ==================== WALLINGFORD MICRO-AREAS ====================
@@ -1616,7 +1951,11 @@ export const locations: LocationArea[] = [
     postcode: 'OX10',
     responseTime: '30-45 minutes',
     lat: 51.5712,
-    lng: -1.1522
+    lng: -1.1522,
+    longDescription: ["Cholsey station is barely half a kilometre from the village centre, so plenty of cars here sit parked all day while their drivers commute. If you find a flat on your return, or on the drive in the morning, we can be with you from our Oxford base about 10.4 miles to the north.", "The A329 Reading Road is about 700 metres away, with the B4009 Wallingford Road and the A4130 within about 2.5 km. We fit new branded tyres and balance them on site, repair punctures to BS AU 159 if the damage is repairable, and offer jump starts. Wallingford, Crowmarsh Gifford and Brightwell-cum-Sotwell are nearby and covered too. Call 07362 638978 for a price agreed before we travel."],
+    coverageHighlights: ["Cholsey station car park", "the A329 Reading Road", "the B4009 Wallingford Road", "the A4130"],
+    localContext: "Cholsey drivers can call us to the station car park, to homes in the village, or to the A329 Reading Road if a tyre fails on the move.",
+    localFaqs: [{"question": "Can you fix my tyre at Cholsey station?", "answer": "Yes. We can fit or repair a tyre in the station car park, provided there is safe room around the car."}, {"question": "How quickly can you reach Cholsey?", "answer": "We typically arrive in Cholsey within 30-45 minutes."}],
   },
   {
     name: 'Benson',
@@ -1628,7 +1967,11 @@ export const locations: LocationArea[] = [
     postcode: 'OX10',
     responseTime: '30-45 minutes',
     lat: 51.6186,
-    lng: -1.0989
+    lng: -1.0989,
+    longDescription: ["Benson lies on the A4074 about 8 miles south-east of our base and under 2 miles from Wallingford, with the B4009 Watlington Road heading east from the village. We quote 30-45 minutes and agree the price before setting off.", "Howbery Park and the Waitrose in Wallingford are within reach, as are Benson Church of England Primary School and RAF Benson Community Primary School for parents on the school run. We fit and balance new branded tyres, repair punctures to BS AU 159 where possible, and remove locking wheel nuts when the key is missing. If the battery's flat, we can jump start the car. There's no call-out charge. Shillingford, Crowmarsh Gifford and Ewelme are covered as well, 24/7."],
+    coverageHighlights: ["the A4074", "the B4009 Watlington Road", "the A4130 Crowmarsh Hill", "Howbery Park", "Benson Church of England Primary School"],
+    localContext: "If a tyre fails on the A4074 near Benson, pull into a lay-by or turn into the village before calling us with the road and nearest junction.",
+    localFaqs: [{"question": "How quickly can you reach Benson?", "answer": "Our quoted response time for Benson is 30-45 minutes."}, {"question": "Can you come to Howbery Park?", "answer": "Yes. Give us the building and car park details and we'll come to the car."}],
   },
   {
     name: 'Shillingford',
@@ -1640,7 +1983,11 @@ export const locations: LocationArea[] = [
     postcode: 'OX10',
     responseTime: '30-45 minutes',
     lat: 51.6322,
-    lng: -1.1131
+    lng: -1.1131,
+    longDescription: ["Shillingford sits on the A4074 Henley Road, with the B4009 The Sands and the A329 New Road close by. We are about seven miles to the north-west, and we cover the village day and night with new branded tyres fitted and balanced at your car.", "Whether you are at home, at Howbery Park, or have stopped on the A4074 with a puncture, call 07362 638978 and tell us where you are. If the damage is in a repairable area, we repair it to BS AU 159. Otherwise we fit a new tyre on the spot. Locking wheel nut removal and jump starts are also available. Benson, Berinsfield, Dorchester-on-Thames and Wallingford are covered too. There is no call-out charge, and the price is agreed before we travel."],
+    coverageHighlights: ["the A4074 Henley Road", "the B4009 The Sands", "the A329 New Road", "Howbery Park", "Benson and Dorchester-on-Thames"],
+    localContext: "In Shillingford we tend to help drivers at home, on the A4074 between Oxford and Wallingford, or at business sites around Wallingford.",
+    localFaqs: [{"question": "How quickly can you reach Shillingford?", "answer": "We usually reach Shillingford within 30-45 minutes."}, {"question": "Do you cover Benson and Wallingford as well?", "answer": "Yes. Benson, Wallingford and the surrounding villages are covered by the same service."}],
   },
   {
     name: 'Crowmarsh Gifford',
@@ -1652,7 +1999,11 @@ export const locations: LocationArea[] = [
     postcode: 'OX10',
     responseTime: '30-45 minutes',
     lat: 51.5976,
-    lng: -1.1135
+    lng: -1.1135,
+    longDescription: ["Just across the river from Wallingford town centre, Crowmarsh Gifford is about 9.1 miles south-east of our Oxford base. Business parks such as Howbery Park are on the doorstep, so if you find a flat while at work, we can come to the car park and replace or repair the tyre there.", "The A4074 and A4130 Crowmarsh Hill are both within a kilometre, with the B4009 and A329 Reading Road nearby. Wallingford is under a mile away, and Benson and Ewelme are close by too. We stock new branded tyres, repair punctures to BS AU 159 where it is safe, and can remove locking wheel nuts without the key. We can also meet you in the Waitrose or Lidl car parks. There is no call-out charge."],
+    coverageHighlights: ["the A4074", "the A4130 Crowmarsh Hill", "Howbery Park", "Centre for Ecology and Hydrology", "the Waitrose car park"],
+    localContext: "In Crowmarsh Gifford, Howbery Park and the A4074 and A4130 junctions are the main places we can meet you, as well as at home in the village.",
+    localFaqs: [{"question": "Can you come to Howbery Park while I am at work?", "answer": "Yes. Give us your building and where the car is parked, and we can fit or repair the tyre while you work, as long as we have safe access."}, {"question": "How quickly can you reach Crowmarsh Gifford?", "answer": "We typically reach Crowmarsh Gifford within 30-45 minutes."}],
   },
   {
     name: 'Ewelme',
@@ -1664,7 +2015,11 @@ export const locations: LocationArea[] = [
     postcode: 'OX10',
     responseTime: '35-50 minutes',
     lat: 51.5930,
-    lng: -1.0725
+    lng: -1.0725,
+    longDescription: ["Ewelme is about 10 miles south-east of our Oxford base, with the A4130 passing just outside the village and the A4074 Port Way a couple of kilometres to the west. Our quoted response time is 35-50 minutes, and prices are agreed on the phone before we travel.", "The lanes heading up towards the Chilterns are narrow, so tell us exactly where you've stopped and we'll plan the approach. We fit new branded tyres and balance them on site, and repair punctures to BS AU 159 if the damage is repairable. If the car simply won't start, a jump start may get you going. Locking wheel nut removal is part of the service too, and the emergency tyre service runs 24/7. Crowmarsh Gifford, Benson and Wallingford are covered as well, with no call-out charge."],
+    coverageHighlights: ["the A4130", "the A4074 Port Way", "lanes towards the Chilterns", "Mains Motors area"],
+    localContext: "Ewelme's lanes leave little room, so if a tyre fails, stop at a passing place or gateway and give us a landmark or house name.",
+    localFaqs: [{"question": "How quickly can you reach Ewelme?", "answer": "We quote 35-50 minutes for Ewelme, about 10 miles from our base."}, {"question": "Can you work on a narrow lane?", "answer": "Yes, as long as there's safe space. Tell us how much room there is and we'll plan where to stop."}],
   },
   {
     name: 'Berinsfield',
@@ -1676,7 +2031,11 @@ export const locations: LocationArea[] = [
     postcode: 'OX10',
     responseTime: '25-40 minutes',
     lat: 51.6454,
-    lng: -1.1448
+    lng: -1.1448,
+    longDescription: ["With the A4074 less than a kilometre away and the A329 Thame Road close by, Berinsfield is about five and a half miles from our Oxford base. We cover the village with new branded tyres fitted and balanced wherever your car is.", "We can work on your driveway, meet you at the roadside on the A4074 if you have stopped safely, or near St Laurence Church of England School once the school run is over. Punctures are checked and repaired to BS AU 159 where the damage allows. We can remove locking wheel nuts and jump start a dead battery. Dorchester-on-Thames, Shillingford, Long Wittenham and Clifton Hampden are covered as well. Ring 07362 638978 for a price agreed before we travel. No call-out charge."],
+    coverageHighlights: ["the A4074", "the A329 Thame Road", "St Laurence Church of England School area", "Dorchester-on-Thames", "Shillingford and Clifton Hampden"],
+    localContext: "Berinsfield drivers usually need us at home or on the A4074 and A329 just outside the village.",
+    localFaqs: [{"question": "How quickly can you reach Berinsfield?", "answer": "Our usual arrival time is 25-40 minutes."}, {"question": "Can you come to the roadside on the A4074?", "answer": "Yes, if you have stopped somewhere safe. Call us with your location and we will confirm."}],
   },
   {
     name: 'Dorchester-on-Thames',
@@ -1688,7 +2047,11 @@ export const locations: LocationArea[] = [
     postcode: 'OX10',
     responseTime: '25-40 minutes',
     lat: 51.6436,
-    lng: -1.1645
+    lng: -1.1645,
+    longDescription: ["Sitting beside the A4074, Dorchester-on-Thames is about 5.4 miles south of our Oxford base. A puncture on the road through the village or on the drive is something we can sort out on the spot, with a new branded tyre fitted and balanced at the kerbside.", "The A4074 is under a kilometre from the village, while the A329 Thame Road and A415 Abingdon Road are both about 2 km away. Puncture repairs follow BS AU 159 where the tyre is repairable, and we can remove a locking wheel nut if the key is missing. We also cover Berinsfield, Long Wittenham and Clifton Hampden. Our emergency service runs 24/7, and we agree the price by phone before setting out."],
+    coverageHighlights: ["the A4074", "the A329 Thame Road", "the A415 Abingdon Road", "village roads and driveways"],
+    localContext: "For Dorchester-on-Thames, the A4074 is the main road where drivers need help; pull off into a safe lay-by or side road before calling and we will come to you.",
+    localFaqs: [{"question": "How quickly can you reach Dorchester-on-Thames?", "answer": "We typically arrive in Dorchester-on-Thames within 25-40 minutes."}, {"question": "Do you cover the A4074 at night?", "answer": "Yes. Our emergency tyre replacement service runs 24/7, so we can come to you on the A4074 at any hour, once you are stopped safely."}],
   },
   {
     name: 'Clifton Hampden',
@@ -1700,7 +2063,11 @@ export const locations: LocationArea[] = [
     postcode: 'OX14',
     responseTime: '25-40 minutes',
     lat: 51.6505,
-    lng: -1.1973
+    lng: -1.1973,
+    longDescription: ["Clifton Hampden is only about 4.7 miles south of our base, between the A415 Abingdon Road and the B4015 Oxford Road. We quote 25-40 minutes to reach you, and there's no call-out charge.", "If you work at Culham Campus or park at Culham station, 2.7 km away, we can fit a tyre where your car is parked. Parents at Clifton Hampden Church of England Primary School or Abbey Woods Academy can call us too. We carry new branded tyres, fit and balance them on site, and repair punctures to BS AU 159 where the damage allows. Locking wheel nut removal and jump starts are available as well. Culham, Long Wittenham and Dorchester-on-Thames are covered on the same terms, with the price agreed on the phone before we travel."],
+    coverageHighlights: ["the A415 Abingdon Road", "the B4015 Oxford Road", "the A4074 Oxford Road", "Culham Campus", "Culham station (2.7 km)", "Clifton Hampden Church of England Primary School"],
+    localContext: "On the A415 or the B4015 near Clifton Hampden, pull into a lay-by or side road and call us with the nearest junction or landmark.",
+    localFaqs: [{"question": "Can you come to Culham Campus?", "answer": "Yes. Tell us which car park you're in and we'll fit or repair the tyre there, subject to safe access."}, {"question": "How quickly can you reach Clifton Hampden?", "answer": "Our quoted response time for Clifton Hampden is 25-40 minutes."}],
   },
 
   // ==================== FARINGDON MICRO-AREAS ====================
@@ -1714,7 +2081,11 @@ export const locations: LocationArea[] = [
     postcode: 'SN7',
     responseTime: '35-50 minutes',
     lat: 51.6255,
-    lng: -1.4684
+    lng: -1.4684,
+    longDescription: ["In the Vale of White Horse, about thirteen miles south-west of our Oxford base, Stanford in the Vale is reached via the A417 Faringdon Road and the B4001 New Road. We cover the village and the surrounding lanes with tyres fitted at your car.", "Local workplaces include Stanford Business Park and, a little further away, Grove Technology Park, and we can fit a tyre there while you work. At home we work on the driveway or the kerb. We bring new branded tyres and balance them on site, and we repair punctures to BS AU 159 when the damage is repairable. Locking wheel nut removal and jump starts are available too. We also cover Southmoor, Grove, Wantage and Longworth. Call 07362 638978. There is no call-out charge, and the price is agreed before we set off."],
+    coverageHighlights: ["the A417 Faringdon Road", "the B4001 New Road", "Stanford Business Park", "Grove Technology Park", "Southmoor and Grove"],
+    localContext: "In Stanford in the Vale, help is usually needed at home, at Stanford Business Park, or on the A417 between Wantage and Faringdon.",
+    localFaqs: [{"question": "How quickly can you reach Stanford in the Vale?", "answer": "We usually arrive within 35-50 minutes."}, {"question": "Can you fit a tyre at Stanford Business Park?", "answer": "Yes, provided the car is in a safe spot and the site allows the work."}],
   },
   {
     name: 'Shrivenham',
@@ -1726,7 +2097,11 @@ export const locations: LocationArea[] = [
     postcode: 'SN6',
     responseTime: '40-55 minutes',
     lat: 51.6026,
-    lng: -1.6529
+    lng: -1.6529,
+    longDescription: ["Shrivenham is the western edge of the area we cover, about 21.1 miles west of our Oxford base. Even this far out, there is no call-out charge. We quote a price on the phone, then drive out with the right branded tyre and fit it where the car is.", "The A420 is under a kilometre from the village, with the B4000 Highworth Road and the B4508 nearby. Businesses at Shrivenham Hundred Business Park can call us out for a car or van. We repair punctures to BS AU 159 where possible, offer jump starts, and run a 24/7 emergency service for a tyre failure late in the day. Watchfield and Faringdon are covered too. Call 07362 638978 to book."],
+    coverageHighlights: ["the A420", "the B4000 Highworth Road", "the B4508", "Shrivenham Hundred Business Park"],
+    localContext: "In Shrivenham, the A420 is the main road where a tyre failure leaves drivers stranded, and we can also come to Shrivenham Hundred Business Park or your home.",
+    localFaqs: [{"question": "How quickly can you reach Shrivenham?", "answer": "We typically arrive in Shrivenham within 40-55 minutes of your call."}, {"question": "Is there a call-out charge for Shrivenham?", "answer": "No. There is no call-out charge, and the price is agreed on the phone before we travel."}],
   },
   {
     name: 'Watchfield',
@@ -1738,7 +2113,11 @@ export const locations: LocationArea[] = [
     postcode: 'SN6',
     responseTime: '40-55 minutes',
     lat: 51.6097,
-    lng: -1.6296
+    lng: -1.6296,
+    longDescription: ["Watchfield sits beside the A420 between Faringdon and Shrivenham, about 20 miles west of our Oxford base. We quote 40-55 minutes for a call-out here and agree the price before we set off, with no call-out charge.", "If you have a blow-out on the A420 or the B4508 Majors Road, pull over where it's safe and call us. We also come to Shrivenham Hundred Business Park and to homes in the village, as well as parents near Watchfield Primary School. New branded tyres are fitted and balanced on site, punctures are repaired to BS AU 159 if the damage is repairable, and we offer 24/7 emergency tyre replacement. If the battery is the problem, a jump start is available too. Shrivenham and Faringdon are covered on the same terms."],
+    coverageHighlights: ["the A420", "the B4508 Majors Road", "the B4000 Highworth Road", "Shrivenham Hundred Business Park", "Watchfield Primary School"],
+    localContext: "The A420 is a fast road; if a tyre fails, get onto a lay-by or the turning towards Watchfield or Shrivenham before calling us.",
+    localFaqs: [{"question": "How quickly can you reach Watchfield?", "answer": "We quote 40-55 minutes for Watchfield, which is about 20 miles from our base."}, {"question": "Can you come to Shrivenham Hundred Business Park?", "answer": "Yes. Give us the unit and we'll come to where the car is parked."}],
   },
   {
     name: 'Longworth',
@@ -1750,7 +2129,11 @@ export const locations: LocationArea[] = [
     postcode: 'OX13',
     responseTime: '35-50 minutes',
     lat: 51.6706,
-    lng: -1.4523
+    lng: -1.4523,
+    longDescription: ["Longworth lies about half a kilometre from the A420 between Oxford and Faringdon, with the B4508 nearby. We are roughly eleven miles to the east, and we come out to the village with new branded tyres ready to fit and balance.", "If a tyre goes flat on the A420, find somewhere safe to stop and ring 07362 638978. We repair punctures to BS AU 159 when the damage is in a repairable area, and fit a replacement when it is not. We can also remove a locking wheel nut if the key is missing, and jump start a car with a flat battery. Southmoor, Kingston Bagpuize and Stanford in the Vale are covered in the same way. There is no call-out charge, and we agree the price with you on the phone before we travel."],
+    coverageHighlights: ["the A420 near Longworth", "the B4508", "Southmoor", "Kingston Bagpuize"],
+    localContext: "Longworth drivers usually need us at home in the village or after a puncture on the A420.",
+    localFaqs: [{"question": "How quickly can you reach Longworth?", "answer": "Our usual arrival time is 35-50 minutes."}, {"question": "Do you cover Kingston Bagpuize and Southmoor too?", "answer": "Yes. Both are covered by the same 24/7 service."}],
   },
   {
     name: 'Kingston Bagpuize',
@@ -1762,7 +2145,11 @@ export const locations: LocationArea[] = [
     postcode: 'OX13',
     responseTime: '30-45 minutes',
     lat: 51.6647,
-    lng: -1.4047
+    lng: -1.4047,
+    longDescription: ["Kingston Bagpuize is about 9.6 miles south-west of our Oxford base, between the A415 Abingdon Road and the A420. Whether the flat is on the drive or by the road, we come to you with a new branded tyre, fit it and balance it there.", "The A415 is about 1.4 km from the village, and the A420 and A338 are both around 2 km away. If you work at Kingston Business Park or you are at the Millets Farm Centre, we can come to you there. Punctures are repaired to BS AU 159 if the damage is repairable, and we can remove locking wheel nuts without the key. Southmoor, Longworth and Marcham are nearby and covered too, with the price agreed before we set off."],
+    coverageHighlights: ["the A415 Abingdon Road", "the A420", "the A338", "Kingston Business Park", "Millets Farm Centre"],
+    localContext: "Around Kingston Bagpuize, the A415 and A420 are the main roads where drivers need roadside help, and we can also come to Kingston Business Park or Millets Farm Centre.",
+    localFaqs: [{"question": "Can you come to Kingston Business Park?", "answer": "Yes. If the car is parked safely at Kingston Business Park, we can fit or repair the tyre while you work."}, {"question": "How quickly can you reach Kingston Bagpuize?", "answer": "We typically reach Kingston Bagpuize within 30-45 minutes."}],
   },
   {
     name: 'Southmoor',
@@ -1774,7 +2161,11 @@ export const locations: LocationArea[] = [
     postcode: 'OX13',
     responseTime: '30-45 minutes',
     lat: 51.6576,
-    lng: -1.4320
+    lng: -1.4320,
+    longDescription: ["Southmoor lies about 11 miles south-west of our Oxford base, alongside Kingston Bagpuize and a short drive from the A420. We quote 30-45 minutes to reach you and agree the price on the phone before travelling.", "If a tyre goes on the A420 heading towards Faringdon or Oxford, stop somewhere safe and call us. Kingston Business Park is also within reach, so we can fit a tyre in a work car park as well as at home. We fit and balance new branded tyres on site, repair punctures to BS AU 159 where possible, and remove locking wheel nuts if the key is lost. A jump start is available if the battery has gone flat. Longworth, Kingston Bagpuize and East Hanney are covered as well, and there's no call-out charge."],
+    coverageHighlights: ["the A420", "Kingston Business Park", "village streets in Southmoor", "routes towards Kingston Bagpuize and Longworth"],
+    localContext: "If a tyre fails on the A420 near Southmoor, use a lay-by or turn into the village before stopping, then call us with your location.",
+    localFaqs: [{"question": "How quickly can you reach Southmoor?", "answer": "Our quoted response time for Southmoor is 30-45 minutes."}, {"question": "Can you come to Kingston Business Park?", "answer": "Yes. Tell us the unit and car park and we'll fit or repair the tyre there."}],
   },
 
   // ==================== CHIPPING NORTON MICRO-AREAS ====================
@@ -1788,7 +2179,11 @@ export const locations: LocationArea[] = [
     postcode: 'OX15',
     responseTime: '40-55 minutes',
     lat: 52.0039,
-    lng: -1.4837
+    lng: -1.4837,
+    longDescription: ["Hook Norton is one of the further villages we cover, about 23 miles north-west of our Oxford base and roughly five miles from Chipping Norton. We come out with new branded tyres and fit and balance them at your home or wherever the car has stopped.", "When you call 07362 638978, let us know the tyre size and where you are, and we will agree the price before travelling. There is no call-out charge. If the tyre has a puncture in a repairable area, we fix it to BS AU 159 instead of replacing it. We can also remove a locking wheel nut when the key has gone missing, and jump start a flat battery. Bloxham, Chipping Norton, Broughton and Enstone are covered by the same service."],
+    coverageHighlights: ["Hook Norton village streets", "Hook Norton Brewery area", "Hook Norton Church of England Primary School area", "Bloxham and Chipping Norton"],
+    localContext: "In Hook Norton, help is usually needed at home in the village or on the country roads towards Chipping Norton and Banbury.",
+    localFaqs: [{"question": "How quickly can you reach Hook Norton?", "answer": "We usually reach Hook Norton within 40-55 minutes."}, {"question": "Is it worth calling you rather than fitting the spare?", "answer": "If you would rather not change it yourself, we can. We fit a new tyre or repair the puncture to BS AU 159 where possible, so you are not left on a space-saver."}],
   },
   {
     name: 'Enstone',
@@ -1800,7 +2195,11 @@ export const locations: LocationArea[] = [
     postcode: 'OX7',
     responseTime: '35-50 minutes',
     lat: 51.9099,
-    lng: -1.4496
+    lng: -1.4496,
+    longDescription: ["Enstone is about 17.1 miles north-west of our Oxford base, where the A44 Oxford Road meets the B4022 Charlbury Road. On rural roads a flat tyre can leave you stuck, so we drive out to you with a branded replacement and fit and balance it on site.", "The B4030 Bicester Road is just over a kilometre away, and businesses on the Enstone Airfield Industrial Estate can call us out too. We repair punctures to BS AU 159 if the damage allows, offer jump starts, and run a 24/7 emergency service. Charlbury, Middle Barton and Chipping Norton are covered too. There is no call-out charge, and we agree the price by phone before setting off."],
+    coverageHighlights: ["the A44 Oxford Road", "the B4022 Charlbury Road", "the B4030 Bicester Road", "Enstone Airfield Industrial Estate"],
+    localContext: "In Enstone, the A44 Oxford Road is the main route where drivers need us, along with the B4022 and B4030; give clear directions if you have stopped on a rural road.",
+    localFaqs: [{"question": "Can you come to the Enstone Airfield Industrial Estate?", "answer": "Yes. As long as the vehicle is parked safely with room to work, we can fit or repair a tyre there."}, {"question": "How quickly can you reach Enstone?", "answer": "We typically arrive in Enstone within 35-50 minutes of your call."}],
   },
   {
     name: 'Churchill',
@@ -1812,7 +2211,11 @@ export const locations: LocationArea[] = [
     postcode: 'OX7',
     responseTime: '35-50 minutes',
     lat: 51.8975,
-    lng: -1.5680
+    lng: -1.5680,
+    longDescription: ["Churchill is about 20 miles north-west of our base, near the A361 and 3.2 miles from Chipping Norton. We quote 35-50 minutes for a call-out, and the price is agreed by phone before we set off.", "Ascott-under-Wychwood and Shipton stations are both within 4 km, so if you return to a flat after a train journey we can meet you at the car. On the A361 or the B4450, stop where it's safe and call us with the nearest landmark. New branded tyres are fitted and balanced on site, and repairable punctures are fixed to BS AU 159. We also carry out jump starts and locking wheel nut removal, and the emergency service runs 24/7. Kingham, Shipton-under-Wychwood and Chipping Norton are covered too, with no call-out charge."],
+    coverageHighlights: ["the A361", "the B4450", "Ascott-under-Wychwood station (3.4 km)", "Shipton station (3.9 km)", "routes towards Chipping Norton"],
+    localContext: "If a tyre fails on the A361 near Churchill, pull into a gateway or lay-by clear of traffic before calling us.",
+    localFaqs: [{"question": "How quickly can you reach Churchill?", "answer": "We quote 35-50 minutes for Churchill."}, {"question": "Can you meet me at Ascott-under-Wychwood or Shipton station?", "answer": "Yes. Tell us which station and where you're parked, and we'll come to the car."}],
   },
   {
     name: 'Kingham',
@@ -1824,7 +2227,11 @@ export const locations: LocationArea[] = [
     postcode: 'OX7',
     responseTime: '35-50 minutes',
     lat: 51.9006,
-    lng: -1.6192
+    lng: -1.6192,
+    longDescription: ["Kingham station is under a kilometre from the village, and the B4450 runs close by. We are about 22 miles from Kingham, and we cover it from our Oxford base with new branded tyres fitted and balanced wherever you are.", "If you leave the car at the station and return to a flat, call 07362 638978 and we can fit a tyre in the car park where it is safe and allowed. At home, we work on the driveway or kerbside. Punctures are repaired to BS AU 159 when the damage is in a repairable part of the tyre, and we can remove locking wheel nuts and jump start flat batteries. Churchill, Shipton-under-Wychwood, Ascott-under-Wychwood and Chipping Norton are covered too. No call-out charge, and the price is agreed before we travel."],
+    coverageHighlights: ["Kingham station", "the B4450", "Kingham Primary School area", "Churchill and Shipton-under-Wychwood"],
+    localContext: "Kingham drivers usually need us at home in the village, at Kingham station, or on the B4450.",
+    localFaqs: [{"question": "Can you fit a tyre at Kingham station?", "answer": "Yes, where the car is parked safely and the car park allows the work. Tell us where you are parked when you call."}, {"question": "How quickly can you reach Kingham?", "answer": "Our usual arrival time is 35-50 minutes."}],
   },
   {
     name: 'Middle Barton',
@@ -1836,7 +2243,11 @@ export const locations: LocationArea[] = [
     postcode: 'OX7',
     responseTime: '30-45 minutes',
     lat: 51.9225,
-    lng: -1.3791
+    lng: -1.3791,
+    longDescription: ["About 16.1 miles north-west of our Oxford base, Middle Barton is a rural village where a garage visit can mean a long drive on a damaged tyre. Instead, call us and we will come to you, fit a new branded tyre on the drive and balance it there.", "The B4030 Enstone Road is about half a kilometre from the village and is the main route towards Enstone and the A44. We repair punctures to BS AU 159 if the tyre is repairable, remove locking wheel nuts without the key, and can give you a jump start if the battery is flat too. Enstone, Glympton and Tackley are covered nearby. Call 07362 638978 for a price before we travel."],
+    coverageHighlights: ["the B4030 Enstone Road", "Middle Barton Primary School area", "village roads and driveways", "the route towards Enstone"],
+    localContext: "In Middle Barton, we can come to the car at home or on the B4030 Enstone Road; if you have stopped on a rural road, give us a landmark or postcode.",
+    localFaqs: [{"question": "How quickly can you reach Middle Barton?", "answer": "We typically arrive in Middle Barton within 30-45 minutes of your call."}, {"question": "Can you fit the tyre on my driveway?", "answer": "Yes. We fit tyres on driveways and at the kerbside, as long as there is safe space to jack the car up and work around the wheel."}],
   },
 
   // ==================== CHARLBURY MICRO-AREAS ====================
@@ -1850,7 +2261,11 @@ export const locations: LocationArea[] = [
     postcode: 'OX29',
     responseTime: '25-40 minutes',
     lat: 51.8380,
-    lng: -1.4175
+    lng: -1.4175,
+    longDescription: ["Stonesfield lies about 12.5 miles north-west of our Oxford base, above the Evenlode valley, with the A4095 Witney Road a short drive away. We quote 25-40 minutes to reach you and agree the price over the phone first.", "Combe station is 1.7 km away and Hanborough 3.4 km, so if you come back from the train to a flat, call us and we'll meet you at the car. Wroslyn Road Industrial Estate is within reach too. Some lanes here are steep, so tell us exactly where you are and we'll plan a safe spot to work. We fit new branded tyres and balance them on site, repair punctures to BS AU 159 where possible, and offer jump starts. Combe, Freeland and North Leigh are covered too, with no call-out charge."],
+    coverageHighlights: ["the A4095 Witney Road", "Combe station (1.7 km)", "Hanborough station (3.4 km)", "Wroslyn Road Industrial Estate", "Stonesfield Primary School"],
+    localContext: "On Stonesfield's steeper lanes, stop on level ground if you can, and give us the lane name or a nearby house when you call.",
+    localFaqs: [{"question": "How quickly can you reach Stonesfield?", "answer": "Our quoted response time for Stonesfield is 25-40 minutes."}, {"question": "Can you change a tyre on a slope?", "answer": "We need the car on safe, firm ground to jack it. Tell us where you are and we'll find a suitable spot nearby if needed."}],
   },
   {
     name: 'Finstock',
@@ -1862,7 +2277,11 @@ export const locations: LocationArea[] = [
     postcode: 'OX7',
     responseTime: '30-45 minutes',
     lat: 51.8525,
-    lng: -1.4602
+    lng: -1.4602,
+    longDescription: ["Finstock has its own station on the Cotswold Line, about half a kilometre from the village, and sits on the B4022 Charlbury Road. We are around fifteen miles away, and we come to the village with new branded tyres, fitted and balanced at your car.", "Manor Barns Business Park and Southill Business Park are both within a few kilometres, and we can come to you there or at home. We repair punctures to BS AU 159 when the damage is in a repairable area, remove locking wheel nuts when the key is lost, and jump start flat batteries. Charlbury, Stonesfield, Leafield and North Leigh are covered by the same 24/7 service. Ring 07362 638978 and we will agree the price on the phone first. There is no call-out charge."],
+    coverageHighlights: ["the B4022 Charlbury Road", "the B4437 Woodstock Road", "Finstock station", "Charlbury station", "Southill Business Park", "Manor Barns Business Park"],
+    localContext: "In Finstock, help is usually needed at home, on the B4022 towards Charlbury, or at the business parks nearby.",
+    localFaqs: [{"question": "How quickly can you reach Finstock?", "answer": "We usually reach Finstock within 30-45 minutes."}, {"question": "Can you come to Southill Business Park?", "answer": "Yes, provided the car is somewhere safe to work and the site allows it."}],
   },
   {
     name: 'Combe',
@@ -1874,7 +2293,11 @@ export const locations: LocationArea[] = [
     postcode: 'OX29',
     responseTime: '25-40 minutes',
     lat: 51.8392,
-    lng: -1.3928
+    lng: -1.3928,
+    longDescription: ["Combe is a small village about 11.8 miles north-west of our Oxford base, close to Long Hanborough and Woodstock. If a tyre lets you down at home or on the way out, we come to the car with a new branded tyre and fit and balance it on the spot.", "The A4095 Main Road is about 1.6 km from the village, and Combe station is under a kilometre away, with Hanborough station about 2 km. We can also meet you at the Hanborough Business Park. Punctures are repaired to BS AU 159 if the damage is repairable, and we can provide a jump start if needed. Stonesfield, Bladon and Long Hanborough are covered too, with no call-out charge."],
+    coverageHighlights: ["the A4095 Main Road", "Combe station", "Hanborough station", "Hanborough Business Park"],
+    localContext: "From Combe, the A4095 Main Road is the main route where drivers may need us, and we can also come to Hanborough station or the Hanborough Business Park.",
+    localFaqs: [{"question": "How quickly can you reach Combe?", "answer": "We typically arrive in Combe within 25-40 minutes of your call."}, {"question": "Can you come to Hanborough station car park?", "answer": "Yes. Hanborough station is about 2 km from Combe, and we can fit or repair a tyre in the car park as long as there is safe room to work."}],
   },
   {
     name: 'Leafield',
@@ -1886,7 +2309,11 @@ export const locations: LocationArea[] = [
     postcode: 'OX29',
     responseTime: '30-45 minutes',
     lat: 51.8360,
-    lng: -1.5141
+    lng: -1.5141,
+    longDescription: ["Leafield sits on high ground above the Wychwood Forest, about 16 miles north-west of our base and under 3 miles from Charlbury. We quote 30-45 minutes to reach you, with no call-out charge.", "The B4022 Witney Road passes about a kilometre from the village. If a tyre fails on that road or on one of the surrounding lanes, call us with your location and we'll agree the price before we set off. Manor Barns Business Park is covered too, as are parents near Leafield Church of England Primary School. We fit and balance new branded tyres, repair punctures to BS AU 159 if the damage is repairable, and can jump start a car with a flat battery. Finstock, Ascott-under-Wychwood and Minster Lovell are covered as well."],
+    coverageHighlights: ["the B4022 Witney Road", "Manor Barns Business Park", "Leafield Church of England Primary School", "Finstock station (3.6 km)", "Charlbury station (4.4 km)"],
+    localContext: "If a tyre fails on the B4022 or a lane near Leafield, stop at a verge or gateway clear of traffic and give us the nearest landmark.",
+    localFaqs: [{"question": "How quickly can you reach Leafield?", "answer": "We quote 30-45 minutes for Leafield."}, {"question": "Can you come to Manor Barns Business Park?", "answer": "Yes. Tell us where the car is parked and we'll fit or repair the tyre there."}],
   },
   {
     name: 'Ascott-under-Wychwood',
@@ -1898,7 +2325,11 @@ export const locations: LocationArea[] = [
     postcode: 'OX7',
     responseTime: '30-45 minutes',
     lat: 51.8636,
-    lng: -1.5516
+    lng: -1.5516,
+    longDescription: ["We cover Ascott-under-Wychwood from our Oxford base, about 18 miles away, travelling via the B4437 or the A361 Station Road. The village has its own stop on the Cotswold Line, about a kilometre away, with Shipton station a little further on.", "If a tyre goes flat at home or at the station, call 07362 638978 and tell us where the car is. We bring new branded tyres and fit and balance them on site. Where the puncture is in a repairable area, we repair it to BS AU 159 instead. Locking wheel nut removal and jump starts are available too, day or night. Shipton-under-Wychwood, Churchill, Leafield and Charlbury are covered by the same service. No call-out charge, and the price is agreed before we travel."],
+    coverageHighlights: ["Ascott-under-Wychwood station", "Shipton station", "the B4437", "the A361 Station Road", "Shipton-under-Wychwood and Leafield"],
+    localContext: "Ascott-under-Wychwood drivers usually need us at home, at the village station, or on the B4437 and A361.",
+    localFaqs: [{"question": "How quickly can you reach Ascott-under-Wychwood?", "answer": "Our usual arrival time is 30-45 minutes."}, {"question": "Do you cover Shipton-under-Wychwood too?", "answer": "Yes. Shipton-under-Wychwood and the surrounding villages are covered by the same service."}],
   },
   {
     name: 'Shipton-under-Wychwood',
@@ -1910,7 +2341,11 @@ export const locations: LocationArea[] = [
     postcode: 'OX7',
     responseTime: '30-45 minutes',
     lat: 51.8615,
-    lng: -1.5703
+    lng: -1.5703,
+    longDescription: ["In the Evenlode valley, about 18.8 miles north-west of our Oxford base, Shipton-under-Wychwood is a long way from most tyre garages. We come to you instead, with a new branded tyre fitted and balanced wherever the car is safely parked.", "The B4437 is about a kilometre away and the A361 Station Road is around 1.4 km. Shipton and Ascott-under-Wychwood stations are both close by on the Cotswold Line, so we can come to the station car park if you return to a flat. Businesses at the Wychwood Business Centre can call us too. We repair punctures to BS AU 159 if the damage allows. Ascott-under-Wychwood, Churchill and Leafield are covered nearby."],
+    coverageHighlights: ["the A361 Station Road", "the B4437", "Shipton station", "Ascott-under-Wychwood station", "Wychwood Business Centre"],
+    localContext: "Around Shipton-under-Wychwood, the A361 Station Road and the B4437 are the main routes where drivers may need us, and we can also come to the local station car parks.",
+    localFaqs: [{"question": "How quickly can you reach Shipton-under-Wychwood?", "answer": "We typically arrive in Shipton-under-Wychwood within 30-45 minutes of your call."}, {"question": "Can you come to the Wychwood Business Centre?", "answer": "Yes. If the vehicle is parked safely with room to work, we can fit or repair a tyre there."}],
   },
 
   // ==================== WOODSTOCK MICRO-AREAS ====================
@@ -1924,7 +2359,11 @@ export const locations: LocationArea[] = [
     postcode: 'OX20',
     responseTime: '20-30 minutes',
     lat: 51.8356,
-    lng: -1.3598
+    lng: -1.3598,
+    longDescription: ["Bladon sits on the A4095 Grove Road just south of Woodstock, about 10.7 miles north-west of our Oxford base. We aim to reach you in 20-30 minutes and agree the price on the phone first.", "The A44 Oxford Road is just over a kilometre away, and Hanborough Business Park is close by, so we can come to you at work as well as at home. If you're parked near Bladon C of E Primary School or Woodstock CofE Primary School, call and tell us where. We fit and balance new branded tyres on site, repair punctures to BS AU 159 where the damage allows, and remove locking wheel nuts. A jump start is also available. Woodstock, Combe and Long Hanborough are covered too, with no call-out charge."],
+    coverageHighlights: ["the A4095 Grove Road", "the A44 Oxford Road", "Hanborough Business Park", "Bladon C of E Primary School"],
+    localContext: "If a tyre fails on the A4095 through Bladon or the A44 towards Woodstock, pull into a side road or lay-by and call us with your location.",
+    localFaqs: [{"question": "How quickly can you reach Bladon?", "answer": "Our quoted response time for Bladon is 20-30 minutes."}, {"question": "Can you come to Hanborough Business Park?", "answer": "Yes. Tell us the unit and we'll come to where your car is parked."}],
   },
   {
     name: 'Wootton',
@@ -1936,7 +2375,11 @@ export const locations: LocationArea[] = [
     postcode: 'OX20',
     responseTime: '25-35 minutes',
     lat: 51.8645,
-    lng: -1.3459
+    lng: -1.3459,
+    longDescription: ["A little over a mile north of Woodstock, Wootton is close to the B4027, the A44 and the A4260 Banbury Road. We are about twelve miles from the village, and we come out with new branded tyres, fitted and balanced at your home or a safe roadside spot.", "We work around the school run if your car is near The Marlborough CofE School or Wootton-by-Woodstock CE Primary School, and we can meet you in Woodstock too. Punctures are repaired to BS AU 159 where the damage allows, and we can remove locking wheel nuts if the key has gone missing. Jump starts are also available. Glympton, Old Woodstock, Woodstock and Tackley are covered as well. Call 07362 638978 and we will agree the price before travelling. There is no call-out charge."],
+    coverageHighlights: ["the B4027 near Wootton", "the A44 towards Woodstock", "the A4260 Banbury Road", "Woodstock town centre", "Glympton and Tackley"],
+    localContext: "Wootton drivers usually need us at home in the village, on the A44 and A4260, or in Woodstock.",
+    localFaqs: [{"question": "How quickly can you reach Wootton?", "answer": "We usually reach Wootton within 25-35 minutes."}, {"question": "Can you fit a tyre in Woodstock instead?", "answer": "Yes. We cover Woodstock and Old Woodstock as well, wherever the car is parked safely."}],
   },
   {
     name: 'Old Woodstock',
@@ -1948,19 +2391,27 @@ export const locations: LocationArea[] = [
     postcode: 'OX20',
     responseTime: '20-30 minutes',
     lat: 51.8529,
-    lng: -1.3557
+    lng: -1.3557,
+    longDescription: ["Old Woodstock lies at the northern end of Woodstock, about 11.5 miles north-west of our Oxford base, with the A44 Manor Road passing close by. If you find a flat on the drive or on the way out of town, we drive the replacement to you and fit it there.", "The A4095 Grove Road, the B4027, the B4437 and the A4260 Banbury Road are all within about 2.5 km. We fit new branded tyres and balance them on site, repair punctures to BS AU 159 where it is safe, and offer jump starts too. Woodstock, Wootton and Bladon are covered nearby. There is no call-out charge, and the price is agreed on the phone before we set off."],
+    coverageHighlights: ["the A44 Manor Road", "the A4095 Grove Road", "the A4260 Banbury Road", "the B4027"],
+    localContext: "In Old Woodstock, the A44 Manor Road is the main route where drivers may need roadside help, and we can also come to your home in the village.",
+    localFaqs: [{"question": "How quickly can you reach Old Woodstock?", "answer": "We typically arrive in Old Woodstock within 20-30 minutes of your call."}, {"question": "Do you offer jump starts in Old Woodstock?", "answer": "Yes. As well as tyre fitting and puncture repair, we can give you a jump start if your battery has gone flat."}],
   },
   {
     name: 'Tackley',
     slug: 'tackley',
     hub: 'Woodstock',
     isHub: false,
-    description: 'Tackley is a village north of Woodstock with its own railway station on the Cotswold Line. The village sits between the A4260 and the A44, surrounded by farmland. We cover Tackley as part of our wider north Oxfordshire service from the Woodstock hub.',
+    description: 'Tackley is a village north of Woodstock with its own railway station on the Oxford–Banbury line. The village sits between the A4260 and the A44, surrounded by farmland. We cover Tackley as part of our wider north Oxfordshire service from the Woodstock hub.',
     nearbyAreas: ['Woodstock', 'Wootton', 'Kirtlington', 'Kidlington', 'Bletchingdon'],
     postcode: 'OX5',
     responseTime: '25-35 minutes',
     lat: 51.8719,
-    lng: -1.3102
+    lng: -1.3102,
+    longDescription: ["Tackley lies between the A4260 Banbury Road and the A4095, about 11.7 miles north-west of our base and 2.5 miles from Woodstock. We quote 25-35 minutes for a call-out, with the price agreed by phone first.", "Tackley station is 1.4 km from the village, so if you return from the train to a flat we can fit a tyre where you've parked. The B4027 also runs nearby. We carry new branded tyres and balance them on site, repair punctures to BS AU 159 where possible, and provide jump starts. Parents near Tackley Church of England Primary School can call us too. Locking wheel nut removal is available if the key has gone missing. Wootton, Kirtlington and Woodstock are covered too, with no call-out charge."],
+    coverageHighlights: ["the A4260 Banbury Road", "the A4095", "the B4027", "Tackley station (1.4 km)", "Tackley Church of England Primary School"],
+    localContext: "If a tyre fails on the A4260 or the A4095 near Tackley, pull into a lay-by or the village turning and call us with the nearest junction.",
+    localFaqs: [{"question": "Can you come to Tackley station?", "answer": "Yes. Tell us where the car is parked and we'll fit or repair the tyre there."}, {"question": "How quickly can you reach Tackley?", "answer": "We quote 25-35 minutes for Tackley."}],
   },
   {
     name: 'Glympton',
@@ -1972,7 +2423,11 @@ export const locations: LocationArea[] = [
     postcode: 'OX20',
     responseTime: '25-35 minutes',
     lat: 51.8699,
-    lng: -1.3644
+    lng: -1.3644,
+    longDescription: ["Glympton is a small village about a mile and a half north of Woodstock, with the A44, the B4027 and the B4437 all within a kilometre. From our Oxford base, roughly thirteen miles away, we come to you with new branded tyres to fit and balance where the car is.", "If a tyre goes flat at home or on one of the nearby roads, call 07362 638978. We check whether a puncture can be repaired to BS AU 159 before suggesting a new tyre, and we can remove a locking wheel nut if the key is missing. We also jump start cars with flat batteries. Wootton, Old Woodstock, Woodstock and Tackley are covered by the same service. There is no call-out charge, and we agree the price with you on the phone first."],
+    coverageHighlights: ["the A44 near Glympton", "the B4027", "the B4437", "Woodstock", "Wootton and Tackley"],
+    localContext: "Glympton drivers usually need us at home or on the A44, B4027 and B4437 around the village.",
+    localFaqs: [{"question": "How quickly can you reach Glympton?", "answer": "Our usual arrival time is 25-35 minutes."}, {"question": "Can you help if I am on the A44 near Glympton?", "answer": "Yes. Stop somewhere safe, call us with your location, and we will confirm where we can work."}],
   },
 
   // ==================== BURFORD MICRO-AREAS ====================
@@ -1986,7 +2441,11 @@ export const locations: LocationArea[] = [
     postcode: 'OX18',
     responseTime: '35-50 minutes',
     lat: 51.8151,
-    lng: -1.6288
+    lng: -1.6288,
+    longDescription: ["Fulbrook sits on the A361 Fulbrook Hill, just half a mile from Burford and about 19.6 miles west of our Oxford base. Wherever a tyre has failed, on the drive, in the village or on the main road, we come to you with a new branded tyre and fit it on the spot.", "The A424 is under a kilometre away, and the A40 Oxford Road and the B4020 Shilton Road are both about 1.5 km away. Punctures are repaired to BS AU 159 if the damage allows, and we can remove locking wheel nuts without the key. Burford, Taynton and Swinbrook are covered nearby. Our emergency service runs 24/7. Call 07362 638978 for a price agreed before we travel."],
+    coverageHighlights: ["the A361 Fulbrook Hill", "the A424", "the A40 Oxford Road", "the B4020 Shilton Road"],
+    localContext: "In Fulbrook, the A361 Fulbrook Hill and the A40 near Burford are the main roads where drivers may need us; pull in somewhere safe before calling.",
+    localFaqs: [{"question": "How quickly can you reach Fulbrook?", "answer": "We typically arrive in Fulbrook within 35-50 minutes of your call."}, {"question": "Can you help if I have a flat on the A40 near Burford?", "answer": "Yes, once you have stopped somewhere safe off the carriageway. Tell us where you are and we will bring the right tyre."}],
   },
   {
     name: 'Taynton',
@@ -1998,7 +2457,11 @@ export const locations: LocationArea[] = [
     postcode: 'OX18',
     responseTime: '35-50 minutes',
     lat: 51.8124,
-    lng: -1.6543
+    lng: -1.6543,
+    longDescription: ["Taynton is under a mile from Burford and about 20.6 miles west of our Oxford base, close to the A40, A424, A361 and B4425. We quote 35-50 minutes for a call-out and agree the price on the phone before we leave.", "If a tyre fails on the A40 near Burford, stop where it's safe and call us. Parents at Burford School and Burford Primary School can call too. Taynton's lanes are narrow, so we'll ask exactly where you are before we set off. We fit and balance new branded tyres, repair punctures to BS AU 159 if the damage is repairable, and remove locking wheel nuts. A jump start is available if the battery has gone flat, and the emergency service runs 24/7. Burford, Fulbrook and Asthall are covered as well, with no call-out charge."],
+    coverageHighlights: ["the A40", "the A424", "the A361", "the B4425", "Burford School"],
+    localContext: "The A40 near Burford is fast, so get to a lay-by or the Taynton turning before stopping; in the village, give us a landmark as lanes are narrow.",
+    localFaqs: [{"question": "How quickly can you reach Taynton?", "answer": "Our quoted response time for Taynton is 35-50 minutes."}, {"question": "Can you fit a tyre in a narrow lane?", "answer": "If there's safe space to jack the car, yes. Tell us how much room there is and we'll plan where to stop."}],
   },
   {
     name: 'Asthall',
@@ -2010,7 +2473,11 @@ export const locations: LocationArea[] = [
     postcode: 'OX18',
     responseTime: '35-50 minutes',
     lat: 51.8009,
-    lng: -1.5866
+    lng: -1.5866,
+    longDescription: ["Asthall is a hamlet about two miles east of Burford, with the A40 and the B4047 Burford Road each just over a kilometre away. We are about 18 miles from Asthall, and we cover it with new branded tyres fitted and balanced at your home or wherever you have stopped.", "If you have a flat on the A40 or the B4047, find somewhere safe to stop and ring 07362 638978. We repair punctures to BS AU 159 when the damage is in a repairable area, fit a new tyre when it is not, and remove locking wheel nuts when the key is missing. Swinbrook, Fulbrook, Burford and Minster Lovell are covered too. There is no call-out charge, and the price is agreed on the phone before we travel."],
+    coverageHighlights: ["the A40 near Asthall", "the B4047 Burford Road", "Swinbrook", "Burford", "Minster Lovell"],
+    localContext: "In Asthall, help is usually needed at home or on the A40 and B4047 between Witney and Burford.",
+    localFaqs: [{"question": "How quickly can you reach Asthall?", "answer": "We usually reach Asthall within 35-50 minutes."}, {"question": "Do you cover Burford and Swinbrook?", "answer": "Yes. Burford, Swinbrook, Fulbrook and Minster Lovell are covered by the same service."}],
   },
   {
     name: 'Swinbrook',
@@ -2022,7 +2489,11 @@ export const locations: LocationArea[] = [
     postcode: 'OX18',
     responseTime: '35-50 minutes',
     lat: 51.8121,
-    lng: -1.5666
+    lng: -1.5666,
+    longDescription: ["Swinbrook is a small village in the Windrush valley, about 17.1 miles west of our Oxford base and 3 miles from Burford. If you have a flat at home or on one of the lanes out of the village, we come to you with a new branded tyre and fit and balance it there.", "The B4047 Burford Road is about 2 km away and is the main route towards Witney and Burford. We repair punctures to BS AU 159 if the tyre is repairable, can give a jump start if the battery is flat, and run a 24/7 emergency service. Asthall, Minster Lovell and Fulbrook are nearby and covered too. There is no call-out charge, and the price is agreed by phone before we set off."],
+    coverageHighlights: ["the B4047 Burford Road", "the lanes to Asthall", "village lanes and driveways", "the route towards Burford"],
+    localContext: "In Swinbrook, we can come to the car at home or on the B4047 Burford Road; on narrow lanes, try to find a wider verge or gateway before calling.",
+    localFaqs: [{"question": "How quickly can you reach Swinbrook?", "answer": "We typically arrive in Swinbrook within 35-50 minutes of your call."}, {"question": "Can you fit a tyre on a narrow lane near Swinbrook?", "answer": "We need safe space to jack the car and work around the wheel. If you can, move to a wider verge, gateway or lay-by and tell us where you are."}],
   },
   {
     name: 'Broadwell',
@@ -2034,7 +2505,11 @@ export const locations: LocationArea[] = [
     postcode: 'OX18',
     responseTime: '40-55 minutes',
     lat: 51.8666,
-    lng: -1.6856
+    lng: -1.6856,
+    longDescription: ["Broadwell is one of the furthest villages we cover, about 23 miles north-west of our base near Stow-on-the-Wold. We quote 40-55 minutes for a call-out and agree the price by phone before setting off, with no call-out charge.", "The A424 runs about 1.5 km away, linking towards Burford. If a tyre fails there or on a lane near the village, call us with your location and we'll head out with a new branded tyre, fit it and balance it on the spot. Repairable punctures are fixed to BS AU 159 instead. We also offer jump starts and locking wheel nut removal, and the emergency service runs 24/7, so a late-evening flat doesn't have to wait until morning. Kingham, Taynton and Fulbrook are covered on the same terms."],
+    coverageHighlights: ["the A424", "lanes around Broadwell", "routes towards Stow-on-the-Wold", "The Rissington School"],
+    localContext: "If a tyre fails on the A424 near Broadwell, pull into a lay-by or gateway clear of traffic and give us the nearest landmark when you call.",
+    localFaqs: [{"question": "How quickly can you reach Broadwell?", "answer": "We quote 40-55 minutes for Broadwell, which is about 23 miles from our base."}, {"question": "Do you charge extra for coming out this far?", "answer": "No. There's no call-out charge; we agree the price on the phone before travelling."}],
   },
 
   // ==================== ROAD CORRIDOR PAGES ====================
@@ -2227,6 +2702,38 @@ export const locations: LocationArea[] = [
         answer: 'It depends on the stretch — near Botley and Oxford we can be with you in around 15-20 minutes, while toward Faringdon and Shrivenham it’s closer to 35-45. Give us your nearest village or junction for an accurate ETA.'
       }
     ]
+  },
+  {
+    name: 'Watlington',
+    slug: 'watlington',
+    hub: 'Wallingford',
+    isHub: false,
+    description: "Mobile tyre fitting in Watlington, 24/7. We come to your home, work or roadside with new branded tyres, puncture repairs and no call-out charge.",
+    nearbyAreas: ["Benson", "Ewelme", "Shillingford", "Tetsworth", "Crowmarsh Gifford"],
+    postcode: 'OX49',
+    responseTime: '30-45 minutes',
+    lat: 51.6447,
+    lng: -1.0078,
+    longDescription: ["About nine and a half miles south-east of our Oxford base, Watlington sits on the B480 and the B4009 Couching Street, below the Chiltern Hills. We come out to homes, workplaces and roadside stops with new branded tyres, fitted and balanced on site.", "Local businesses on the Watlington Industrial Estate can have a tyre fitted in the car park while work carries on. We also work around school runs near Watlington Primary School and Icknield Community College, and on driveways across the town. Punctures are repaired to BS AU 159 where the damage is repairable, and we can remove locking wheel nuts and jump start a flat battery. Benson, Ewelme and Shillingford are covered by the same service. Call 07362 638978 for a price agreed before we travel. No call-out charge."],
+    coverageHighlights: ["the B4009 Couching Street", "the B480", "Watlington Industrial Estate", "Icknield Community College area", "Benson and Ewelme"],
+    localContext: "In Watlington, drivers usually need us at home, on the Watlington Industrial Estate, or on the B4009 and B480 through the town.",
+    localFaqs: [{"question": "How quickly can you reach Watlington?", "answer": "We usually reach Watlington within 30-45 minutes."}, {"question": "Can you fit a tyre at the Watlington Industrial Estate?", "answer": "Yes, provided the car is somewhere safe to work and the site allows it."}],
+  },
+  {
+    name: 'Bampton',
+    slug: 'bampton',
+    hub: 'Witney',
+    isHub: false,
+    description: "Mobile tyre fitting in Bampton, West Oxfordshire. We come to your home, workplace or roadside with new branded tyres, puncture repairs and 24/7 emergency help, with no call-out charge.",
+    nearbyAreas: ["Carterton", "Ducklington", "Standlake", "Witney", "Faringdon"],
+    postcode: 'OX18',
+    responseTime: '35-50 minutes',
+    lat: 51.7262,
+    lng: -1.5476,
+    longDescription: ["Bampton is a market town about 15 miles west of our Oxford base, where the A4095 Bridge Street meets the B4449 High Street. If a tyre lets you down here, we come to you with a new branded tyre and fit and balance it on the spot.", "Businesses at the Bampton Business Centre and the Viscount Industrial Estate can call us out for a car or van, and we can also come to The Co-operative Food car park. We repair punctures to BS AU 159 if the damage allows, remove locking wheel nuts without the key, and offer jump starts. Carterton, Ducklington and Standlake are nearby and covered too. There is no call-out charge. Call 07362 638978 for a price before we travel."],
+    coverageHighlights: ["the A4095 Bridge Street", "the B4449 High Street", "Bampton Business Centre", "Viscount Industrial Estate"],
+    localContext: "In Bampton, the A4095 Bridge Street and B4449 High Street are the main roads where drivers may need us, and we can also come to the Bampton Business Centre or Viscount Industrial Estate.",
+    localFaqs: [{"question": "How quickly can you reach Bampton?", "answer": "We typically arrive in Bampton within 35-50 minutes of your call."}, {"question": "Can you come to the Viscount Industrial Estate?", "answer": "Yes. If the vehicle is parked safely with room to work, we can fit or repair a tyre there."}],
   },
 ];
 

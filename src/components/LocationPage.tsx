@@ -183,10 +183,10 @@ function LocationPage() {
   return (
     <div className="min-h-screen bg-black text-white overflow-x-hidden">
       <Helmet>
-        <title>{`Mobile Tyre Fitting ${location.name} | 24/7 Emergency | NN Mobile Tyres`}</title>
+        <title>{location.metaTitle ?? `Mobile Tyre Fitting ${location.name} | 24/7, No Call-Out Charge | NN Mobile Tyres`}</title>
         <meta
           name="description"
-          content={`Mobile tyre fitting in ${location.name}. 24/7 emergency service, ${location.responseTime} response time. Puncture repair, locking wheel nut removal, jump starts. 4.9 stars, 151 reviews. Call 07362 638978.`}
+          content={`Flat tyre in ${location.name}? We come to you 24/7, typically in ${location.responseTime}. No call-out charge, price agreed before we travel. Puncture repair, new tyres, locking wheel nuts. 4.9★ from 151 Google reviews.`}
         />
         <link rel="canonical" href={canonicalUrl} />
         <meta property="og:type" content="website" />
@@ -311,6 +311,14 @@ function LocationPage() {
             </div>
 
             {/* CTAs */}
+            <Link
+              to="/services/emergency-tyre-replacement"
+              className="inline-flex items-center gap-2 mb-6 text-sm md:text-base text-gray-300 hover:text-white transition-colors"
+            >
+              <span className="font-semibold text-[#E84420]">Stranded in {location.name} right now?</span>
+              24/7 emergency tyre replacement, any hour
+              <ChevronRight className="w-4 h-4" />
+            </Link>
             <div className="flex flex-col sm:flex-row gap-4">
               <a
                 href="tel:+447362638978"
