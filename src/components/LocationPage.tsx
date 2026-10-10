@@ -23,6 +23,12 @@ import {
   getHubLocations,
   type LocationArea,
 } from '../data/locations';
+import { googleReviews, GOOGLE_MAPS_URL } from '../data/reviews';
+
+// Town hubs that show the Google rating + review excerpts. The reviews are
+// site-wide (none of them name a town), so the copy never claims they came
+// from this hub.
+const REVIEW_PROOF_HUBS = ['abingdon', 'bicester', 'witney', 'didcot', 'wantage', 'wallingford'];
 
 function LocationPage() {
   const { slug, hubSlug } = useParams<{ slug?: string; hubSlug?: string }>();
@@ -69,6 +75,14 @@ function LocationPage() {
     breadcrumbs.push({ name: hubLocation.name, url: `${baseUrl}${getLocationPath(hubLocation)}` });
   }
   breadcrumbs.push({ name: location.name, url: canonicalUrl });
+
+  // Review proof: three real Google reviews, rotated per hub so the hubs
+  // don't all show an identical block.
+  const reviewHubIndex = REVIEW_PROOF_HUBS.indexOf(location.slug);
+  const showReviewProof = isHub && reviewHubIndex !== -1;
+  const reviewExcerpts = showReviewProof
+    ? [0, 1, 2].map(i => googleReviews[(reviewHubIndex + i * 2) % googleReviews.length])
+    : [];
 
   // FAQs — unique area-specific FAQs first, then the standard templated ones
   const faqs = [
@@ -379,6 +393,50 @@ function LocationPage() {
                   </div>
                 </div>
               )}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Google rating + real review excerpts (selected hubs) */}
+      {showReviewProof && (
+        <section className="relative py-16 md:py-24">
+          <div className="w-full px-4 sm:px-6 lg:px-8 xl:px-12">
+            <div className="max-w-5xl">
+              <span className="text-[#E84420] text-sm font-semibold tracking-wider uppercase">Google Reviews</span>
+              <h2 className="text-3xl md:text-4xl font-bold mt-4 mb-4">
+                Rated 4.9/5 by Drivers Across Oxfordshire
+              </h2>
+              <div className="flex items-center gap-3 mb-8">
+                <div className="flex items-center gap-1" aria-hidden="true">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="w-5 h-5 fill-yellow-400 text-yellow-400" />
+                  ))}
+                </div>
+                <span className="text-gray-300">4.9 from 151 Google reviews</span>
+              </div>
+              <div className="grid md:grid-cols-3 gap-6">
+                {reviewExcerpts.map((review) => (
+                  <figure key={review.name} className="glass-card rounded-2xl p-6 flex flex-col">
+                    <blockquote className="text-gray-300 text-sm leading-relaxed flex-1">&quot;{review.text}&quot;</blockquote>
+                    <figcaption className="mt-4 text-sm">
+                      <span className="font-medium">{review.name}</span>
+                      <span className="text-gray-500"> &middot; Google review</span>
+                    </figcaption>
+                  </figure>
+                ))}
+              </div>
+              <p className="text-gray-500 text-sm mt-6">
+                Reviews from customers across Oxford and Oxfordshire, shown as written on our Google Business Profile.{' '}
+                <a
+                  href={GOOGLE_MAPS_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[#E84420] hover:underline font-semibold"
+                >
+                  Read all 151 reviews on Google
+                </a>
+              </p>
             </div>
           </div>
         </section>

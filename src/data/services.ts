@@ -52,10 +52,10 @@ export const services: ServiceDefinition[] = [
   {
     slug: 'mobile-tyre-fitting',
     navLabel: 'Mobile Tyre Fitting',
-    h1: 'Mobile Tyre Fitting in Oxford & Oxfordshire',
-    metaTitle: 'Mobile Tyre Fitting Oxford | We Come to You 24/7 | NN Mobile Tyres',
+    h1: 'Our Mobile Tyre Fitting Service: Fitted, Balanced and Valved at Your Door',
+    metaTitle: 'Mobile Tyre Fitting Service: Balancing, Valve & Disposal Included',
     metaDescription:
-      'Mobile tyre fitting across Oxford and Oxfordshire, 24/7. We come to your home, work or roadside — typically within 30-45 minutes. Fitting, balancing, new valve and old tyre disposal included. Call 07362 638978.',
+      'Our mobile tyre fitting service: a new branded tyre fitted at home or work, balancing, a new valve and old tyre disposal. No call-out charge.',
     serviceType: 'Mobile tyre fitting',
     icon: 'wrench',
     accent: 'red',
@@ -176,10 +176,10 @@ export const services: ServiceDefinition[] = [
   {
     slug: 'puncture-repair',
     navLabel: 'Puncture Repair',
-    h1: 'Mobile Puncture Repair in Oxford & Oxfordshire',
-    metaTitle: 'Mobile Puncture Repair Oxford | BS AU 159 Repairs 24/7 | NN Mobile Tyres',
+    h1: 'Mobile Puncture Repair at Home in Oxford & Oxfordshire',
+    metaTitle: 'Puncture Repair at Home, Oxford | 24/7 Mobile | NN Mobile Tyres',
     metaDescription:
-      'Mobile puncture repair across Oxford and Oxfordshire, 24/7. Every repair assessed against British Standard BS AU 159 — if it can be safely repaired we repair it, if it cannot we will tell you why. Call 07362 638978.',
+      'Puncture repair at home, Oxford & Oxfordshire: we come to you 24/7, repair to BS AU 159 where safe or explain why not. No call-out charge. 4.9★ on Google.',
     serviceType: 'Tyre puncture repair',
     icon: 'puncture',
     accent: 'blue',

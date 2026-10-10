@@ -29,7 +29,7 @@ const BASE_URL = 'https://nnmobiletyres.co.uk';
 const CANONICAL = `${BASE_URL}/prices`;
 
 const META_DESCRIPTION =
-  'How NN Mobile Tyres pricing works: no call-out charge, a quote agreed by phone or WhatsApp before we travel, and fitting, balancing, a new valve and old tyre disposal always included. Oxford and Oxfordshire, 24/7.';
+  'Mobile tyre fitting prices, Oxford & Oxfordshire: free quote by phone or WhatsApp in 2 minutes, price agreed before we travel, no call-out charge.';
 
 const INCLUDED = [
   'Fitting the tyre with a professional tyre machine',
@@ -132,18 +132,18 @@ function PricesPage() {
   return (
     <div className="min-h-screen bg-black text-white overflow-x-hidden">
       <Helmet>
-        <title>Prices &amp; How Our Pricing Works | NN Mobile Tyres Oxford</title>
+        <title>Mobile Tyre Fitting Prices Oxford | Free Quote, No Call-Out Fee</title>
         <meta name="description" content={META_DESCRIPTION} />
         <link rel="canonical" href={CANONICAL} />
         <meta property="og:type" content="website" />
         <meta property="og:locale" content="en_GB" />
-        <meta property="og:title" content="Prices & How Our Pricing Works | NN Mobile Tyres" />
+        <meta property="og:title" content="Mobile Tyre Fitting Prices Oxford | Free Quote, No Call-Out Fee" />
         <meta property="og:description" content={META_DESCRIPTION} />
         <meta property="og:image" content={`${BASE_URL}/hero-car.png`} />
         <meta property="og:url" content={CANONICAL} />
         <meta property="og:site_name" content="NN Mobile Tyres" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Prices & How Our Pricing Works | NN Mobile Tyres" />
+        <meta name="twitter:title" content="Mobile Tyre Fitting Prices Oxford | Free Quote, No Call-Out Fee" />
         <meta name="twitter:description" content={META_DESCRIPTION} />
         <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
@@ -169,7 +169,7 @@ function PricesPage() {
             </div>
 
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight mb-6">
-              Prices &amp; How Our Pricing Works
+              Mobile Tyre Fitting Prices &amp; How Our Pricing Works
             </h1>
 
             <p className="text-lg md:text-xl text-gray-400 mb-8">
